@@ -1,0 +1,19 @@
+Engine Designation: J-2 Engine
+
+Fuel Flow Cycle: Gas Generator
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 5.5
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 27.5:1
+Characteristic Exhaust Velocity: 4130 m/s
+Adiabatic Combustion Temperature: 3304°K
+Engine Gimbal Range: None
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Throttle Range: Not Throttleable
