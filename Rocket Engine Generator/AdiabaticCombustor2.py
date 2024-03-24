@@ -63,6 +63,7 @@ def exponentF(oxid, fuel):
     reaction = equationizer(Reactants[fuel_ListSample.index(fuel)])
     return reaction
 def calculate(reaction):
+    global EnthA, EnthB
     Oxid_List = ["O2", "F2", "F2O2", "N2O4", "H2O2-95[H2O-05]", "H2O2-85[H2O-15]", "O3", "HNO3-80[N2O4-20]",
                  "HNO3-73[N2O4-27]", "N2O"]
     Oxi_Enth = [0, 0, 0, -19.56, -205.3, -195.6, -132.2, -142.95, -132.16]
@@ -116,14 +117,17 @@ def calculate(reaction):
     Exh_A = Totality[indexA]
     Exh_B = Totality[indexB]
     Hp_List = []
-    for x in range(0, (len(Totality[0])-1)):
-        ExpoA = float(productsData[1][0])
-        ExpoB = float(productsData[1][1])
-        EnthA = Totality[indexA][x+3]
-        EnthB = Totality[indexB][x+3]
-        Hp = ExpoA*(float(Exh_A[2]) + float(EnthA)) + ExpoB*(float(Exh_B[2]) + float(EnthB))
-        Hp_List.append(Hp)
-        print(f"Enthalpy of Products at {Totality[0][x+3]}: {Hp}")
+    for x in range(1, len(Totality[0])):
+        try:
+            ExpoA = float(productsData[1][0])
+            ExpoB = float(productsData[1][1])
+            EnthA = Totality[indexA][x + 2]
+            EnthB = Totality[indexB][x + 2]
+            Hp = ExpoA * (float(Exh_A[2]) + float(EnthA)) + ExpoB * (float(Exh_B[2]) + float(EnthB))
+            Hp_List.append(Hp)
+        except:
+            pass
+    print(close(Hp_List, Hr))
 
     #Characteristic Exhaust Velocity
     ExhaustVel = 0
@@ -135,5 +139,4 @@ Fuel = "C12H26 (n-Dodecane)"
 Combust_Temp = calculate(exponentF(Oxidizer, Fuel))[0]
 C_ExhaustVel = calculate(exponentF(Oxidizer, Fuel))[1]
 OF_Ratio = calculate(exponentF(Oxidizer, Fuel))[2]
-print(f"{Combust_Temp} \n{C_ExhaustVel} \n{OF_Ratio}")
 ########################################################################################################################
