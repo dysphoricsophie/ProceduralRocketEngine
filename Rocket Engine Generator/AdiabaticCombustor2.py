@@ -125,15 +125,17 @@ def calculate(reaction):
             EnthA = Totality[indexA][x + 2]
             EnthB = Totality[indexB][x + 2]
             Hp = ExpoA * (float(Exh_A[2]) + float(EnthA)) + ExpoB * (float(Exh_B[2]) + float(EnthB))
-            Hp_List.append(Hp)
-            Hp_Temp.append(Totality[0][x + 2])
+            Hp_List.append(float(Hp))
+            Hp_Temp.append(float(Totality[0][x + 2]))
         except:
             pass
     miner = close(Hp_List, Hr)[0]
-    miner_id =
+    miner_tp = Hp_Temp[Hp_List.index(miner)]
     maxer = close(Hp_List, Hr)[1]
-    maxer_id
-    interpolation()
+    maxer_tp = Hp_Temp[Hp_List.index(maxer)]
+
+    interpol_T = [miner, miner_tp], [maxer, maxer_tp]
+    print(f"Adiabatic Flame Temperature is {interpolation(interpol_T, Hr)}K")
 
     #Characteristic Exhaust Velocity
     ExhaustVel = 0
