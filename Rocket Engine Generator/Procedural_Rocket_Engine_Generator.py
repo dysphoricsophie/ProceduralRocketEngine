@@ -143,7 +143,7 @@ def random_code():
                 os.mkdir(org3)
                 shutil.copy2("./GenFiles/GenData/obf_rex.txt", logPF)
     def propDataFind(fuel, oxid):
-        global fuel_ListSample, combustionTemps, mixRatios, exhaustVels, fuel_Chosen
+        global fuel_ListSample, combustionTemps, mixRatios, exhaustVels
         match oxid:
             case "O2 (Oxygen)":
                 fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%",
