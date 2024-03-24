@@ -72,7 +72,6 @@ def calculate(reaction):
     CpCv = []
     print(Hr)
     print(OF)
-    exit(0)
 
     prodExponents = []
     prodExhaust = []
