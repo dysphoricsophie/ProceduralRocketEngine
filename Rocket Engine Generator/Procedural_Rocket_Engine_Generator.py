@@ -143,7 +143,7 @@ def random_code():
                 os.mkdir(org3)
                 shutil.copy2("./GenFiles/GenData/obf_rex.txt", logPF)
     def propDataFind(fuel, oxid):
-        global fuel_ListSample, combustionTemps, mixRatios, exhaustVels
+        global fuel_ListSample, combustionTemps, mixRatios, exhaustVels, fuel_Chosen
         match oxid:
             case "O2 (Oxygen)":
                 fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%",
@@ -933,9 +933,7 @@ def random_code():
         case _:
             oxidizer_List = ["O2 (Oxygen)", "F2 (Fluorine)", "F2O2 (Perfluorine Peroxide)", "N2O4 (Nitrogen Tetroxide)",
                              "H2O2 (Hydrogen Peroxide) 95%", "H2O2 (Hydrogen Peroxide) 85%", "O3 (Ozone)",
-                             "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)", "AK20I: 80% HNO3 + 20% N2O4 (Nitric Acid)",
-                             "AK20K: 80% HNO3 + 20% N2O4 (Nitric Acid)", "AK27I: 73% HNO3 + 27% N2O4 (Nitric Acid)",
-                             "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)"]
+                             "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)", "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)"]
             oxidizer_Chosen = randomize(oxidizer_List)
             if oxidizer_Chosen == "O2 (Oxygen)":
                 fuel_List = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
@@ -952,9 +950,7 @@ def random_code():
                 fuel_List = ["H2 (Hydrogen)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
                 random.shuffle(fuel_List)
                 fuel_Chosen = random.choice(fuel_List)
-            elif oxidizer_Chosen == "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)" or oxidizer_Chosen == "AK20I: 80% HNO3 + 20% N2O4 (Nitric Acid)" or \
-                    oxidizer_Chosen == "AK20K: 80% HNO3 + 20% N2O4 (Nitric Acid)" or oxidizer_Chosen == "AK27I: 73% HNO3 + 27% N2O4 (Nitric Acid)" or \
-                    oxidizer_Chosen == "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)":
+            elif oxidizer_Chosen == "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)" or oxidizer_Chosen == "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)":
                 fuel_List = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)", "CH3OH (Methanol)"]
                 random.shuffle(fuel_List)
                 fuel_Chosen = random.choice(fuel_List)
