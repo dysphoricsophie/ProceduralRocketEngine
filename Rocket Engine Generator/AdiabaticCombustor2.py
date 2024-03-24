@@ -69,16 +69,35 @@ def calculate(reaction):
 
     productsData, Hp, combust_temp = reaction[1], 0, 0
     Exhaust_List = ["NO2", "CO2", "H2O", "HF", "NF2", "CF4"]
+    Exhaust_List = ["Nitrogen Dioxide", "Carbon Dioxide", "Water Vapour", "Hydrogen Fluoride", "Nitrogen Fluoride", "Tetrafluorocarbon"]
     Prod_Enth = [-1, 1.289, -1, -1, -1, -1]
 
-    file = open('ProductEnthalpies.csv')
-    csvreader = csv.reader(file)
-    header = [], rows = []
-    header = next(csvreader)
-    for row in csvreader:
-        rows.append(row)
-    print(header)
-    print(rows)
+    Totality = []
+    Temperatures = []
+    Methane = []
+    Carbon_Dioxide = []
+    Carbon_Monoxide = []
+    Diatomic_Oxygen = []
+    Gaseous_Water = []
+    Diatomic_Hydrogen = []
+    Hydroxyl_Ion = []
+    with open('ProductEnthalpies.csv', 'r') as csvfile:
+        csv_reader = csv.reader(csvfile)
+        for row in csv_reader:
+            # Access data by column index (starting from 0)
+            Temperatures.append(row[0])
+            Methane.append(row[1])
+            Carbon_Dioxide.append(row[2])
+            Carbon_Monoxide.append(row[3])
+            Diatomic_Oxygen.append(row[4])
+            Gaseous_Water.append(row[5])
+            Diatomic_Hydrogen.append(row[6])
+            Hydroxyl_Ion.append(row[7])
+
+    temp = 12
+    print(f"Temperature: {Temperatures[temp]}K \n"
+          f"Water Vapour at {Temperatures[temp]}K: {Gaseous_Water[temp]} kJ/mol \n"
+          f"Carbon Dioxide at {Temperatures[temp]}K: {Carbon_Dioxide[temp]} kJ/mol \n")
 
     for x in productsData:
         pass
