@@ -1,3 +1,5 @@
+import csv
+
 import numpy as np
 from molmass import Formula
 from ChumChildren import solver
@@ -52,7 +54,7 @@ def exponentF(oxid, fuel):
 def calculate(reaction):
     Oxid_List = ["O2", "F2", "F2O2", "N2O4", "H2O2-95[H2O-05]", "H2O2-85[H2O-15]", "O3", "HNO3-80[N2O4-20]",
                  "HNO3-73[N2O4-27]", "N2O"]
-    OxiDifEnth = [0, 0, 0, -19.56, -205.3, -195.6, -132.2, -142.95, -132.16]
+    Oxi_Enth = [0, 0, 0, -19.56, -205.3, -195.6, -132.2, -142.95, -132.16]
 
     Fuel_List = ["H2", "CH4", "C2H5OH-95[H2O-05]", "C2H5OH-75[H2O-25]", "C6H5NH2", "NH3", "C2H8N2", "CH6N2", "N2H4",
                  "CH3OH", "C12H26", "CH6N2-50[N2H4-50]", "CH6N2-75[N2H4-25]"]
@@ -62,19 +64,22 @@ def calculate(reaction):
     reacAE = reaction[0][0][1].strip()
     reacBE = reaction[0][1][1].strip()
 
-    Hr = (float(reacBE)*OxiDifEnth[findex(Oxid_List, reacB1)]) + (float(reacAE)*Fuel_Enth[findex(Fuel_List, reacA1)])
+    Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
     OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
 
     productsData, Hp, combust_temp = reaction[1], 0, 0
     Exhaust_List = ["NO2", "CO2", "H2O", "HF", "NF2", "CF4"]
-    gamma = [-1, 1.289, -1, -1, -1, -1]
-    density_ref = [-1, -1, -1, -1, -1, -1]
-    CpCv = []
-    print(Hr)
-    print(OF)
+    Prod_Enth = [-1, 1.289, -1, -1, -1, -1]
 
-    prodExponents = []
-    prodExhaust = []
+    file = open('ProductEnthalpies.csv')
+    csvreader = csv.reader(file)
+    header = [], rows = []
+    header = next(csvreader)
+    for row in csvreader:
+        rows.append(row)
+    print(header)
+    print(rows)
+
     for x in productsData:
         pass
     while Hp != Hr:
