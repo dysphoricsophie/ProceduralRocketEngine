@@ -113,7 +113,7 @@ def calculate(reaction):
 
     productsData, Hp, combust_temp = reaction[1], 0, 0
     Exhaust_List = ["NO2", "CO2", "H2O", "HF", "NF2", "CF4"]
-    Exhaust_List_L = ["Nitrogen Dioxide", "Carbon Dioxide", "Water Vapour", "Hydrogen Fluoride", "Nitrogen Fluoride", "Tetrafluorocarbon"]
+    Exhaust_List_L = ["Nitrogen Dioxide", "Carbon Dioxide", "Water Vapour", "Hydrogen Fluoride", "Nitrogen Difluoride", "Tetrafluorocarbon"]
 
     Temperatures = []; Gas1 = []; Gas2 = []
     Gas3 = []; Gas4 = []; Gas5 = []; Gas6 = []; Gas7 = []
