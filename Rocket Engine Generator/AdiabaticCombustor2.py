@@ -71,7 +71,7 @@ def calculate(reaction):
     Exhaust_List = ["NO2", "CO2", "H2O", "HF", "NF2", "CF4"]
     Prod_Enth = [-1, 1.289, -1, -1, -1, -1]
 
-    file = open('ProductEnthalpy.csv')
+    file = open('ProductEnthalpies.csv')
     csvreader = csv.reader(file)
     header = [], rows = []
     header = next(csvreader)
