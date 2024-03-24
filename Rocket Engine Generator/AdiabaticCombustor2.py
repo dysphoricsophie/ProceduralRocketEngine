@@ -7,16 +7,16 @@ def findex(array, search):
     return array.index(search)
 def interpolation(Hp_List, Hr):
     # Hp_List = [[Product Enthalpy, Temperature], [Product Enthalpy, Temperature] ...
-	return Hp_List[0][1] + (Hr - Hp_List[0][0]) * ((Hp_List[1][1] - Hp_List[0][1]) / (Hp_List[1][0] - Hp_List[0][0]))
+    return Hp_List[0][1] + (Hr - Hp_List[0][0]) * ((Hp_List[1][1] - Hp_List[0][1]) / (Hp_List[1][0] - Hp_List[0][0]))
 def check(string, sub_str):
     if string.find(sub_str) == -1:
         return False
     else:
         return True
 def close(list, num):
-	a = min([i for i in list if num < i])
-	b = max([i for i in list if num > i])
-	return a, b
+    a = min([i for i in list if num < i])
+    b = max([i for i in list if num > i])
+    return a, b
 def split(txt, sep):
     return txt.split(sep)
 def closest_value(input_list, input_value):
