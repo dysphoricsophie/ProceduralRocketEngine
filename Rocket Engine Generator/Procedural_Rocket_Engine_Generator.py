@@ -974,139 +974,6 @@ def file_log():
         filelogging = True
     count = count + 1
     # return dialog.get_input()
-def engine_plot():
-    def bell_nozzle(aratio, Rt, l_percent):
-        entrant_angle = -135
-        ea_radian = math.radians(entrant_angle)
-        if l_percent == 60:
-            Lnp = 0.6
-        elif l_percent == 80:
-            Lnp = 0.8
-        elif l_percent == 90:
-            Lnp = 0.9
-        else:
-            Lnp = 0.7
-        angles = find_wall_angles(aratio, throat_radius, l_percent)
-        theta_n = angles[1]
-        theta_e = angles[2]
-        data_intervel = 100
-        ea_start = ea_radian
-        ea_end = -math.pi / 2
-        angle_list = np.linspace(ea_start, ea_end, data_intervel)
-        xe = []
-        ye = []
-        for i in angle_list:
-            xe.append(1.5 * Rt * math.cos(i))
-            ye.append(1.5 * Rt * math.sin(i) + 2.5 * Rt)
-        ea_start = -math.pi / 2
-        ea_end = theta_n - math.pi / 2
-        angle_list = np.linspace(ea_start, ea_end, data_intervel)
-        xe2 = []
-        ye2 = []
-        for i in angle_list:
-            xe2.append(0.382 * Rt * math.cos(i))
-            ye2.append(0.382 * Rt * math.sin(i) + 1.382 * Rt)
-        Nx = 0.382 * Rt * math.cos(theta_n - math.pi / 2)
-        Ny = 0.382 * Rt * math.sin(theta_n - math.pi / 2) + 1.382 * Rt
-        Ex = Lnp * ((math.sqrt(aratio) - 1) * Rt) / math.tan(math.radians(15))
-        Ey = math.sqrt(aratio) * Rt
-        m1 = math.tan(theta_n)
-        m2 = math.tan(theta_e)
-        C1 = Ny - m1 * Nx
-        C2 = Ey - m2 * Ex
-        Qx = (C2 - C1) / (m1 - m2)
-        Qy = (m1 * C2 - m2 * C1) / (m1 - m2)
-        int_list = np.linspace(0, 1, data_intervel)
-        xbell = []
-        ybell = []
-        for t in int_list:
-            xbell.append(((1 - t) ** 2) * Nx + 2 * (1 - t) * t * Qx + (t ** 2) * Ex)
-            ybell.append(((1 - t) ** 2) * Ny + 2 * (1 - t) * t * Qy + (t ** 2) * Ey)
-        nye = [-y for y in ye]
-        nye2 = [-y for y in ye2]
-        nybell = [-y for y in ybell]
-        return angles, (xe, ye, nye, xe2, ye2, nye2, xbell, ybell, nybell)
-    def find_wall_angles(ar, Rt, l_percent):
-        aratio = [4, 5, 10, 20, 30, 40, 50, 100]
-        theta_n_60 = [20.5, 20.5, 16.0, 14.5, 14.0, 13.5, 13.0, 11.2]
-        theta_n_80 = [21.5, 23.0, 26.3, 28.8, 30.0, 31.0, 31.5, 33.5]
-        theta_n_90 = [20.0, 21.0, 24.0, 27.0, 28.5, 29.5, 30.2, 32.0]
-        theta_e_60 = [26.5, 28.0, 32.0, 35.0, 36.2, 37.1, 35.0, 40.0]
-        theta_e_80 = [14.0, 13.0, 11.0, 9.0, 8.5, 8.0, 7.5, 7.0]
-        theta_e_90 = [11.5, 10.5, 8.0, 7.0, 6.5, 6.0, 6.0, 6.0]
-        f1 = ((math.sqrt(ar) - 1) * Rt) / math.tan(math.radians(15))
-        if l_percent == 60:
-            theta_n = theta_n_60
-            theta_e = theta_e_60
-            Ln = 0.6 * f1
-        elif l_percent == 80:
-            theta_n = theta_n_80
-            theta_e = theta_e_80
-            Ln = 0.8 * f1
-        elif l_percent == 90:
-            theta_n = theta_n_90
-            theta_e = theta_e_90
-            Ln = 0.9 * f1
-        else:
-            theta_n = theta_n_80
-            theta_e = theta_e_80
-            Ln = 0.8 * f1
-        x_index, x_val = find_nearest(aratio, ar)
-        if round(aratio[x_index], 1) == round(ar, 1):
-            return Ln, math.radians(theta_n[x_index]), math.radians(theta_e[x_index])
-        if x_index > 2:
-            ar_slice = aratio[x_index - 2:x_index + 2]
-            tn_slice = theta_n[x_index - 2:x_index + 2]
-            te_slice = theta_e[x_index - 2:x_index + 2]
-            tn_val = interpolate(ar_slice, tn_slice, ar)
-            te_val = interpolate(ar_slice, te_slice, ar)
-        elif (len(aratio) - x_index) <= 1:
-            ar_slice = aratio[x_index - 2:len(x_index)]
-            tn_slice = theta_n[x_index - 2:len(x_index)]
-            te_slice = theta_e[x_index - 2:len(x_index)]
-            tn_val = interpolate(ar_slice, tn_slice, ar)
-            te_val = interpolate(ar_slice, te_slice, ar)
-        else:
-            ar_slice = aratio[0:x_index + 2]
-            tn_slice = theta_n[0:x_index + 2]
-            te_slice = theta_e[0:x_index + 2]
-            tn_val = interpolate(ar_slice, tn_slice, ar)
-            te_val = interpolate(ar_slice, te_slice, ar)
-        return Ln, math.radians(tn_val), math.radians(te_val)
-    def interpolate(x_list, y_list, x):
-        if any(y - x <= 0 for x, y in zip(x_list, x_list[1:])):
-            raise ValueError("x_list must be in strictly ascending order!")
-        intervals = zip(x_list, x_list[1:], y_list, y_list[1:])
-        slopes = [(y2 - y1) / (x2 - x1) for x1, x2, y1, y2 in intervals]
-        if x <= x_list[0]:
-            return y_list[0]
-        elif x >= x_list[-1]:
-            return y_list[-1]
-        else:
-            i = bisect_left(x_list, x) - 1
-            return y_list[i] + slopes[i] * (x - x_list[i])
-    def find_nearest(array, value):
-        array = np.asarray(array)
-        idx = (np.abs(array - value)).argmin()
-        return idx, array[idx]
-    l_percent = 80
-    aratio = random.randint(5, 100)
-    throat_radius = random.randint(5, 500)
-    angles, contour = bell_nozzle(aratio, throat_radius, l_percent)
-    x_coor = contour[1] + contour[7]
-    y_coor = contour[0] + contour[6]
-    return [x_coor, y_coor]
-def plot(data, filename):
-    y, x = data[0], data[1]
-    plt.title("Graph of Engine data", fontsize=16)
-    plt.clf()
-    plt.plot(x, y, linestyle="-", color="black", linewidth=1)
-    plt.savefig(filename)
-def data_gen():
-    ret = engine_plot()
-    datax = ret[0]
-    datay = ret[1]
-    return datax, datay
 class ToolTip(object):
     def __init__(self, widget):
         self.bw = None
@@ -1158,7 +1025,6 @@ class App(customtkinter.CTk):
         super().__init__()
         self.imgge = None
         self.graph_img = None
-        self.data = data_gen()
         self.graphical_rep = None
         self.rplot = None
         self.ttp = None
@@ -1223,6 +1089,146 @@ class App(customtkinter.CTk):
         self.lift()
         self.attributes("-topmost", 1)
         self.attributes("-topmost", 0)
+
+    def engine_plot(self):
+        def bell_nozzle(aratio, Rt, l_percent):
+            entrant_angle = -135
+            ea_radian = math.radians(entrant_angle)
+            if l_percent == 60:
+                Lnp = 0.6
+            elif l_percent == 80:
+                Lnp = 0.8
+            elif l_percent == 90:
+                Lnp = 0.9
+            else:
+                Lnp = 0.7
+            angles = find_wall_angles(aratio, throat_radius, l_percent)
+            theta_n = angles[1]
+            theta_e = angles[2]
+            data_intervel = 100
+            ea_start = ea_radian
+            ea_end = -math.pi / 2
+            angle_list = np.linspace(ea_start, ea_end, data_intervel)
+            xe = []
+            ye = []
+            for i in angle_list:
+                xe.append(1.5 * Rt * math.cos(i))
+                ye.append(1.5 * Rt * math.sin(i) + 2.5 * Rt)
+            ea_start = -math.pi / 2
+            ea_end = theta_n - math.pi / 2
+            angle_list = np.linspace(ea_start, ea_end, data_intervel)
+            xe2 = []
+            ye2 = []
+            for i in angle_list:
+                xe2.append(0.382 * Rt * math.cos(i))
+                ye2.append(0.382 * Rt * math.sin(i) + 1.382 * Rt)
+            Nx = 0.382 * Rt * math.cos(theta_n - math.pi / 2)
+            Ny = 0.382 * Rt * math.sin(theta_n - math.pi / 2) + 1.382 * Rt
+            Ex = Lnp * ((math.sqrt(aratio) - 1) * Rt) / math.tan(math.radians(15))
+            Ey = math.sqrt(aratio) * Rt
+            m1 = math.tan(theta_n)
+            m2 = math.tan(theta_e)
+            C1 = Ny - m1 * Nx
+            C2 = Ey - m2 * Ex
+            Qx = (C2 - C1) / (m1 - m2)
+            Qy = (m1 * C2 - m2 * C1) / (m1 - m2)
+            int_list = np.linspace(0, 1, data_intervel)
+            xbell = []
+            ybell = []
+            for t in int_list:
+                xbell.append(((1 - t) ** 2) * Nx + 2 * (1 - t) * t * Qx + (t ** 2) * Ex)
+                ybell.append(((1 - t) ** 2) * Ny + 2 * (1 - t) * t * Qy + (t ** 2) * Ey)
+            nye = [-y for y in ye]
+            nye2 = [-y for y in ye2]
+            nybell = [-y for y in ybell]
+            return angles, (xe, ye, nye, xe2, ye2, nye2, xbell, ybell, nybell)
+
+        def find_wall_angles(ar, Rt, l_percent):
+            aratio = [4, 5, 10, 20, 30, 40, 50, 100]
+            theta_n_60 = [20.5, 20.5, 16.0, 14.5, 14.0, 13.5, 13.0, 11.2]
+            theta_n_80 = [21.5, 23.0, 26.3, 28.8, 30.0, 31.0, 31.5, 33.5]
+            theta_n_90 = [20.0, 21.0, 24.0, 27.0, 28.5, 29.5, 30.2, 32.0]
+            theta_e_60 = [26.5, 28.0, 32.0, 35.0, 36.2, 37.1, 35.0, 40.0]
+            theta_e_80 = [14.0, 13.0, 11.0, 9.0, 8.5, 8.0, 7.5, 7.0]
+            theta_e_90 = [11.5, 10.5, 8.0, 7.0, 6.5, 6.0, 6.0, 6.0]
+            f1 = ((math.sqrt(ar) - 1) * Rt) / math.tan(math.radians(15))
+            if l_percent == 60:
+                theta_n = theta_n_60
+                theta_e = theta_e_60
+                Ln = 0.6 * f1
+            elif l_percent == 80:
+                theta_n = theta_n_80
+                theta_e = theta_e_80
+                Ln = 0.8 * f1
+            elif l_percent == 90:
+                theta_n = theta_n_90
+                theta_e = theta_e_90
+                Ln = 0.9 * f1
+            else:
+                theta_n = theta_n_80
+                theta_e = theta_e_80
+                Ln = 0.8 * f1
+            x_index, x_val = find_nearest(aratio, ar)
+            if round(aratio[x_index], 1) == round(ar, 1):
+                return Ln, math.radians(theta_n[x_index]), math.radians(theta_e[x_index])
+            if x_index > 2:
+                ar_slice = aratio[x_index - 2:x_index + 2]
+                tn_slice = theta_n[x_index - 2:x_index + 2]
+                te_slice = theta_e[x_index - 2:x_index + 2]
+                tn_val = interpolate(ar_slice, tn_slice, ar)
+                te_val = interpolate(ar_slice, te_slice, ar)
+            elif (len(aratio) - x_index) <= 1:
+                ar_slice = aratio[x_index - 2:len(x_index)]
+                tn_slice = theta_n[x_index - 2:len(x_index)]
+                te_slice = theta_e[x_index - 2:len(x_index)]
+                tn_val = interpolate(ar_slice, tn_slice, ar)
+                te_val = interpolate(ar_slice, te_slice, ar)
+            else:
+                ar_slice = aratio[0:x_index + 2]
+                tn_slice = theta_n[0:x_index + 2]
+                te_slice = theta_e[0:x_index + 2]
+                tn_val = interpolate(ar_slice, tn_slice, ar)
+                te_val = interpolate(ar_slice, te_slice, ar)
+            return Ln, math.radians(tn_val), math.radians(te_val)
+
+        def interpolate(x_list, y_list, x):
+            if any(y - x <= 0 for x, y in zip(x_list, x_list[1:])):
+                raise ValueError("x_list must be in strictly ascending order!")
+            intervals = zip(x_list, x_list[1:], y_list, y_list[1:])
+            slopes = [(y2 - y1) / (x2 - x1) for x1, x2, y1, y2 in intervals]
+            if x <= x_list[0]:
+                return y_list[0]
+            elif x >= x_list[-1]:
+                return y_list[-1]
+            else:
+                i = bisect_left(x_list, x) - 1
+                return y_list[i] + slopes[i] * (x - x_list[i])
+
+        def find_nearest(array, value):
+            array = np.asarray(array)
+            idx = (np.abs(array - value)).argmin()
+            return idx, array[idx]
+
+        l_percent = 80
+        aratio = random.randint(5, 100)
+        throat_radius = random.randint(5, 500)
+        angles, contour = bell_nozzle(aratio, throat_radius, l_percent)
+        x_coor = contour[1] + contour[7]
+        y_coor = contour[0] + contour[6]
+        return [x_coor, y_coor]
+
+    def plot(self, data, filename):
+        y, x = data[0], data[1]
+        plt.title("Graph of Engine data", fontsize=16)
+        plt.clf()
+        plt.plot(x, y, linestyle="-", color="black", linewidth=1)
+        plt.savefig(filename)
+
+    def data_gen(self):
+        ret = self.engine_plot()
+        datax = ret[0]
+        datay = ret[1]
+        return datax, datay
     def reload_b(self):
         y_coor = 0
         #########################################
@@ -1234,7 +1240,7 @@ class App(customtkinter.CTk):
         self.genlistA = self.output
         if file_exists("graph_plot.png"):
             os.remove("graph_plot.png")
-        plot(data=self.data, filename="graph_plot.png")
+        self.plot(data=self.data_gen(), filename="graph_plot.png")
         #########################################
         self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {self.output[0]}"""), font=("Segoe UI", 32))
         self.labelTitle.place(x=14, y=10)
@@ -1295,7 +1301,7 @@ class App(customtkinter.CTk):
                 self.labelText = customtkinter.CTkLabel(self.interiorText, text=str(f"   {self.t_output[i]}\n"), font=("Segoe UI", 22))
                 self.labelText.place(x=15, y=y_coor + 30)
                 y_coor = y_coor + 30
-        plot(self.data, "graph_plot.png")
+        self.plot(self.data_gen(), "graph_plot.png")
         self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
         self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White", image=self.graphical_rep)
         self.graph_img.place(x=0, y=0)
