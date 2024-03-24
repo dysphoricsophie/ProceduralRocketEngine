@@ -1,11 +1,15 @@
 import csv
-
 import numpy as np
 from molmass import Formula
-from ChumChildren import solver
+from AssholeKeggels import solver
 ########################################################################################################################
 def findex(array, search):
     return array.index(search)
+def check(string, sub_str):
+    if string.find(sub_str) == -1:
+        return False
+    else:
+        return True
 def split(txt, sep):
     return txt.split(sep)
 def closest_value(input_list, input_value):
@@ -69,36 +73,47 @@ def calculate(reaction):
 
     productsData, Hp, combust_temp = reaction[1], 0, 0
     Exhaust_List = ["NO2", "CO2", "H2O", "HF", "NF2", "CF4"]
-    Exhaust_List = ["Nitrogen Dioxide", "Carbon Dioxide", "Water Vapour", "Hydrogen Fluoride", "Nitrogen Fluoride", "Tetrafluorocarbon"]
+    Exhaust_List_L = ["Nitrogen Dioxide", "Carbon Dioxide", "Water Vapour", "Hydrogen Fluoride", "Nitrogen Fluoride", "Tetrafluorocarbon"]
     Prod_Enth = [-1, 1.289, -1, -1, -1, -1]
 
-    Totality = []
-    Temperatures = []
-    Methane = []
-    Carbon_Dioxide = []
-    Carbon_Monoxide = []
-    Diatomic_Oxygen = []
-    Gaseous_Water = []
-    Diatomic_Hydrogen = []
-    Hydroxyl_Ion = []
+    Temperatures = []; Gas1 = []; Gas2 = []; Gas3 = []
+    Gas4 = []; Gas5 = []; Gas6 = []; Gas7 = []
+    Totality = [Temperatures, Gas1, Gas2, Gas3, Gas4, Gas5, Gas6, Gas7]
     with open('ProductEnthalpies.csv', 'r') as csvfile:
         csv_reader = csv.reader(csvfile)
         for row in csv_reader:
             # Access data by column index (starting from 0)
             Temperatures.append(row[0])
-            Methane.append(row[1])
-            Carbon_Dioxide.append(row[2])
-            Carbon_Monoxide.append(row[3])
-            Diatomic_Oxygen.append(row[4])
-            Gaseous_Water.append(row[5])
-            Diatomic_Hydrogen.append(row[6])
-            Hydroxyl_Ion.append(row[7])
+            Gas1.append(row[1])
+            Gas2.append(row[2])
+            Gas3.append(row[3])
+            Gas4.append(row[4])
+            Gas5.append(row[5])
+            Gas6.append(row[6])
+            Gas7.append(row[7])
+
+    indexA = -1; ProA = str(productsData[0][0])
+    indexB = -1; ProB = str(productsData[0][1])
+    heado = []; head = []
+    for j in range(0, len(Totality)):
+        heado.append(Totality[j][0])
+    for x in heado:
+        head.append(x.split("(")[1].strip(")"))
+
+    for i in range(0, len(head)):
+        if head[i] == ProA.strip(" "):
+            indexA = i
+        if head[i] == ProB.strip(" "):
+            indexB = i
+    print(f"Index 1 is {str(indexA)} --- Index 2 is {str(indexB)}")
 
     temp = 12
     print(f"Temperature: {Temperatures[temp]}K \n"
-          f"Water Vapour at {Temperatures[temp]}K: {Gaseous_Water[temp]} kJ/mol \n"
-          f"Carbon Dioxide at {Temperatures[temp]}K: {Carbon_Dioxide[temp]} kJ/mol \n")
+          f"{heado[indexA]} at {Temperatures[temp]}K: {Totality[indexA][temp]} kJ/mol \n"
+          f"{heado[indexB]} at {Temperatures[temp]}K: {Totality[indexB][temp]} kJ/mol \n")
 
+    Exh_A = Totality[indexA]
+    Exh_B = Totality[indexB]
     for x in productsData:
         pass
     while Hp != Hr:
@@ -113,4 +128,5 @@ Fuel = "C12H26 (n-Dodecane)"
 Combust_Temp = calculate(exponentF(Oxidizer, Fuel))[0]
 C_ExhaustVel = calculate(exponentF(Oxidizer, Fuel))[1]
 OF_Ratio = calculate(exponentF(Oxidizer, Fuel))[2]
+print(f"{Combust_Temp} \n{C_ExhaustVel} \n{OF_Ratio}")
 ########################################################################################################################

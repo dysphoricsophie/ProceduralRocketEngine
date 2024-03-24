@@ -17,27 +17,30 @@ def solver(eqtn):
 
     Oxids = ["O2", "F2", "F2O2", "N2O4", "H2O2-95[H2O-05]", "H2O2-85[H2O-15]", "O3", "HNO3-80[N2O4-20]", "HNO3-73[N2O4-27]", "N2O"]
     Fuels = ["H2", "CH4", "C2H5OH-95[H2O-05]", "C2H5OH-75[H2O-25]", "C6H5NH2", "NH3", "C2H8N2", "CH6N2", "N2H4", "CH3OH", "C12H26", "CH6N2-50[N2H4-50]", "CH6N2-75[N2H4-25]"]
-    if not eqtn.__contains__("("):
+    if not eqtn.__contains__("["):
         lhs = eqtn.split(" = ")[0]
         lhs_strings = lhs.split(" + ")
         lhs_compounds = [understand(compound) for compound in lhs_strings]
+        print(lhs_compounds)
 
         rhs = eqtn.split(" = ")[1]
         rhs_strings = rhs.split(" + ")
         rhs_compounds = [understand(compound) for compound in rhs_strings]
+        print(rhs_compounds)
     else:
         lhs = eqtn.split(" = ")[0]
         lhs_strings = lhs.split(" + ")
         multicomp = lhs_strings[0].replace("(", "").replace(")", "").split("/")
-        if (Fuels, multicomp[1]):
+        if (Fuels, multicomp):
             pass
-        print(multicomp)
-        exit(0)
         lhs_compounds = [understand(compound) for compound in lhs_strings]
+        print(lhs_compounds)
+        print(multicomp)
 
         rhs = eqtn.split(" = ")[1]
         rhs_strings = rhs.split(" + ")
         rhs_compounds = [understand(compound) for compound in rhs_strings]
+        print(rhs_compounds)
 
     # Get canonical list of elements
     els = sorted(set().union(*lhs_compounds, *rhs_compounds))
@@ -70,4 +73,4 @@ def solver(eqtn):
     return "{} = {}".format(lhs, rhs)
 
 formula = input("Input your chemical reaction: ")
-print(solver(formula) + '\n')
+print(solver(formula))
