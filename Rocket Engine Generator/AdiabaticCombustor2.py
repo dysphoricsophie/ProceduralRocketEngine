@@ -139,7 +139,7 @@ def calculate(reaction):
 
     #Characteristic Exhaust Velocity
     ExhaustVel = 0
-    combust_temp = 0
+    combust_temp = interpolation(interpol_T, Hr)
     return combust_temp, ExhaustVel, OF
 ########################################################################################################################
 Oxidizer = "O2 (Oxygen)"
