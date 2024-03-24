@@ -1,11 +1,4 @@
-Temperature (K),"Methane
-(CH4)","Carbon Dioxide
-(CO2)","Carbon Monoxide
-(CO)","Oxygen, Diatomic
-(O2)","Water, Gaseous
-(H2O)","Hydrogen, Diatomic
-(H2)","Hydroxyl
-(OH-)"
+Temperature (K),Methane (CH4),Carbon Dioxide (CO2),Carbon Monoxide (CO),"Oxygen, Diatomic (O2)","Water, Gaseous (H2O)","Hydrogen, Diatomic (H2)",Hydroxyl Ion (OH-)
 ,M = 16.043,M = 44.010,M = 28.010,M = 31.999,M = 18.015,M = 2.0159,M = 17.007
 ,-74.873,-393.522,-110.529,0,-241.827,0,39.463
 0,-10.024,-9.364,-8.669,-8.682,-9.904,-8.468,-9.171
