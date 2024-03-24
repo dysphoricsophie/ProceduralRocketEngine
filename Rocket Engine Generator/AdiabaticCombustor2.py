@@ -83,8 +83,8 @@ def calculate(reaction):
     Exhaust_List_L = ["Nitrogen Dioxide", "Carbon Dioxide", "Water Vapour", "Hydrogen Fluoride", "Nitrogen Fluoride", "Tetrafluorocarbon"]
     Prod_Enth = [-1, 1.289, -1, -1, -1, -1]
 
-    Temperatures = []; Gas1 = []; Gas2 = []; Gas3 = []
-    Gas4 = []; Gas5 = []; Gas6 = []; Gas7 = []
+    Temperatures = []; Gas1 = []; Gas2 = []
+    Gas3 = []; Gas4 = []; Gas5 = []; Gas6 = []; Gas7 = []
     Totality = [Temperatures, Gas1, Gas2, Gas3, Gas4, Gas5, Gas6, Gas7]
     with open('ProductEnthalpies.csv', 'r') as csvfile:
         csv_reader = csv.reader(csvfile)
@@ -112,19 +112,19 @@ def calculate(reaction):
             indexA = i
         if head[i] == ProB.strip(" "):
             indexB = i
-    print(f"Index 1 is {str(indexA)} --- Index 2 is {str(indexB)}")
-
-    temp = 12
-    print(f"Temperature: {Temperatures[temp]}K \n"
-          f"{heado[indexA]} at {Temperatures[temp]}K: {Totality[indexA][temp]} kJ/mol \n"
-          f"{heado[indexB]} at {Temperatures[temp]}K: {Totality[indexB][temp]} kJ/mol \n")
 
     Exh_A = Totality[indexA]
     Exh_B = Totality[indexB]
-    for x in productsData:
-        pass
-    while Hp != Hr:
-        pass
+    Hp_List = []
+    for x in range(0, (len(Totality[0])-1)):
+        ExpoA = float(productsData[1][0])
+        ExpoB = float(productsData[1][1])
+        EnthA = Totality[indexA][x+3]
+        EnthB = Totality[indexB][x+3]
+        Hp = ExpoA*(float(Exh_A[2]) + float(EnthA)) + ExpoB*(float(Exh_B[2]) + float(EnthB))
+        Hp_List.append(Hp)
+        print(f"Enthalpy of Products at {Totality[0][x+3]}: {Hp}")
+
     #Characteristic Exhaust Velocity
     ExhaustVel = 0
     combust_temp = 0
