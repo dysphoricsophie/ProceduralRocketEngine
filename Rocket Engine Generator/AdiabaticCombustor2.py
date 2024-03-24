@@ -13,9 +13,9 @@ def check(string, sub_str):
         return False
     else:
         return True
-def close(list, num):
-    a = min([i for i in list if num < i])
-    b = max([i for i in list if num > i])
+def close(listh, num):
+    a = min([i for i in listh if num < i])
+    b = max([i for i in listh if num > i])
     return a, b
 def split(txt, sep):
     return txt.split(sep)
