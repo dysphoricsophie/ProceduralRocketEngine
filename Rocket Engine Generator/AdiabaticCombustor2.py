@@ -16,7 +16,7 @@ def check(string, sub_str):
 def close(listh, num):
     a = min([i for i in listh if num < i])
     b = max([i for i in listh if num > i])
-    return a, b
+    return [a, b]
 def split(txt, sep):
     return txt.split(sep)
 def closest_value(input_list, input_value):
@@ -117,6 +117,7 @@ def calculate(reaction):
     Exh_A = Totality[indexA]
     Exh_B = Totality[indexB]
     Hp_List = []
+    Hp_Temp = []
     for x in range(1, len(Totality[0])):
         try:
             ExpoA = float(productsData[1][0])
@@ -125,9 +126,14 @@ def calculate(reaction):
             EnthB = Totality[indexB][x + 2]
             Hp = ExpoA * (float(Exh_A[2]) + float(EnthA)) + ExpoB * (float(Exh_B[2]) + float(EnthB))
             Hp_List.append(Hp)
+            Hp_Temp.append(Totality[0][x + 2])
         except:
             pass
-    print(close(Hp_List, Hr))
+    miner = close(Hp_List, Hr)[0]
+    miner_id =
+    maxer = close(Hp_List, Hr)[1]
+    maxer_id
+    interpolation()
 
     #Characteristic Exhaust Velocity
     ExhaustVel = 0
