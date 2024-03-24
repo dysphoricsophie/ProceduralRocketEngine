@@ -73,11 +73,11 @@ def calculate(reaction):
 
     file = open('ProductEnthalpies.csv')
     csvreader = csv.reader(file)
-    heade = [], rows = []
+    header = [], rows = []
     header = next(csvreader)
     for row in csvreader:
         rows.append(row)
-    print(heade)
+    print(header)
     print(rows)
 
     for x in productsData:
