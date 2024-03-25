@@ -64039,3 +64039,28 @@ Tank repressurisation Method: Inert Gas
 Nozzle Cooling Mechanism: Dump Cooling
 Engine Throttle Range: Not Throttleable
 
+Engine Designation: BE-964Y "Tellus"
+
+Fuel Flow Cycle: Vapor Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Water (H2O)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation III
+Reactor Maximum Power: 6.64 GWReactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 7,605.22 m/sReactor Core Temperature: 5,975°KReactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodalEngine Electrical Output: 1,075.5 MWAltitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 181:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: RES-154N "Kapustin"
+
+Fuel Flow Cycle: Hall Effect Thruster
+Propellant(Remass): Zn (Zinc)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Hall Effect Thruster Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Nuclear Fission Reactor
+Rated Power Level: 760 kW
+
