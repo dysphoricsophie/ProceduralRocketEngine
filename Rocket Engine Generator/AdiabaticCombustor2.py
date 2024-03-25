@@ -86,13 +86,15 @@ def exponentF(oxid, fuel):
                          solver("CH3OH + O3 = CO2 + H2O"),
                          solver("C12H26 + O3 = CO2 + H2O")]
         case "N2O4 (Nitrogen Tetroxide)":
-            fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)", "C12H26 (n-Dodecane)",
+            fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                              "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)", "CH3OH (Methanol)",
-                             "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)"]
+                             "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + N2O4 = NO2 + H2O"),
                          solver("C2H5OH + N2O4 = NO2 + CO2 + H2O"),
                          solver("C2H5OH + N2O4 = NO2 + CO2 + H2O"),
                          solver("C6H5NH2 + N2O4 = NO2 + CO2 + H2O"),
+                         solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
+                         solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
                          solver("NH3 + N2O4 = NO2 + H2O"),
                          solver("C2H8N2 + N2O4 = CO2 + NO2 + H2O"),
                          solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
