@@ -64064,3 +64064,39 @@ Engine Use Case: Payload (Main Propulsion)
 Engine Power Source: Nuclear Fission Reactor
 Rated Power Level: 760 kW
 
+Engine Designation: VA-396x "Convair"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: 2.77
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 19:1
+Characteristic Exhaust Velocity: 2932 m/sAdiabatic Combustion Temperature: 3379°KEngine Gimbal Range: ±1°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: BADR-192 "Solntspek"
+
+Fuel Flow Cycle: Full Flow Staged
+Engine Oxidizer: H2O2 (Hydrogen Peroxide) 85%
+Engine Fuel: C2H8N2 (UnsymmetricalDimethylHydrazine)
+Average Mixture Ratio: 4.63
+Propellant properties: Neither Hypergolic nor cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 41:1
+Characteristic Exhaust Velocity: 2582 m/sAdiabatic Combustion Temperature: 2690°KEngine Gimbal Range: ±9°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
+Engine Throttle Range: Not Throttleable
+

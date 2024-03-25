@@ -13,10 +13,17 @@ def check(string, sub_str):
         return False
     else:
         return True
-def close(listh, num):
-    a = min([i for i in listh if num < i])
-    b = max([i for i in listh if num > i])
-    return [a, b]
+def close(numbers, target):
+    sorted_numbers = sorted(numbers)
+    upper = lower = None
+    index = sorted_numbers.index(target)
+
+    if index < len(sorted_numbers) - 1:
+        upper = sorted_numbers[index + 1]
+    if index > 0:
+        lower = sorted_numbers[index - 1]
+
+    return [lower, upper]
 def split(txt, sep):
     return txt.split(sep)
 def closest_value(input_list, input_value):
@@ -95,11 +102,11 @@ def exponentF(oxid, fuel):
                          solver("C6H5NH2 + N2O4 = NO2 + CO2 + H2O"),
                          solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
                          solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
+                         solver("CH3OH + N2O4 = NO2 + CO2 + H2O"),
                          solver("NH3 + N2O4 = NO2 + H2O"),
                          solver("C2H8N2 + N2O4 = CO2 + NO2 + H2O"),
                          solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
                          solver("N2H4 + N2O4 = NO2 + H2O"),
-                         solver("CH3OH + N2O4 = NO2 + CO2 + H2O"),
                          solver("C12H26 + N2O4 = CO2 + NO2 + H2O")]
         case "H2O2 (Hydrogen Peroxide) 95%" | "H2O2 (Hydrogen Peroxide) 85%":
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
@@ -293,6 +300,8 @@ def calculate(reaction):
 
     Hp_List = res[0]
     Hp_Temp = res[1]
+    print(Hp_List)
+
     miner = close(Hp_List, Hr)[0]
     miner_tp = Hp_Temp[Hp_List.index(miner)]
     maxer = close(Hp_List, Hr)[1]
@@ -305,11 +314,16 @@ def calculate(reaction):
     combust_temp = interpolation(interpol_T, Hr)
     return combust_temp, ExhaustVel, OF
 ########################################################################################################################
-Oxidizer = "O2 (Oxygen)"
-Fuel = "C12H26 (n-Dodecane)"
-results = calculate(exponentF(Oxidizer, Fuel))
-Combust_Temp = results[0]
-C_ExhaustVel = results[1]
-OF_Ratio = results[2]
-print(results)
+oindian = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
+           "NH3 (Ammonia)", "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)",
+           "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
+chinese = ["O2 (Oxygen)", "F2 (Fluorine)", "F2O2 (Perfluorine Peroxide)", "N2O4 (Nitrogen Tetroxide)", "H2O2 (Hydrogen Peroxide) 95%",
+           "H2O2 (Hydrogen Peroxide) 85%", "O3 (Ozone)", "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)","AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)"]
+
+for i in oindian:
+    for k in chinese:
+        Oxidizer = k; Fuel = i
+        results = calculate(exponentF(Oxidizer, Fuel))
+        Combust_Temp = results[0]; C_ExhaustVel = results[1]; OF_Ratio = results[2]
+        print(f"Oxidizer: {k} | --------- | Fuel: {i} | --------- |{results}|")
 ########################################################################################################################
