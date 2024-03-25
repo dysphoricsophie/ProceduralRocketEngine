@@ -308,9 +308,6 @@ def plot(throat_radius, aratio, l_percent, k, filename):
 	ax1 = fig.add_subplot(111)
 	plot_nozzle(ax1, title, throat_radius, angles, contour, aratio, filename)
 	fig1 = plt.gcf()
-	plt.show()
 	plt.draw()
 	fig1.savefig(filename, dpi=100)
 	return
-
-plot(random.randint(5, 500), random.randint(5, 100), 90, 1.2, "assmonkey.png")
