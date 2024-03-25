@@ -116,11 +116,11 @@ def exponentF(oxid, fuel):
                          solver("C12H26 + H2O2 = H2O + CO2")]
         case "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)" | "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)":
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)", "CH3OH (Methanol)"]
-            Reactants = [solver("H2 + N2O4 = NO2 + H2O"),
-                         solver("C2H5OH + N2O4 = NO2 + CO2 + H2O"),
-                         solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
-                         solver("N2H4 + N2O4 = NO2 + H2O"),
-                         solver("CH3OH + N2O4 = NO2 + CO2 + H2O")]
+            Reactants = [solver("H2 + HNO3 = NO2 + H2O"),
+                         solver("C2H5OH + HNO3 = NO2 + CO2 + H2O"),
+                         solver("CH6N2 + HNO3 = CO2 + NO2 + H2O"),
+                         solver("N2H4 + HNO3 = NO2 + H2O"),
+                         solver("CH3OH + HNO3 = NO2 + CO2 + H2O")]
     reaction = equationizer(Reactants[fuel_ListSample.index(fuel)])
     return reaction
 def prop_1_exh(productsData):
