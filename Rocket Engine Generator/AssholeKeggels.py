@@ -70,3 +70,6 @@ def solver(eqtn):
         if i < len(products) - 1:
             output += " + "
     return output
+
+r = input()
+print(solver(r))

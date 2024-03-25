@@ -64,8 +64,19 @@ def exponentF(oxid, fuel):
             fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                              "NH3 (Ammonia)", "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)",
                              "N2H4 (Hydrazine)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
-            Reactants = []
-        case "F2O2 (Perfluorine Peroxide)":
+            Reactants = [solver("H2 + F2 = HF"),
+                         solver("CH4 + F2 = CF4 + HF"),
+                         solver("C2H5OH + F2 = CF4 + H2O"),
+                         solver(""),
+                         solver(""),
+                         solver(""),
+                         solver(""),
+                         solver(""),
+                         solver(""),
+                         solver(""),
+                         solver(""),
+                         solver("")]
+        case "F2O2 (Perfluorine Peroxide)" | "O3 (Ozone)":
             fuel_ListSample = ["H2 (Hydrogen)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = []
         case "N2O4 (Nitrogen Tetroxide)":
@@ -73,48 +84,19 @@ def exponentF(oxid, fuel):
                              "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)", "CH3OH (Methanol)",
                              "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)"]
             Reactants = []
-        case "H2O2 (Hydrogen Peroxide) 95%":
+        case "H2O2 (Hydrogen Peroxide) 95%" | "H2O2 (Hydrogen Peroxide) 85%":
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)", "C12H26 (n-Dodecane)",
                              "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)", "CH3OH (Methanol)",
                              "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)"]
             Reactants = []
-        case "H2O2 (Hydrogen Peroxide) 85%":
-            fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)", "C12H26 (n-Dodecane)",
-                             "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)", "CH3OH (Methanol)",
-                             "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)"]
-            Reactants = []
-        case "O3 (Ozone)":
-            fuel_ListSample = ["H2 (Hydrogen)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
-            Reactants = []
-        case "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)":
-            fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)", "CH3OH (Methanol)"]
-            Reactants = []
-        case "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)":
+        case "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)" | "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)":
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)", "CH3OH (Methanol)"]
             Reactants = []
     reaction = equationizer(Reactants[fuel_ListSample.index(fuel)])
     return reaction
-def calculate(reaction):
-    global EnthA, EnthB
-    Oxid_List = ["O2", "F2", "F2O2", "N2O4", "H2O2-95[H2O-05]", "H2O2-85[H2O-15]", "O3", "HNO3-80[N2O4-20]",
-                 "HNO3-73[N2O4-27]"]
-    Oxi_Enth = [0, 0, 0, -19.56, -205.3, -195.6, -132.2, -142.95, -132.16]
-
-    Fuel_List = ["H2", "CH4", "C2H5OH-95[H2O-05]", "C2H5OH-75[H2O-25]", "C6H5NH2", "NH3", "C2H8N2", "CH6N2", "N2H4",
-                 "CH3OH", "C12H26", "CH6N2-50[N2H4-50]", "CH6N2-75[N2H4-25]"]
-    Fuel_Enth = [0, -74.65, -277.51, -277.07, 83.2, -46.05, 84.9, 94.5, 95.35, -210.5, -290.675, 94.925, 94.7125]
-    reacA1 = reaction[0][0][0].strip()
-    reacB1 = reaction[0][1][0].strip()
-    reacAE = reaction[0][0][1].strip()
-    reacBE = reaction[0][1][1].strip()
-
-    Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
-    OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
-
-    productsData, Hp, combust_temp = reaction[1], 0, 0
-    Exhaust_List = ["NO2", "CO2", "H2O", "HF", "NF2", "CF4"]
-    Exhaust_List_L = ["Nitrogen Dioxide", "Carbon Dioxide", "Water Vapour", "Hydrogen Fluoride", "Nitrogen Difluoride", "Tetrafluorocarbon"]
-
+def prop_1_exh(productsData):
+    pass
+def prop_2_exh(productsData):
     Temperatures = []; Gas1 = []; Gas2 = []
     Gas3 = []; Gas4 = []; Gas5 = []; Gas6 = []; Gas7 = []
     Totality = [Temperatures, Gas1, Gas2, Gas3, Gas4, Gas5, Gas6, Gas7]
@@ -160,6 +142,32 @@ def calculate(reaction):
             Hp_Temp.append(float(Totality[0][x + 2]))
         except:
             pass
+    return [Hp_List, Hp_Temp]
+def prop_3_exh(productsData):
+     pass
+def calculate(reaction):
+    global EnthA, EnthB
+    Oxid_List = ["O2", "F2", "F2O2", "N2O4", "H2O2-95[H2O-05]", "H2O2-85[H2O-15]", "O3", "HNO3-80[N2O4-20]",
+                 "HNO3-73[N2O4-27]"]
+    Oxi_Enth = [0, 0, 0, -19.56, -205.3, -195.6, -132.2, -142.95, -132.16]
+
+    Fuel_List = ["H2", "CH4", "C2H5OH-95[H2O-05]", "C2H5OH-75[H2O-25]", "C6H5NH2", "NH3", "C2H8N2", "CH6N2", "N2H4",
+                 "CH3OH", "C12H26", "CH6N2-50[N2H4-50]", "CH6N2-75[N2H4-25]"]
+    Fuel_Enth = [0, -74.65, -277.51, -277.07, 83.2, -46.05, 84.9, 94.5, 95.35, -210.5, -290.675, 94.925, 94.7125]
+    reacA1 = reaction[0][0][0].strip()
+    reacB1 = reaction[0][1][0].strip()
+    reacAE = reaction[0][0][1].strip()
+    reacBE = reaction[0][1][1].strip()
+
+    Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
+    OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
+
+    productsData, Hp, combust_temp = reaction[1], 0, 0
+
+    print(productsData)
+    res = prop_2_exh(productsData)
+    Hp_List = res[0]
+    Hp_Temp = res[1]
     miner = close(Hp_List, Hr)[0]
     miner_tp = Hp_Temp[Hp_List.index(miner)]
     maxer = close(Hp_List, Hr)[1]
@@ -174,7 +182,9 @@ def calculate(reaction):
 ########################################################################################################################
 Oxidizer = "O2 (Oxygen)"
 Fuel = "C12H26 (n-Dodecane)"
-Combust_Temp = calculate(exponentF(Oxidizer, Fuel))[0]
-C_ExhaustVel = calculate(exponentF(Oxidizer, Fuel))[1]
-OF_Ratio = calculate(exponentF(Oxidizer, Fuel))[2]
+results = calculate(exponentF(Oxidizer, Fuel))
+Combust_Temp = results[0]
+C_ExhaustVel = results[1]
+OF_Ratio = results[2]
+print(results)
 ########################################################################################################################
