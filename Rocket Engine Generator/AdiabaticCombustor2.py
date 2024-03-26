@@ -318,6 +318,7 @@ def calculate(reaction):
 
     Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
     OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
+    print(reaction)
 
     productsData, Hp, combust_temp = reaction[1], 0, 0
 
