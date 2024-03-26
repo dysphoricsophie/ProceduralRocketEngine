@@ -13,17 +13,48 @@ def check(string, sub_str):
         return False
     else:
         return True
-def close(numbers, target):
-    sorted_numbers = sorted(numbers)
-    upper = lower = None
-    index = sorted_numbers.index(target)
+def close(array, tarjet):
+    def findClosest(arr, n, targete):
+        def getClosest(val1, val2, targeta):
+            if targeta - val1 >= val2 - targeta:
+                return val2
+            else:
+                return val1
+        if targete <= arr[0]:
+            return arr[0]
+        if targete >= arr[n - 1]:
+            return arr[n - 1]
 
-    if index < len(sorted_numbers) - 1:
-        upper = sorted_numbers[index + 1]
-    if index > 0:
-        lower = sorted_numbers[index - 1]
+        i = 0; j = n; mid = 0
+        while i < j:
+            mid = (i + j) // 2
+            if arr[mid] == targete:
+                return arr[mid]
+            if targete < arr[mid]:
+                if mid > 0 and targete > arr[mid - 1]:
+                    return getClosest(arr[mid - 1], arr[mid], targete)
+                j = mid
+            else:
+                if mid < n - 1 and targete < arr[mid + 1]:
+                    return getClosest(arr[mid], arr[mid + 1], targete)
+                i = mid + 1
 
-    return [lower, upper]
+        return arr[mid]
+
+    def run(arr, target):
+        global mine, maxe
+        n = len(arr)
+        pust = (findClosest(arr, n, target))
+        pust_id = arr.index(pust)
+        if arr[pust_id] > target:
+            maxe = arr[pust_id]
+            mine = arr[pust_id - 1]
+        elif arr[pust_id] < target:
+            mine = arr[pust_id]
+            maxe = arr[pust_id + 1]
+        return [mine, maxe]
+
+    return run(array, tarjet)
 def split(txt, sep):
     return txt.split(sep)
 def closest_value(input_list, input_value):
@@ -300,7 +331,6 @@ def calculate(reaction):
 
     Hp_List = res[0]
     Hp_Temp = res[1]
-    print(Hp_List)
 
     miner = close(Hp_List, Hr)[0]
     miner_tp = Hp_Temp[Hp_List.index(miner)]
