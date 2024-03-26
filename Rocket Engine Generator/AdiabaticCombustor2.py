@@ -106,11 +106,11 @@ def exponentF(oxid, fuel):
                          solver("CH4 + F2 = CF4 + HF"),
                          solver("C2H5OH + F2 = CF4 + CO2 + HF"),
                          solver("C2H5OH + F2 = CF4 + CO2 + HF"),
-                         solver("C6H5NH2 + F2 = HF + NF2 + CF4"),
-                         solver("NH3 + F2 = NF2 + HF"),
-                         solver("C2H8N2 + F2 = HF + NF2 + CF4"),
-                         solver("CH6N2 + F2 = HF + NF2 + CF4"),
-                         solver("N2H4 + F2 = NF2 + HF"),
+                         solver("C6H5NH2 + F2 = HF + NF3 + CF4"),
+                         solver("NH3 + F2 = NF3 + HF"),
+                         solver("C2H8N2 + F2 = HF + NF3 + CF4"),
+                         solver("CH6N2 + F2 = HF + NF3 + CF4"),
+                         solver("N2H4 + F2 = NF3 + HF"),
                          solver("CH3OH + F2 = CF4 + CO2 + HF"),
                          solver("C12H26 + F2 = CF4 + HF")]
         case "F2O2 (Perfluorine Peroxide)":
@@ -306,7 +306,7 @@ def calculate(reaction):
     global EnthA, EnthB
     Oxid_List = ["O2", "F2", "F2O2", "N2O4", "H2O2-95[H2O-05]", "H2O2-85[H2O-15]", "O3", "HNO3-80[N2O4-20]",
                  "HNO3-73[N2O4-27]"]
-    Oxi_Enth = [0, 0, 0, -19.56, -205.3, -195.6, -132.2, -142.95, -132.16]
+    Oxi_Enth = [0, 0, 0, 19.56, -205.3, -195.6, -132.2, -142.95, -132.16]
 
     Fuel_List = ["H2", "CH4", "C2H5OH-95[H2O-05]", "C2H5OH-75[H2O-25]", "C6H5NH2", "NH3", "C2H8N2", "CH6N2", "N2H4",
                  "CH3OH", "C12H26", "CH6N2-50[N2H4-50]", "CH6N2-75[N2H4-25]"]
