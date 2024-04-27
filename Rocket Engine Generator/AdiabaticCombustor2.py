@@ -127,18 +127,18 @@ def exponentF(oxid, fuel):
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                              "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)", "CH3OH (Methanol)",
                              "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)", "C12H26 (n-Dodecane)"]
-            Reactants = [solver("H2 + N2O4 = NO2 + H2O"),
+            Reactants = [solver("H2 + N2O4 = N2 + H2O"),
                          solver("C2H5OH + N2O4 = NO2 + CO2 + H2O"),
                          solver("C2H5OH + N2O4 = NO2 + CO2 + H2O"),
                          solver("C6H5NH2 + N2O4 = NO2 + CO2 + H2O"),
-                         solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
-                         solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
+                         solver("CH6N2 + N2O4 = CO2 + N2 + H2O"),
+                         solver("CH6N2 + N2O4 = CO2 + N2 + H2O"),
                          solver("CH3OH + N2O4 = NO2 + CO2 + H2O"),
                          solver("NH3 + N2O4 = NO2 + H2O"),
-                         solver("C2H8N2 + N2O4 = CO2 + NO2 + H2O"),
-                         solver("CH6N2 + N2O4 = CO2 + NO2 + H2O"),
-                         solver("N2H4 + N2O4 = NO2 + H2O"),
-                         solver("C12H26 + N2O4 = CO2 + NO2 + H2O")]
+                         solver("C2H8N2 + N2O4 = CO2 + N2 + H2O"),
+                         solver("CH6N2 + N2O4 = CO2 + N2 + H2O"),
+                         solver("N2H4 + N2O4 = N2 + H2O"),
+                         solver("C12H26 + N2O4 = CO2 + N2 + H2O")]
         case "H2O2 (Hydrogen Peroxide) 95%" | "H2O2 (Hydrogen Peroxide) 85%":
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                              "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)", "CH3OH (Methanol)",
@@ -316,8 +316,6 @@ def calculate(reaction):
     reacAE = reaction[0][0][1].strip()
     reacBE = reaction[0][1][1].strip()
 
-    Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
-    OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
     print(reacA1)
     print(reacB1)
     print(reacAE)
@@ -327,6 +325,8 @@ def calculate(reaction):
     print(Formula(reacB1).mass)
     print(Formula(reacA1).mass)
 
+    Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
+    OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
     productsData, Hp, combust_temp = reaction[1], 0, 0
 
     res = []
