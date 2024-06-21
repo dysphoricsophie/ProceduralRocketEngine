@@ -65102,3 +65102,144 @@ Tank repressurisation Method: Autogenous
 Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
 Engine Throttle Range: 78-102%
 
+Engine Designation: M-651H "Rhino"
+
+Fuel Flow Cycle: Pressure-Fed
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: C2H8N2 (UnsymmetricalDimethylHydrazine)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 22:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±10°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: RSA-734B "Annelida"
+
+Fuel Flow Cycle: "Expander Closed" Liquid Core
+Propellant (Remass): Uranium impregnated Tungsten and Ammonia (NH3)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation V+
+Reactor Maximum Power: 4.05 GWReactor Fuel Material: 6.9% Uranium-235
+Engine Exhaust Velocity: 12,464.13 m/sReactor Core Temperature: 3,647.5°KReactor Coolant: Ammonia (NH3)
+Engine Bimodality: Engine is bimodalEngine Electrical Output: 656.55 MWAltitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 170:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: LR-1027C "Asimov"
+
+Fuel Flow Cycle: Variable Specific Impulse Magnetoplasma Rocket (VASIMR)
+Propellant(Remass): Xe (Xenon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: VASIMR Magnetic Confinement Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 190 kW
+
+Engine Designation: VA-772S "Ross"
+
+Fuel Flow Cycle: "Magnetohydrodynamic(MHD) Confinement" Gas Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Carbon Monoxide (CO)
+Propellant State: Gaseous Nuclear Fuel
+Reactor Generation: Generation IV
+Reactor Maximum Power: 15.41 GWReactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 3,799.66 m/sReactor Core Temperature: 13,865°KReactor Coolant: Carbon Monoxide (CO)
+Engine Bimodality: Engine is bimodalEngine Electrical Output: 2,495.7 MWAltitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 106:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: DOK-12x "Thunder"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: N2H4 (Hydrazine)
+Average Mixture Ratio: 0.74
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 19:1
+Characteristic Exhaust Velocity: 2973 m/sAdiabatic Combustion Temperature: 3275°KEngine Gimbal Range: ±4°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: VA-766D "Teplokhod"
+
+Fuel Flow Cycle: LARS Liquid Core
+Propellant (Remass): Uranium impregnated Rhenium and Nitrogen (N2)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation III+
+Reactor Maximum Power: 4.28 GWReactor Fuel Material: 8.1% Uranium-235
+Engine Exhaust Velocity: 5,363.75 m/sReactor Core Temperature: 3,852.5°KReactor Coolant: Nitrogen (N2)
+Engine Bimodality: Engine is bimodalEngine Electrical Output: 693.45 MWAltitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 188:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: TYS-1041A "Argon"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Hg (Mercury)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Nuclear Fusion Reactor
+Rated Power Level: 950 kW
+
+Engine Designation: VA-800 "Fortune"
+
+Fuel Flow Cycle: Variable Specific Impulse Magnetoplasma Rocket (VASIMR)
+Propellant(Remass): Kr (Krypton)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: VASIMR Magnetic Confinement Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Radioisotope Thermoelectric Generator (RTG)
+Rated Power Level: 160 kW
+
+Engine Designation: LE-713E "Bryton"
+
+Fuel Flow Cycle: "Magnetohydrodynamic(MHD) Confinement" Gas Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Carbon Dioxide (CO2)
+Propellant State: Gaseous Nuclear Fuel
+Reactor Generation: Generation IV
+Reactor Maximum Power: 15.55 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 5,914.53 m/s
+Reactor Core Temperature: 13,995°K
+Reactor Coolant: Carbon Dioxide (CO2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 2,519.1 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 157:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: P-158T "Shturn"
+
+Fuel Flow Cycle: Hall Effect Thruster
+Propellant(Remass): Ar (Argon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Hall Effect Thruster Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Radioisotope Thermoelectric Generator (RTG)
+Rated Power Level: 680 kW
+

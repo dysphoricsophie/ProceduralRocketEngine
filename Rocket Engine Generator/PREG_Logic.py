@@ -32,7 +32,7 @@ def randomize(array):
 def split(txt, sep): return txt.split(sep)
 def NumFormat(num): return format(round(num, 2), ",")
 
-def random_code(filelogging):
+def main_code(filelogging):
     def nameGen():
         engine_Name1 = []
         file = open("Names.txt", "r")
@@ -424,25 +424,25 @@ def random_code(filelogging):
         output.append(f"Propellant (Remass): {PLC}\n")
         output.append(f"Propellant State: {PRS}\n")
         output.append(f"Reactor Generation: {react_gen}\n")
-        output.append(f"Reactor Maximum Power: {MaxP} GW")
+        output.append(f"Reactor Maximum Power: {MaxP} GW\\n")
         output.append(f"Reactor Fuel Material: {RFC}\n")
         if NCC == "LANTR":
             try:
-                output.append(f"Engine Exhaust Velocity: {NumFormat(EEV)}/~3850 m/s")
+                output.append(f"Engine Exhaust Velocity: {NumFormat(EEV)}/~3850 m/s\n")
             except:
-                output.append(f"Engine Exhaust Velocity: ERROR")
+                output.append(f"Engine Exhaust Velocity: ERROR\n")
         else:
             try:
-                output.append(f"Engine Exhaust Velocity: {NumFormat(EEV)} m/s")
+                output.append(f"Engine Exhaust Velocity: {NumFormat(EEV)} m/s\n")
             except:
-                output.append(f"Engine Exhaust Velocity: ERROR")
-        output.append(f"Reactor Core Temperature: {NumFormat(ECT)}°K")
+                output.append(f"Engine Exhaust Velocity: ERROR\n")
+        output.append(f"Reactor Core Temperature: {NumFormat(ECT)}°K\n")
         output.append(f"Reactor Coolant: {ERC}\n")
         if bimodal:
-            output.append(f"Engine Bimodality: Engine is bimodal")
+            output.append(f"Engine Bimodality: Engine is bimodal\n")
         else:
-            output.append(f"Engine Bimodality: Engine is not bimodal")
-        output.append(f"Engine Electrical Output: {MaxElecP} MW")
+            output.append(f"Engine Bimodality: Engine is not bimodal\n")
+        output.append(f"Engine Electrical Output: {MaxElecP} MW\n")
         output.append(f"Altitude Of Operation: {AOOC}\n")
         output.append(f"Exhaust Nozzle Geometry: {NTLC}\n")
         output.append(f"Exhaust Expansion Ratio: {ARR}\n")
@@ -492,9 +492,9 @@ def random_code(filelogging):
     engine_Cycle_Chosen = randomize(engine_Cycle)
 
     """
-    This Match-Case statement serves te purpose of matchingthe engine
-    type to a specific set of restrictions in terms of possible
-    propellant choice to mimic real life rocket engine limitations 
+        This Match-Case statement serves te purpose of matchingthe engine
+        type to a specific set of restrictions in terms of possible
+        propellant choice to mimic real life rocket engine limitations 
     """
     match engine_Cycle_Chosen:
         case "Gas Core" | "Droplet Core" | "Liquid Core" | "Solid Core" | "Vapor Core" | "Nuclear SaltWater" | "Radioisotope Engine":

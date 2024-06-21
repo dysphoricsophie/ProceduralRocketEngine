@@ -4,10 +4,9 @@ import random
 from PIL import Image
 import PIL.Image
 import subprocess
-import customtkinter
 from os.path import exists as file_exists
 from NzlContourPlotGenerator import plot
-from PREG_Logic import random_code
+from PREG_Logic import main_code
 import time
 import customtkinter
 from tkinter import *
@@ -81,9 +80,8 @@ customtkinter.set_widget_scaling(0.8)
 
 class Proced_REG(customtkinter.CTk):
     def __init__(self):
-        super().__init__()
-
         # Initial Variable Declartion
+        super().__init__()
         self.imgge = None;  self.graph_img = None; self.graphical_rep = None; self.rplot = None; self.ttp = None
         self.img = None; self.undo = None; self.redo = None; self.genlistA = None; self.genlistB = None
         self.checkbox_1 = None; self.output = None; self.t_output = None; self.dev_explorer = None
@@ -94,14 +92,10 @@ class Proced_REG(customtkinter.CTk):
 
         # Generates the cosmetics for the main framework
         self.sidebar = customtkinter.CTkFrame(self, width=305, height=1200, corner_radius=5)
-        self.random = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10,
-                                              text="Automated Generation", font=("Helvetica", 16), command=self.auto)
-        self.basic = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10,
-                                             text="Basic Generation", font=("Helvetica", 16), command=self.basic)
-        self.extended = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10,
-                                                text="Extended Generation", font=("Helvetica", 16), command=self.adv)
-        self.about = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=160, border_spacing=10,
-                                             text="About Us", font=("Helvetica", 16), command=self.about)
+        self.random = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Automated Generation", font=("Helvetica", 16), command=self.auto)
+        self.basic = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Basic Generation", font=("Helvetica", 16), command=self.basic)
+        self.extended = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Extended Generation", font=("Helvetica", 16), command=self.adv)
+        self.about = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=160, border_spacing=10, text="About Us", font=("Helvetica", 16), command=self.about)
 
         # Reference for the variables for placement of cosmetic items
         self.sidebar.place(x=0, y=120)
@@ -120,98 +114,115 @@ class Proced_REG(customtkinter.CTk):
         self.mainTitle.place(x=0, y=0)
         self.line.place(x=0, y=120)
 
-        #
+        # Adds the different buttons and itonc (mostly the home button)
         self.home_image = customtkinter.CTkImage(PIL.Image.open(open("./Assets/reload.png", "rb")))
-        self.home_button = customtkinter.CTkButton(self, corner_radius=2, height=20, border_spacing=0, text="", fg_color="transparent",
-                                                   text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.home_image)
+        self.home_button = customtkinter.CTkButton(self, corner_radius=2, height=20, border_spacing=0, text="", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.home_image)
 
-        #
+        # Makes sure the app closes like it is supposed to
         self.make_topmost()
         self.protocol("WM_DELETE_WINDOW", self.on_exit)
         self.auto()
         self.update()
+
     def on_exit(self):
-        #
+        # Exit protocol for app
         self.destroy()
         exit(0)
-    def center(self): self.eval('tk::PlaceWindow %s center' % app.winfo_pathname(app.winfo_id()))
+
+    def center(self):
+        # Centering the tkinter window
+        self.eval('tk::PlaceWindow %s center' % app.winfo_pathname(app.winfo_id()))
+
     def make_topmost(self):
-        #
+        # No idea anymore lol
         self.lift()
         self.attributes("-topmost", 1)
         self.attributes("-topmost", 0)
-    def reload_b(self):
+
+    def reload_button(self):
+        # Reloading y-coordinates for text etc
         y_coor = 0
+
+        # Destroying any widgets already displayed
         for widgets in self.interiorTitle.winfo_children(): widgets.destroy()
         for widgets in self.interiorText.winfo_children(): widgets.destroy()
         for widgets in self.imgge.winfo_children(): widgets.destroy()
 
-        #
+        # Deletes and re-displays the graph for the nozzle
         if file_exists("graph_plot.png"):
             os.remove("graph_plot.png")
         plot(random.randint(5, 500), random.randint(5, 100), 80, 1.2, "graph_plot.png")
 
-        #
-        self.output = random_code(filelogging)
+        # Gets the output from the main code
+        self.output = main_code(filelogging)
         self.genlistA = self.output
+
+        # Places the output from the main code (Title and Label)
         self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {self.output[0]}"""), font=("Segoe UI", 32))
         self.labelTitle.place(x=14, y=10)
-
-        #
         for i in range(1, len(self.output)):
             self.labelText = customtkinter.CTkLabel(self.interiorText, text=str(f"   {self.output[i]}\n"), font=("Segoe UI", 20))
             self.labelText.place(x=15, y=y_coor + 30)
             y_coor = y_coor + 30
 
-        #
+        # Saves the output from the main logic in memory (stops it from changing / reloading)
         self.t_output = self.output
+
+        # Creates the graphical plot for the Rocket Engine Nozzle
         self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
         self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White", image=self.graphical_rep)
         self.graph_img.place(x=0, y=0)
 
     def auto(self):
+        # # Reloading y-coordinates for text etc
         y_coor = 0
+
+        # Destroying any widgets already displayed
         for widgets in self.mainFrame.winfo_children(): widgets.destroy()
         for widgets in self.mainTitle.winfo_children(): widgets.destroy()
 
-        #
+        # Display main window title
         self.label = customtkinter.CTkLabel(self.mainTitle, text="Automated Generation", font=("Sans-Serif", 65, "bold"))
         self.label.grid(padx=20, pady=(20, 100))
         self.label.place(x=405, y=98, anchor="s")
 
-        #
-        self.reload = customtkinter.CTkButton(self.mainFrame, command=self.reload_b, text="Generate")
+        # Creates and places the "Generate" button
+        self.reload = customtkinter.CTkButton(self.mainFrame, command=self.reload_button, text="Generate")
         self.reload.grid(padx=20, pady=10)
         self.reload.place(x=70, y=760)
 
+        # Creates the tooltip on button hover (for the "Generate" button)
         CreateToolTip(self.reload, text='Generates a new engine', font=("Arial", 13), fg="white", padx=8, pady=2, bg="#444444", bw=0, delay=100)
 
-        #
+        # Creates and places the "Open Files" button
         self.open_explorer = customtkinter.CTkButton(self.mainFrame, text="Open Files", command=lambda: subprocess.run(["C:/Windows/explorer.exe", 'GenFiles']))
         self.open_explorer.grid(padx=20, pady=10); self.open_explorer.place(x=230, y=760)
 
-        #
+        # Creates and places the "Dev Data" button
         self.dev_explorer = customtkinter.CTkButton(self.mainFrame, text="Open Dev Data", command=lambda: subprocess.run(["C:/Windows/explorer.exe", 'GenFiles/GenData']))
         self.dev_explorer.grid(padx=20, pady=10); self.dev_explorer.place(x=390, y=760)
 
-        #
-        self.filelog = customtkinter.CTkSwitch(master=self.mainFrame, text="File logging", command=file_log)
-        self.filelog.select(); self.filelog.grid(pady=10, padx=20, sticky="n"); self.filelog.place(x=605, y=785, anchor="s")
+        # Creates and places the "File Logging" button
+        self.filelog = customtkinter.CTkSwitch(master=self.mainFrame, text="File Logging", command=file_log)
+        self.filelog.select(); self.filelog.grid(pady=10, padx=20, sticky="n")
+        self.filelog.place(x=605, y=785, anchor="s")
 
-        #
+        # Creates and places the interior title of the window
         self.interiorTitle = customtkinter.CTkFrame(self.mainFrame, width=3000, height=65, corner_radius=5)
-        self.interiorTitle.grid(padx=(20, 20), pady=(0, 0), sticky="nsew"); self.interiorTitle.place(x=45, y=25)
+        self.interiorTitle.grid(padx=(20, 20), pady=(0, 0), sticky="nsew")
+        self.interiorTitle.place(x=45, y=25)
 
-        #
+        # Creates and places the interior text of the window
         self.interiorText = customtkinter.CTkFrame(self.mainFrame, width=3000, height=650, corner_radius=5)
         self.interiorText.place(x=45, y=95)
 
-        #
+        # I forgor owo
         self.imgge = customtkinter.CTkFrame(self.mainFrame, width=835, height=625, corner_radius=0)
         self.imgge.place(x=1225, y=107)
 
-        #
-        if self.t_output is None: self.reload_b()
+        # Enacts on the reload if nothing is saved in memory, keeps it if something is in memory (Title and Label)
+        if self.t_output is None:
+            self.reload_button()
         else:
             self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {self.t_output[0]}"""), font=("Segoe UI", 30))
             self.labelTitle.place(x=15, y=10)
@@ -220,34 +231,38 @@ class Proced_REG(customtkinter.CTk):
                 self.labelText = customtkinter.CTkLabel(self.interiorText, text=str(f"   {self.t_output[i]}\n"), font=("Segoe UI", 22))
                 self.labelText.place(x=15, y=y_coor + 30); y_coor = y_coor + 30
 
-        #
+        # Generates the graphical plot for the Rocket Engine Nozzle
         plot(random.randint(5, 500), random.randint(5, 100), 80, 1.2, "graph_plot.png")
+
+        # Displays the graphical plot for the Rocket Engine Nozzle
         self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
         self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White", image=self.graphical_rep)
         self.graph_img.place(x=0, y=0)
 
     def basic(self):
+        # Destroying any widgets already displayed
         for widgets in self.mainFrame.winfo_children(): widgets.destroy()
         for widgets in self.mainTitle.winfo_children(): widgets.destroy()
 
+        # Display main window title
         self.label = customtkinter.CTkLabel(self.mainTitle, text="Basic Generation", font=("Sans-Serif", 65, "bold"))
         self.label.grid(padx=20, pady=(20, 100)); self.label.place(x=325, y=98, anchor="s")
 
     def adv(self):
-        #
+        # Destroying any widgets already displayed
         for widgets in self.mainFrame.winfo_children(): widgets.destroy()
         for widgets in self.mainTitle.winfo_children(): widgets.destroy()
 
-        #
+        # Display main window title
         self.label = customtkinter.CTkLabel(self.mainTitle, text="Extended Generation", font=("Sans-Serif", 65, "bold"))
         self.label.grid(padx=20, pady=(20, 100)); self.label.place(x=385, y=98, anchor="s")
 
     def about(self):
-        #
+        # Destroying any widgets already displayed
         for widgets in self.mainFrame.winfo_children(): widgets.destroy()
         for widgets in self.mainTitle.winfo_children(): widgets.destroy()
 
-        #
+        # Display main window title
         self.label = customtkinter.CTkLabel(self.mainTitle, text="About Us", font=("Sans-Serif", 65, "bold"))
         self.label.grid(padx=20, pady=(20, 100)); self.label.place(x=205, y=98, anchor="s")
 
