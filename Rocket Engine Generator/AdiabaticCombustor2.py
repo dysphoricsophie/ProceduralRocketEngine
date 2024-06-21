@@ -2,17 +2,20 @@ import csv
 import numpy as np
 from molmass import Formula
 from AssholeKeggels import solver
-########################################################################################################################
+
 def findex(array, search):
     return array.index(search)
+
 def interpolation(Hp_List, Hr):
     # Hp_List = [[Product Enthalpy, Temperature], [Product Enthalpy, Temperature] ...
     return Hp_List[0][1] + (Hr - Hp_List[0][0]) * ((Hp_List[1][1] - Hp_List[0][1]) / (Hp_List[1][0] - Hp_List[0][0]))
+
 def check(string, sub_str):
     if string.find(sub_str) == -1:
         return False
     else:
         return True
+
 def close(array, tarjet):
     def findClosest(arr, n, targete):
         def getClosest(val1, val2, targeta):
@@ -55,12 +58,14 @@ def close(array, tarjet):
         return [mine, maxe]
 
     return run(array, tarjet)
-def split(txt, sep):
-    return txt.split(sep)
+
+def split(txt, sep): return txt.split(sep)
+
 def closest_value(input_list, input_value):
     arr = np.asarray(input_list)
     i = (np.abs(arr - input_value)).argmin()
     return arr[i]
+
 def equationizer(equation):
     splitted = split(equation, "=")
 
@@ -81,6 +86,7 @@ def equationizer(equation):
         prodExponents.append(stuff[0])
         prodList.append(stuff[1])
     return [[reactantA, rA_Exponent], [reactantB, rB_Exponent]], [prodList, prodExponents]
+
 def exponentF(oxid, fuel):
     Reactants, fuel_ListSample = [], []
     match oxid:
@@ -316,15 +322,6 @@ def calculate(reaction):
     reacAE = reaction[0][0][1].strip()
     reacBE = reaction[0][1][1].strip()
 
-    print(reacA1)
-    print(reacB1)
-    print(reacAE)
-    print(reacBE)
-    print(Oxi_Enth[findex(Oxid_List, reacB1)])
-    print(Fuel_Enth[findex(Fuel_List, reacA1)])
-    print(Formula(reacB1).mass)
-    print(Formula(reacA1).mass)
-
     Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
     OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
     productsData, Hp, combust_temp = reaction[1], 0, 0
@@ -351,7 +348,7 @@ def calculate(reaction):
     ExhaustVel = 0
     combust_temp = interpolation(interpol_T, Hr)
     return combust_temp, ExhaustVel, OF
-########################################################################################################################
+
 oindian = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
            "NH3 (Ammonia)", "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)",
            "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
@@ -364,4 +361,3 @@ for i in oindian:
         results = calculate(exponentF(Oxidizer, Fuel))
         Combust_Temp = results[0]; C_ExhaustVel = results[1]; OF_Ratio = results[2]
         print(f"Oxidizer: {k} | --------- | Fuel: {i} | --------- |{results}|")
-########################################################################################################################

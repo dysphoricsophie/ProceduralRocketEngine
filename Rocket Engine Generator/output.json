@@ -1,0 +1,22 @@
+{
+    "Engine Data": {
+        "Engine Designation": "BW-1027r \"Novo\"",
+        "Fuel Flow Cycle": "Gas Generator",
+        "Engine Oxidizer": "F2 (Fluorine)",
+        "Engine Fuel": "H2 (Hydrogen)",
+        "Average Mixture Ratio": "6.0",
+        "Propellant properties": "Hypergolic and cryogenic",
+        "Altitude Of Operation": "20-30 km (Medium Atmosphere)",
+        "Exhaust Nozzle Geometry": "Contour Bell Nozzle",
+        "Exhaust Expansion Ratio": "33:1",
+        "Characteristic Exhaust Velocity": "3925 m/s",
+        "Adiabatic Combustion Temperature": "3689°K",
+        "Engine Gimbal Range": "None",
+        "Engine Injector Design": "Liquid Showerhead Injector",
+        "Engine chamber configuration": "Single Chamber",
+        "Engine Use Case": "Lower Stage (Vernier)",
+        "Tank repressurisation Method": "Autogenous",
+        "Nozzle Cooling Mechanism": "Dump Cooling",
+        "Engine Throttle Range": "Not Throttleable"
+    }
+}

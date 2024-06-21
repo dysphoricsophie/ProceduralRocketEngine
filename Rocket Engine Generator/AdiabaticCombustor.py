@@ -1,14 +1,15 @@
 import numpy as np
 from ChumChildren import *
-########################################################################################################################
-def findex(array, search):
-    return array.index(search)
-def split(txt, sep):
-    return txt.split(sep)
+
+def findex(array, search): return array.index(search)
+
+def split(txt, sep): return txt.split(sep)
+
 def closest_value(input_list, input_value):
     arr = np.asarray(input_list)
     i = (np.abs(arr - input_value)).argmin()
     return arr[i]
+
 def equationizer(equation):
     splitted = split(equation, "=")
 
@@ -29,6 +30,7 @@ def equationizer(equation):
         prodExponents.append(stuff[0])
         prodList.append(stuff[1])
     return [[reactantA, rA_Exponent], [reactantB, rB_Exponent]], [prodList, prodExponents]
+
 def exponentF(fuel, oxid):
     Reactants, fuel_ListSample = [], []
     match oxid:
