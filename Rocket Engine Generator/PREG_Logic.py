@@ -22,7 +22,22 @@ def master_search(strings, tbc):
             break
     return IsThere
 def random_number(add, maxV): return add + random.randint(0, maxV)
-def findex(array, search): return array.index(search)
+def findexA(array, search): return array.index(search)
+def findexB(array, search):
+    found_it = None
+    found_loc = -1
+    for idx, i in enumerate(array):
+        if isinstance(i, str) and search in i:
+            found_it = i
+            found_loc = idx
+            break
+    if found_it is None:
+        print("Element not found")
+        return [None, -1]
+    else:
+        print([found_it, found_loc])
+        return [found_it, found_loc]
+
 def randomize(array):
     """
 
@@ -424,7 +439,7 @@ def main_code(filelogging):
         output.append(f"Propellant (Remass): {PLC}\n")
         output.append(f"Propellant State: {PRS}\n")
         output.append(f"Reactor Generation: {react_gen}\n")
-        output.append(f"Reactor Maximum Power: {MaxP} GW\\n")
+        output.append(f"Reactor Maximum Power: {MaxP} GW\n")
         output.append(f"Reactor Fuel Material: {RFC}\n")
         if NCC == "LANTR":
             try:
@@ -514,12 +529,13 @@ def main_code(filelogging):
                     propellant_List_Chosen = remass_List_Chosen
                     reactor_Fuel_Chosen = randomize(reactor_fuel)
 
-                    coreTemp = (max_t - (max_t * 0.125)) + (1 + (17 * (enri_level / f_energy[findex(reactor_fuel, reactor_Fuel_Chosen)])))
+                    coreTemp = (max_t - (max_t * 0.125)) + (1 + (17 * (enri_level / f_energy[findexA(reactor_fuel,
+                                                                                                     reactor_Fuel_Chosen)])))
 
-                    molmassi = findex(remass_List, remass_List_Chosen)
+                    molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
                     divider = (((molmass + 5) - (enri_level / 20)) / f_energy[
-                        findex(reactor_fuel, reactor_Fuel_Chosen)]) ** 0.531
+                        findexA(reactor_fuel, reactor_Fuel_Chosen)]) ** 0.531
                     exhaustVel = (12400 / divider)
                 case "Solid Core":
                     remass_List = ["Hydrogen (H2)", "Nitrogen (N2)", "Ammonia (NH3)", "Water (H2O)", "Oxygen (O2)",
@@ -540,7 +556,7 @@ def main_code(filelogging):
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
 
-                        molmassi = findex(remass_List, remass_List_Chosen)
+                        molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
 
@@ -552,7 +568,7 @@ def main_code(filelogging):
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
 
-                        molmassi = findex(remass_List, remass_List_Chosen)
+                        molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
 
@@ -564,7 +580,7 @@ def main_code(filelogging):
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
 
-                        molmassi = findex(remass_List, remass_List_Chosen)
+                        molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
 
@@ -576,7 +592,7 @@ def main_code(filelogging):
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
 
-                        molmassi = findex(remass_List, remass_List_Chosen)
+                        molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
 
@@ -591,7 +607,7 @@ def main_code(filelogging):
                         reactor_Fuel_Chosen = str(enri_level) + "% " + "Uranium-235"
                         coreTemp = random_number(1400 + (enri_level * 5), 1000)
 
-                        molmassi = findex(remass_List, remass_List_Chosen)
+                        molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
 
@@ -601,7 +617,7 @@ def main_code(filelogging):
                         enri_level = random_number(8, 87) / 10
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
-                        molmassi = findex(remass_List, remass_List_Chosen)
+                        molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
                         exhaustVel = (11000 / divider)
@@ -616,7 +632,7 @@ def main_code(filelogging):
                     propellantState = "Solid Nuclear Fuel"
                     reactor_Fuel_Chosen = enri_level + "% " + "Uranium-235"
                     coreTemp = random_number(2500 + (enri_level * 5), 1000)
-                    molmassi = findex(remass_List, remass_List_Chosen)
+                    molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
                     divider = math.pow((molmass - enri_level), 0.531)
                     exhaustVel = (11800 / divider)
@@ -634,7 +650,7 @@ def main_code(filelogging):
                     nuclear_Cycle_Chosen = randomize(nuclear_cycle)
                     reactor_Fuel_Chosen = str(enri_level) + "% " + "Uranium-235"
                     coreTemp = random_number(3500 + (enri_level * 5), 1000)
-                    molmassi = findex(remass_List, remass_List_Chosen)
+                    molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
                     divider = math.pow((molmass - enri_level), 0.531)
                     exhaustVel = (19620 / divider)
@@ -650,7 +666,7 @@ def main_code(filelogging):
                     nuclear_Cycle_Chosen = randomize(nuclear_cycle)
                     reactor_Fuel_Chosen = str(enri_level) + "% " + "Uranium-235"
                     coreTemp = random_number(5400 + (enri_level * 5), 1000)
-                    molmassi = findex(remass_List, remass_List_Chosen)
+                    molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
                     divider = math.pow((molmass - enri_level), 0.531)
                     exhaustVel = (19600 / divider)
@@ -665,7 +681,7 @@ def main_code(filelogging):
                     propellantState = "Semi-Gaseous Nuclear Fuel"
                     coreTemp = random_number(5500, 1000)
                     enri_level = 93 / 10
-                    molmassi = findex(remass_List, remass_List_Chosen)
+                    molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
                     divider = math.pow((molmass - enri_level), 0.531)
                     exhaustVel = 11800 / divider
@@ -683,7 +699,7 @@ def main_code(filelogging):
                     propellantState = "Gaseous Nuclear Fuel"
                     coreTemp = random_number(13650, 1000)
                     enri_level = 93
-                    molmassi = findex(remass_List, remass_List_Chosen)
+                    molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi]
                     divider = ((molmass + 5) - (enri_level / 10)) ** 0.531
                     exhaustVel = 20405 / divider

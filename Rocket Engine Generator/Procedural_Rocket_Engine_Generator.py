@@ -6,7 +6,7 @@ import PIL.Image
 import subprocess
 from os.path import exists as file_exists
 from NzlContourPlotGenerator import plot
-from PREG_Logic import main_code
+from PREG_Logic import main_code, findexB, findexA
 import time
 import customtkinter
 from tkinter import *
@@ -59,8 +59,8 @@ class ToolTip(object):
             tw.destroy()
 def CreateToolTip(widget, text, font, fg, padx, pady, bg, bw, delay):
     toolTip = ToolTip(widget)
-    def enter(event): toolTip.showtip(text, font, fg, padx, pady, bg, bw)
-    def leave(event): toolTip.hidetip(delay)
+    def enter(): toolTip.showtip(text, font, fg, padx, pady, bg, bw)
+    def leave(): toolTip.hidetip(delay)
     widget.bind('<Enter>', enter)
     widget.bind('<Leave>', leave)
 
@@ -74,28 +74,40 @@ white = "#FFFFFF"
 dark_gray = "#141414"
 light_blue = "#B4DDFF"
 darker_gray = "#A5A4A5"
+button_font = ("Helvetica", 16)
 customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("blue")
 customtkinter.set_widget_scaling(0.8)
 
 class Proced_REG(customtkinter.CTk):
-    def __init__(self):
+    def __init__(self, **kwargs):
         # Initial Variable Declartion
-        super().__init__()
-        self.imgge = None;  self.graph_img = None; self.graphical_rep = None; self.rplot = None; self.ttp = None
-        self.img = None; self.undo = None; self.redo = None; self.genlistA = None; self.genlistB = None
-        self.checkbox_1 = None; self.output = None; self.t_output = None; self.dev_explorer = None
-        self.interiorTitle = None; self.interiorText = None; self.open_explorer = None; self.filelog = None
-        self.reload = None; self.label = None; self.labelTitle = None; self.labelText = None; self.interior = None
-        self.textboxTitle = None; self.state("zoomed"); self.title("Procedural Rocket Engine Generator")
+        super().__init__(**kwargs)
+        self.imgge = None
+        self.graph_img = None
+        self.graphical_rep = None
+        self.genlistA = None
+        self.output = None
+        self.t_output = None
+        self.dev_explorer = None
+        self.interiorTitle = None
+        self.interiorText = None
+        self.open_explorer = None
+        self.filelog = None
+        self.reload = None
+        self.label = None
+        self.labelTitle = None
+        self.labelText = None
+        self.state("zoomed")
+        self.title("Procedural Rocket Engine Generator")
         self.iconbitmap("Assets/icon.ico")
 
         # Generates the cosmetics for the main framework
         self.sidebar = customtkinter.CTkFrame(self, width=305, height=1200, corner_radius=5)
-        self.random = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Automated Generation", font=("Helvetica", 16), command=self.auto)
-        self.basic = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Basic Generation", font=("Helvetica", 16), command=self.basic)
-        self.extended = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Extended Generation", font=("Helvetica", 16), command=self.adv)
-        self.about = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=160, border_spacing=10, text="About Us", font=("Helvetica", 16), command=self.about)
+        self.random = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Automated Generation", font=button_font, command=self.auto)
+        self.basic = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Basic Generation", font=button_font, command=self.basic)
+        self.extended = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=200, border_spacing=10, text="Extended Generation", font=button_font, command=self.adv)
+        self.about = customtkinter.CTkButton(self.sidebar, corner_radius=6, height=50, width=160, border_spacing=10, text="About Us", font=button_font, command=self.about)
 
         # Reference for the variables for placement of cosmetic items
         self.sidebar.place(x=0, y=120)
@@ -148,14 +160,22 @@ class Proced_REG(customtkinter.CTk):
         for widgets in self.interiorText.winfo_children(): widgets.destroy()
         for widgets in self.imgge.winfo_children(): widgets.destroy()
 
-        # Deletes and re-displays the graph for the nozzle
-        if file_exists("graph_plot.png"):
-            os.remove("graph_plot.png")
-        plot(random.randint(5, 500), random.randint(5, 100), 80, 1.2, "graph_plot.png")
-
         # Gets the output from the main code
         self.output = main_code(filelogging)
         self.genlistA = self.output
+
+        # Deletes and re-creates the graph for the nozzle
+        if file_exists("graph_plot.png"):
+            os.remove("graph_plot.png")
+
+        try:
+            findexA(self.output, "None (Nozzle doesnt have a throat)\n")
+        except:
+            try:
+                gtt = int((findexB(self.output, "Exhaust Expansion Ratio")[0]).split(":")[1])
+                plot(random.randint(5, 500), int(gtt), 80, 1.2, "graph_plot.png")
+            except:
+                pass
 
         # Places the output from the main code (Title and Label)
         self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {self.output[0]}"""), font=("Segoe UI", 32))
@@ -192,7 +212,7 @@ class Proced_REG(customtkinter.CTk):
         self.reload.place(x=70, y=760)
 
         # Creates the tooltip on button hover (for the "Generate" button)
-        CreateToolTip(self.reload, text='Generates a new engine', font=("Arial", 13), fg="white", padx=8, pady=2, bg="#444444", bw=0, delay=100)
+        CreateToolTip(self.reload, text='Generates a new engine', font=("Arial", 13), fg="white", padx=8, pady=2, bg="#444444", bw=0, delay=150)
 
         # Creates and places the "Open Files" button
         self.open_explorer = customtkinter.CTkButton(self.mainFrame, text="Open Files", command=lambda: subprocess.run(["C:/Windows/explorer.exe", 'GenFiles']))
@@ -232,7 +252,14 @@ class Proced_REG(customtkinter.CTk):
                 self.labelText.place(x=15, y=y_coor + 30); y_coor = y_coor + 30
 
         # Generates the graphical plot for the Rocket Engine Nozzle
-        plot(random.randint(5, 500), random.randint(5, 100), 80, 1.2, "graph_plot.png")
+        try:
+            findexA(self.output, "None (Nozzle doesnt have a throat)\n")
+        except:
+            try:
+                gtt = int((findexB(self.output, "Exhaust Expansion Ratio")[0]).split(":")[1])
+                plot(random.randint(5, 500), int(gtt), 80, 1.2, "graph_plot.png")
+            except:
+                pass
 
         # Displays the graphical plot for the Rocket Engine Nozzle
         self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
