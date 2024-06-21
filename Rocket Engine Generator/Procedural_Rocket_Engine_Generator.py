@@ -2,7 +2,6 @@
 import os
 import random
 import sys
-
 from PIL import Image
 import PIL.Image
 import subprocess
@@ -137,16 +136,21 @@ class Proced_REG(customtkinter.CTk):
         self.protocol("WM_DELETE_WINDOW", self.on_exit)
         self.auto()
         self.update()
-
     def on_exit(self):
         # Exit protocol for app
         self.destroy()
         sys.exit(1)
-
     def center(self):
         # Centering the tkinter window
         self.eval('tk::PlaceWindow %s center' % app.winfo_pathname(app.winfo_id()))
-
+    def txt_gen(self, array):
+        y_coor = 0
+        self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {array[0]}"""), font=("Segoe UI", 32))
+        self.labelTitle.place(x=14, y=10)
+        for i in range(1, len(self.output)):
+            self.labelText = customtkinter.CTkLabel(self.interiorText, text=str(f"   {array[i]}\n"), font=("Segoe UI", 20))
+            self.labelText.place(x=15, y=y_coor + 30)
+            y_coor = y_coor + 30
     def make_topmost(self):
         # No idea anymore lol
         self.lift()
@@ -154,9 +158,6 @@ class Proced_REG(customtkinter.CTk):
         self.attributes("-topmost", 0)
 
     def reload_button(self):
-        # Reloading y-coordinates for text etc
-        y_coor = 0
-
         # Destroying any widgets already displayed
         for widgets in self.interiorTitle.winfo_children(): widgets.destroy()
         for widgets in self.interiorText.winfo_children(): widgets.destroy()
@@ -180,12 +181,7 @@ class Proced_REG(customtkinter.CTk):
                 pass
 
         # Places the output from the main code (Title and Label)
-        self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {self.output[0]}"""), font=("Segoe UI", 32))
-        self.labelTitle.place(x=14, y=10)
-        for i in range(1, len(self.output)):
-            self.labelText = customtkinter.CTkLabel(self.interiorText, text=str(f"   {self.output[i]}\n"), font=("Segoe UI", 20))
-            self.labelText.place(x=15, y=y_coor + 30)
-            y_coor = y_coor + 30
+        self.txt_gen(self.output)
 
         # Saves the output from the main logic in memory (stops it from changing / reloading)
         self.t_output = self.output
@@ -199,9 +195,6 @@ class Proced_REG(customtkinter.CTk):
              pass
 
     def auto(self):
-        # # Reloading y-coordinates for text etc
-        y_coor = 0
-
         # Destroying any widgets already displayed
         for widgets in self.mainFrame.winfo_children(): widgets.destroy()
         for widgets in self.mainTitle.winfo_children(): widgets.destroy()
@@ -241,20 +234,15 @@ class Proced_REG(customtkinter.CTk):
         self.interiorText = customtkinter.CTkFrame(self.mainFrame, width=3000, height=650, corner_radius=5)
         self.interiorText.place(x=45, y=95)
 
-        # I forgor owo
-        self.imgge = customtkinter.CTkFrame(self.mainFrame, width=835, height=625, corner_radius=0)
+        # Creates and sets the graph image on the main frame
+        self.imgge = customtkinter.CTkFrame(self.mainFrame, width=835, height=625, corner_radius=5)
         self.imgge.place(x=1225, y=107)
 
         # Enacts on the reload if nothing is saved in memory, keeps it if something is in memory (Title and Label)
         if self.t_output is None:
             self.reload_button()
         else:
-            self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {self.t_output[0]}"""), font=("Segoe UI", 32))
-            self.labelTitle.place(x=14, y=10)
-
-            for i in range(1, len(self.t_output)):
-                self.labelText = customtkinter.CTkLabel(self.interiorText, text=str(f"   {self.t_output[i]}\n"), font=("Segoe UI", 20))
-                self.labelText.place(x=15, y=y_coor + 30); y_coor = y_coor + 30
+            self.txt_gen(self.t_output)
 
         # Generates the graphical plot for the Rocket Engine Nozzle
         try:
