@@ -71,6 +71,3 @@ def solver(eqtn):
     lhs = reformatter("+".join(["{} {}".format(coeffs[i], s) for i, s in enumerate(lhs_strings)]))
     rhs = reformatter("+".join(["{} {}".format(coeffs[i], s) for i, s in enumerate(rhs_strings, len(lhs_strings))]))
     return "{} = {}".format(lhs, rhs)
-
-formula = input("Input your chemical reaction: ")
-print(solver(formula))
