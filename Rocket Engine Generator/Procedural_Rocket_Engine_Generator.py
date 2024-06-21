@@ -302,6 +302,6 @@ class Proced_REG(customtkinter.CTk):
         self.label.grid(padx=20, pady=(20, 100)); self.label.place(x=205, y=98, anchor="s")
 
 if __name__ == "__main__":
-    #
+    # Ensures that the superclass "Proced_REG" is only executed when the script is run directly
     app = Proced_REG()
     app.mainloop()
