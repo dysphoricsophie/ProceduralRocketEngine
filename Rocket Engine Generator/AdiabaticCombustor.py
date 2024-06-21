@@ -1,5 +1,5 @@
 import numpy as np
-from ChumChildren import *
+from Final_EquationBalancer import *
 
 def findex(array, search): return array.index(search)
 

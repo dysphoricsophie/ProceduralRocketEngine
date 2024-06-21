@@ -6,7 +6,7 @@ import PIL.Image
 import subprocess
 import customtkinter
 from os.path import exists as file_exists
-from SmellsLikePhishInHere import plot
+from NzlContourPlotGenerator import plot
 from PREG_Logic import random_code
 import time
 import customtkinter
@@ -66,7 +66,6 @@ def CreateToolTip(widget, text, font, fg, padx, pady, bg, bw, delay):
     widget.bind('<Leave>', leave)
 
 # Variable Declaration Section
-y_coor = 0
 count = 2
 filelogging = True
 blue = "#0000FF"
@@ -111,12 +110,12 @@ class Proced_REG(customtkinter.CTk):
         self.extended.place(x=53, y=185)
         self.about.place(x=73, y=260)
 
-        #
+        # Main Frame / Title Creation
         self.mainFrame = customtkinter.CTkFrame(self, width=2075, height=1200, corner_radius=5, fg_color="#242424")
         self.mainTitle = customtkinter.CTkFrame(self, width=2075, height=120, corner_radius=5, fg_color="#242424")
         self.line = customtkinter.CTkFrame(self, width=2500, height=3, fg_color="#404040")
 
-        #
+        # Main Frame / Title Placement
         self.mainFrame.place(x=305, y=120)
         self.mainTitle.place(x=0, y=0)
         self.line.place(x=0, y=120)
@@ -142,7 +141,7 @@ class Proced_REG(customtkinter.CTk):
         self.attributes("-topmost", 1)
         self.attributes("-topmost", 0)
     def reload_b(self):
-        global y_coor
+        y_coor = 0
         for widgets in self.interiorTitle.winfo_children(): widgets.destroy()
         for widgets in self.interiorText.winfo_children(): widgets.destroy()
         for widgets in self.imgge.winfo_children(): widgets.destroy()
@@ -171,7 +170,7 @@ class Proced_REG(customtkinter.CTk):
         self.graph_img.place(x=0, y=0)
 
     def auto(self):
-        global y_coor
+        y_coor = 0
         for widgets in self.mainFrame.winfo_children(): widgets.destroy()
         for widgets in self.mainTitle.winfo_children(): widgets.destroy()
 

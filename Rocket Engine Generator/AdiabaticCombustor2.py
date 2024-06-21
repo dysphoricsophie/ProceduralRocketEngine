@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 from molmass import Formula
-from AssholeKeggels import solver
+from EqtnBalancer import solver
 
 def findex(array, search):
     return array.index(search)

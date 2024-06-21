@@ -470,12 +470,13 @@ def random_code(filelogging):
         for x in output:
             file.write(x)
         return output
-    repeatCommand, y, fNum = "YES", 0, 2
+    y, fNum = 0, 2
     org = "./GenFiles"
     org1 = "./GenFiles/DevData"
     org2 = "./GenFiles/GenData"
     pathe = "./GenFiles/GenData/obf_rex.txt"
     logPF = "./GenFiles/GenData/FullFolders/obf_rex[Full]1.txt"
+
     engine_Cycle = ["Gas Generator", "Staged Combustion (Oxidizer Rich)", "Staged Combustion (Fuel Rich)", "Expander (Open/Bleed)",
                     "Expander (Closed)", "Dual Expander (Open/Bleed)", "Dual Expander (Closed)", "Pressure-Fed", "Full Flow Staged",
                     "Electric Pump Fed", "Combustion Tap Off", "Monopropellant (Cold Gas)", "Monopropellant (Decomposition)",
@@ -485,27 +486,36 @@ def random_code(filelogging):
     altitude_Of_Operation = ["0-20 km (Sea Level)", "20-30 km (Medium Atmosphere)", "30-80 km (High Atmosphere)", "80 km+ (Vacuum)",
                              "Any Altitude (0-80 km+)"]
     tank_Repressurisation = ["Autogenous", "Inert Gas"]
+
     initialisation(fNum)
     engine_Name = nameGen()
     engine_Cycle_Chosen = randomize(engine_Cycle)
+
+    """
+    This Match-Case statement serves te purpose of matchingthe engine
+    type to a specific set of restrictions in terms of possible
+    propellant choice to mimic real life rocket engine limitations 
+    """
     match engine_Cycle_Chosen:
         case "Gas Core" | "Droplet Core" | "Liquid Core" | "Solid Core" | "Vapor Core" | "Nuclear SaltWater" | "Radioisotope Engine":
             match engine_Cycle_Chosen:
                 case "Radioisotope Engine":
                     remass_List = ["Hydrogen (H2)", "Nitrogen (N2)", "Ammonia (NH3)", "Water (H2O)", "Oxygen (O2)",
                                    "Carbon Dioxide (CO2)", "Carbon Monoxide (CO)"]
+                    reactor_fuel = ["Polonium-210", "Fermium-252", "Uranium-233", "Plutonium-238"]
                     remass_EVD = [1.782, 14.6, 4.25, 6.587, 16, 14.6, 28]
+                    f_energy = [5.407, 6.925, 6.856, 5.487]
+                    propellantState = "Solid Nuclear Fuel"
+                    nuclear_Cycle_Chosen = ""
+
                     enri_level = random_number(15, 80)
+                    max_t = random_number(1950, 50)
                     remass_List_Chosen = random.choice(remass_List)
                     propellant_List_Chosen = remass_List_Chosen
-                    nuclear_Cycle_Chosen = ""
-                    reactor_fuel = ["Polonium-210", "Fermium-252", "Uranium-233", "Plutonium-238"]
-                    f_energy = [5.407, 6.925, 6.856, 5.487]
                     reactor_Fuel_Chosen = randomize(reactor_fuel)
-                    propellantState = "Solid Nuclear Fuel"
-                    max_t = random_number(1950, 50)
-                    coreTemp = (max_t - (max_t * 0.125)) + (
-                                1 + (17 * (enri_level / f_energy[findex(reactor_fuel, reactor_Fuel_Chosen)])))
+
+                    coreTemp = (max_t - (max_t * 0.125)) + (1 + (17 * (enri_level / f_energy[findex(reactor_fuel, reactor_Fuel_Chosen)])))
+
                     molmassi = findex(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
                     divider = (((molmass + 5) - (enri_level / 20)) / f_energy[
@@ -515,59 +525,76 @@ def random_code(filelogging):
                     remass_List = ["Hydrogen (H2)", "Nitrogen (N2)", "Ammonia (NH3)", "Water (H2O)", "Oxygen (O2)",
                                    "Carbon Dioxide (CO2)", "Carbon Monoxide (CO)"]
                     remass_EVD = [1.782, 14.6, 4.25, 6.587, 16, 14.6, 28]
-                    remass_List_Chosen = random.choice(remass_List)
-                    propellant_List_Chosen = remass_List_Chosen
                     nuclear_cycle = ["LANTR", "LEUNTR", "LPNTR", "CERMET", "Pebble-Bed", "", "TRIGA"]
-                    nuclear_Cycle_Chosen = randomize(nuclear_cycle)
                     reactor_fuel = ["Uranium-235", "Plutonium-238"]
                     propellantState = "Solid Nuclear Fuel"
+
+                    remass_List_Chosen = random.choice(remass_List)
+                    propellant_List_Chosen = remass_List_Chosen
+                    nuclear_Cycle_Chosen = randomize(nuclear_cycle)
+
                     if nuclear_Cycle_Chosen.upper == "LANTR":
                         remass_List_Chosen = "Hydrogen (H2)"
+
                         enri_level = random_number(18, 87) / 10
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
+
                         molmassi = findex(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
+
                         exhaustVel = (17600 / divider)
                     elif nuclear_Cycle_Chosen.upper == "LEUNTR":
                         remass_List_Chosen = random.choice(remass_List)
+
                         enri_level = random_number(5, 10) / 10
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
+
                         molmassi = findex(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
+
                         exhaustVel = (17600 / divider)
                     elif nuclear_Cycle_Chosen.upper == "LPNTR":
                         remass_List_Chosen = random.choice(remass_List)
+
                         enri_level = random_number(8, 87) / 10
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
+
                         molmassi = findex(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
+
                         exhaustVel = (17600 / divider)
                     elif nuclear_Cycle_Chosen.upper == "CERMET":
                         remass_List_Chosen = random.choice(remass_List)
+
                         enri_level = random_number(8, 87) / 10
                         reactor_Fuel_Chosen = str(enri_level) + "% " + randomize(reactor_fuel)
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
+
                         molmassi = findex(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
+
                         exhaustVel = (17600 / divider)
                     elif nuclear_Cycle_Chosen.upper == "Pebble-Bed":
                         remass_List_Chosen = random.choice(remass_List)
+
                         enri_level = random_number(8, 87) / 10
                         propellantState = "Cryogenic Liquid"
                         propellant_List_Chosen = "Uranium(VI) Fluoride (UF6) and " + remass_List_Chosen
                         nuclear_Cycle_Chosen = randomize(nuclear_cycle)
                         reactor_Fuel_Chosen = str(enri_level) + "% " + "Uranium-235"
                         coreTemp = random_number(1400 + (enri_level * 5), 1000)
+
                         molmassi = findex(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
                         divider = math.pow((molmass - enri_level), 0.531)
+
                         exhaustVel = ((9530 * 2) / divider)
                     else:
                         remass_List_Chosen = random.choice(remass_List)
@@ -722,10 +749,8 @@ def random_code(filelogging):
             reactor_gen_Chosen = randomize(reactor_gen)
             uio97 = random_number(1, 456)
             uio98 = random_number(1, 77)
-            if uio97 % uio98 != 0:
-                isBimodal = True
-            else:
-                isBimodal = False
+            if uio97 % uio98 != 0: isBimodal = True
+            else: isBimodal = False
             NzlReturnP = NzlParameters(altitude_Of_Operation_Chosen)
             parts = NzlReturnP.split(", ")
             AreaRatio = parts[1]
