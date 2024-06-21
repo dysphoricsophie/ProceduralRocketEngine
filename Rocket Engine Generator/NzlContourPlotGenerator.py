@@ -299,7 +299,7 @@ def _set_axes_radius(ax, origin, radius):
 
 def plot(throat_radius, aratio, l_percent, k, filename):
 	angles, contour = bell_nozzle(k, aratio, throat_radius, l_percent)
-	title = 'Rao Bell Nozzle \n [Area Ratio = ' + str(round(aratio, 1)) + ', Throat Radius = ' + str(
+	title = 'Rao Thrust Optimized Rocket Engine Nozzle \n [Nozzle Area Ratio = ' + str(round(aratio, 1)) + ', Nozzle Throat Radius = ' + str(
 		round(throat_radius, 1)) + ']'
 	# Plot 3d view
 	fig = plt.figure()

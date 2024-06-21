@@ -1,6 +1,8 @@
 # coding=windows-1252
 import os
 import random
+import sys
+
 from PIL import Image
 import PIL.Image
 import subprocess
@@ -59,8 +61,8 @@ class ToolTip(object):
             tw.destroy()
 def CreateToolTip(widget, text, font, fg, padx, pady, bg, bw, delay):
     toolTip = ToolTip(widget)
-    def enter(): toolTip.showtip(text, font, fg, padx, pady, bg, bw)
-    def leave(): toolTip.hidetip(delay)
+    def enter(event): toolTip.showtip(text, font, fg, padx, pady, bg, bw)
+    def leave(event): toolTip.hidetip(delay)
     widget.bind('<Enter>', enter)
     widget.bind('<Leave>', leave)
 
@@ -139,7 +141,7 @@ class Proced_REG(customtkinter.CTk):
     def on_exit(self):
         # Exit protocol for app
         self.destroy()
-        exit(0)
+        sys.exit(1)
 
     def center(self):
         # Centering the tkinter window
@@ -189,9 +191,12 @@ class Proced_REG(customtkinter.CTk):
         self.t_output = self.output
 
         # Creates the graphical plot for the Rocket Engine Nozzle
-        self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
-        self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White", image=self.graphical_rep)
-        self.graph_img.place(x=0, y=0)
+        try:
+            self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
+            self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White", image=self.graphical_rep)
+            self.graph_img.place(x=0, y=0)
+        except:
+             pass
 
     def auto(self):
         # # Reloading y-coordinates for text etc
@@ -244,11 +249,11 @@ class Proced_REG(customtkinter.CTk):
         if self.t_output is None:
             self.reload_button()
         else:
-            self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {self.t_output[0]}"""), font=("Segoe UI", 30))
-            self.labelTitle.place(x=15, y=10)
+            self.labelTitle = customtkinter.CTkLabel(self.interiorTitle, text=str(f"""  {self.t_output[0]}"""), font=("Segoe UI", 32))
+            self.labelTitle.place(x=14, y=10)
 
             for i in range(1, len(self.t_output)):
-                self.labelText = customtkinter.CTkLabel(self.interiorText, text=str(f"   {self.t_output[i]}\n"), font=("Segoe UI", 22))
+                self.labelText = customtkinter.CTkLabel(self.interiorText, text=str(f"   {self.t_output[i]}\n"), font=("Segoe UI", 20))
                 self.labelText.place(x=15, y=y_coor + 30); y_coor = y_coor + 30
 
         # Generates the graphical plot for the Rocket Engine Nozzle
@@ -256,15 +261,18 @@ class Proced_REG(customtkinter.CTk):
             findexA(self.output, "None (Nozzle doesnt have a throat)\n")
         except:
             try:
-                gtt = int((findexB(self.output, "Exhaust Expansion Ratio")[0]).split(":")[1])
-                plot(random.randint(5, 500), int(gtt), 80, 1.2, "graph_plot.png")
+                Ar = int((findexB(self.output, "Exhaust Expansion Ratio")[0]).split(":")[1])
+                plot(random.randint(5, 500), int(Ar), 80, 1.2, "graph_plot.png")
             except:
                 pass
 
         # Displays the graphical plot for the Rocket Engine Nozzle
-        self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
-        self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White", image=self.graphical_rep)
-        self.graph_img.place(x=0, y=0)
+        try:
+            self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
+            self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White", image=self.graphical_rep)
+            self.graph_img.place(x=0, y=0)
+        except:
+             pass
 
     def basic(self):
         # Destroying any widgets already displayed

@@ -32,10 +32,8 @@ def findexB(array, search):
             found_loc = idx
             break
     if found_it is None:
-        print("Element not found")
         return [None, -1]
     else:
-        print([found_it, found_loc])
         return [found_it, found_loc]
 
 def randomize(array):
@@ -151,10 +149,6 @@ def main_code(filelogging):
                 combustionTemps = [3304, 3379, 3314, 3167, 3657, 3020, 3399, 3275, 3214, 3526]
                 mixRatios = [5.00, 2.77, 1.49, 1.29, 1.72, 1.28, 1.15, 0.74, 1.19, 2.29]
                 exhaustVels = [3738, 2932, 2713, 2635, 2708, 2815, 2938, 2973, 2687, 2834]
-                exhaustGases = [[],
-                                []]
-                exhaustQuan = [[],
-                               []]
             case "F2 (Fluorine)":
                 fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%",
                                    "C6H5NH2 (Aniline)", "NH3 (Ammonia)", "C2H8N2 (UnsymmetricalDimethylHydrazine)",
@@ -163,10 +157,6 @@ def main_code(filelogging):
                 combustionTemps = [3689, -1, -1, 4344, -1, 4469, -1, -1, 4544, 4402, -1]
                 mixRatios = [6.00, -1.00, -1.00, 2.26, -1.00, 2.81, -1.00, -1.00, 1.82, 2.20, -1.00]
                 exhaustVels = [3925, -1, -1, 3106, -1, 3278, -1, -1, 3315, 3146, -1]
-                exhaustGases = [[],
-                                []]
-                exhaustQuan = [[],
-                               []]
             case "F2O2 (Perfluorine Peroxide)":
                 fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%",
                                    "C6H5NH2 (Aniline)", "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)",
@@ -175,10 +165,6 @@ def main_code(filelogging):
                 combustionTemps = [-1, 4530, 4437, -1, 4517, 4584, 4575, 4583, -1, 4571, -1]
                 mixRatios = [-1.00, 4.82, 2.56, -1.00, 2.41, 2.41, 2.22, 2.33, -1.00, 3.67, -1.00]
                 exhaustVels = [-1, 3281, 3134, -1, 3006, 3255, 3273, 3264, -1, 3166, -1]
-                exhaustGases = [[],
-                                []]
-                exhaustQuan = [[],
-                               []]
             case "O3 (Ozone)":
                 fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%",
                                    "C6H5NH2 (Aniline)", "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)",
@@ -187,10 +173,6 @@ def main_code(filelogging):
                 combustionTemps = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
                 mixRatios = [-1.00, -1.00, -1.00, -1.00, -1.00, -1.00, -1.00, -1.00, -1.00, -1.00, -1.00, -1.00]
                 exhaustVels = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-                exhaustGases = [[],
-                                []]
-                exhaustQuan = [[],
-                               []]
             case "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)" | "AK20I: 80% HNO3 + 20% N2O4 (Nitric Acid)" | \
                  "AK20K: 80% HNO3 + 20% N2O4 (Nitric Acid)" | "AK27I: 73% HNO3 + 27% N2O4 (Nitric Acid)" | \
                  "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)":
@@ -199,10 +181,6 @@ def main_code(filelogging):
                 combustionTemps = [2795, 2905, 3033, 2932, 2824]
                 mixRatios = [8.00, 2.75, 2.13, 1.28, 2.13]
                 exhaustVels = [3112, 2449, 2635, 2702, 2441]
-                exhaustGases = [[],
-                                []]
-                exhaustQuan = [[],
-                               []]
             case "N2O4 (Nitrogen Tetroxide)":
                 fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                                    "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)",
@@ -211,10 +189,6 @@ def main_code(filelogging):
                 combustionTemps = [2973, 3151, 3006, 3468, 3268, 3229, 3296, 3252, 3137, 3058, 3342]
                 mixRatios = [6.50, 2.26, 1.93, 2.64, 1.85, 1.59, 2.10, 1.73, 1.08, 1.78, 3.53]
                 exhaustVels = [3334, 2540, 2479, 2538, 2730, 2750, 2713, 2742, 2803, 2528, 2619]
-                exhaustGases = [[],
-                                []]
-                exhaustQuan = [[],
-                               []]
             case "H2O2 (Hydrogen Peroxide) 85%":
                 fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                                    "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)",
@@ -223,10 +197,6 @@ def main_code(filelogging):
                 combustionTemps = [2544, 2552, 2447, 2719, 2681, 2668, 2690, 2681, 2630, 2511, 2666]
                 mixRatios = [14.00, 4.62, 3.77, 5.95, 4.02, 3.39, 4.63, 3.76, 2.15, 3.55, 7.84]
                 exhaustVels = [2882, 2476, 2425, 2495, 2592, 2604, 2582, 2600, 2642, 2464, 2530]
-                exhaustGases = [[],
-                                []]
-                exhaustQuan = [[],
-                               []]
             case "H2O2 (Hydrogen Peroxide) 95%":
                 fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                                    "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)",
@@ -235,10 +205,6 @@ def main_code(filelogging):
                 combustionTemps = [2666, 2762, 2653, 2934, 2870, 2852, 2884, 2871, 2801, 2709, 2878]
                 mixRatios = [11.00, 3.97, 3.27, 4.94, 3.32, 2.82, 3.82, 3.13, 1.82, 3.06, 6.50]
                 exhaustVels = [1918, 1599, 1566, 1610, 1683, 1692, 1676, 1688, 1718, 1590, 1639]
-                exhaustGases = [[],
-                                []]
-                exhaustQuan = [[],
-                               []]
         x = fuel_ListSample.index(fuel)
         combust_temp = str(combustionTemps[x])
         mixRatio = str(mixRatios[x])
@@ -341,8 +307,6 @@ def main_code(filelogging):
             chamberN = "Triple Chamber"
         elif chambers == 4:
             chamberN = "Quadruple Chamber"
-        elif chambers == 5:
-            chamberN = "Sextuple Chamber"
         else:
             chamberN = "Multiple Chambers (6+)"
 
@@ -470,8 +434,7 @@ def main_code(filelogging):
                 file.write(x)
             file.close()
         return output
-    def output_def(ENN, ECC, OCC, FCC, AOOC, NTC, TRC, CMC, propProp, purp, injector, FinalAreaRatio, combust_temp,
-                   mixRatio, exhaustVel5, ThrottleRange, chamberN, F_gimbalangle):
+    def output_def(ENN, ECC, OCC, FCC, AOOC, NTC, TRC, CMC, propProp, purp, injector, FinalAreaRatio, combust_temp, mixRatio, exhaustVel5, ThrottleRange, chamberN, F_gimbalangle):
         output = [f"Engine Designation: {ENN}\n", f"Fuel Flow Cycle: {ECC}\n", f"Engine Oxidizer: {OCC}\n",
                   f"Engine Fuel: {FCC}\n", f"Average Mixture Ratio: {mixRatio}\n", f"Propellant properties: {propProp}\n",
                   f"Altitude Of Operation: {AOOC}\n", f"Exhaust Nozzle Geometry: {NTC}\n",
@@ -506,11 +469,11 @@ def main_code(filelogging):
     engine_Name = nameGen()
     engine_Cycle_Chosen = randomize(engine_Cycle)
 
-    """
+    ''' 
         This Match-Case statement serves te purpose of matchingthe engine
         type to a specific set of restrictions in terms of possible
-        propellant choice to mimic real life rocket engine limitations 
-    """
+        propellant choice to mimic real life rocket engine limitations
+    '''
     match engine_Cycle_Chosen:
         case "Gas Core" | "Droplet Core" | "Liquid Core" | "Solid Core" | "Vapor Core" | "Nuclear SaltWater" | "Radioisotope Engine":
             match engine_Cycle_Chosen:
@@ -529,8 +492,7 @@ def main_code(filelogging):
                     propellant_List_Chosen = remass_List_Chosen
                     reactor_Fuel_Chosen = randomize(reactor_fuel)
 
-                    coreTemp = (max_t - (max_t * 0.125)) + (1 + (17 * (enri_level / f_energy[findexA(reactor_fuel,
-                                                                                                     reactor_Fuel_Chosen)])))
+                    coreTemp = (max_t - (max_t * 0.125)) + (1 + (17 * (enri_level / f_energy[findexA(reactor_fuel, reactor_Fuel_Chosen)])))
 
                     molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
@@ -759,8 +721,7 @@ def main_code(filelogging):
             elif engine_Cycle_Chosen == "Radioisotope Engine":
                 reactor_gen = ["Generation I"]
             else:
-                reactor_gen = ["Generation II", "Generation III", "Generation III+",
-                               "Generation IV", "Generation V", "Generation V+"]
+                reactor_gen = ["Generation II", "Generation III", "Generation III+", "Generation IV", "Generation V", "Generation V+"]
             # ============================================================================================
             reactor_gen_Chosen = randomize(reactor_gen)
             uio97 = random_number(1, 456)
@@ -825,8 +786,7 @@ def main_code(filelogging):
                     catalyst_Chosen = "Iridium coated Alumina Pellets"
                 case "H2O2 (Hydrogen Peroxide)":
                     catalyst = ["KMnO4 (Potassium Permanganate) Honeycomb", "Ag (Silver) Honeycomb",
-                                "FeO (Iron (II) oxide)",
-                                "MnO2 (Manganese Dioxide) Honeycomb", "K2Cr2O7 (Potassium dichromate) Honeycomb"]
+                                "FeO (Iron (II) oxide)", "MnO2 (Manganese Dioxide) Honeycomb", "K2Cr2O7 (Potassium dichromate) Honeycomb"]
                     catalyst_Chosen = randomize(catalyst)
                 case "NH2OH+NO3 (Hydroxylammonium nitrate)":
                     catalyst_Chosen = "Iridium coated Copper Pellets"
@@ -847,8 +807,8 @@ def main_code(filelogging):
             pot_uses = ["Upper Stage(Ullage)", "Upper Stage(Vernier)", "Payload (Main Propulsion)", "Payload (Vernier)",
                         "Space Tug (Ullage)", "Space Tug (Vernier)"]
             purpose = randomize(pot_uses)
-            output = output_mono(engine_Name, engine_Cycle_Chosen, altitude_Of_Operation_Chosen,
-                                 propellant_List_Chosen, nozzle_Type_List_Chosen, cooling_Mechanism_Chosen, purpose)
+            output = output_mono(engine_Name, engine_Cycle_Chosen, altitude_Of_Operation_Chosen, propellant_List_Chosen,
+                                 nozzle_Type_List_Chosen, cooling_Mechanism_Chosen, purpose)
         # ============================================================================================
         case "Expander (Closed)" | "Expander (Open/Bleed)":
             oxidizer_List = ["O2 (Oxygen)", "F2 (Fluorine)", "F2O2 (Perfluorine Peroxide)", "O3 (Ozone)"]
@@ -871,8 +831,7 @@ def main_code(filelogging):
                     fuel_List = ["H2 (Hydrogen)", "N2H4 (Hydrazine)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
                     random.shuffle(fuel_List)
                     fuel_Chosen = random.choice(fuel_List)
-            output = StndrdDet(engine_Name, engine_Cycle_Chosen, oxidizer_Chosen, fuel_Chosen,
-                               tank_Repressurisation, altitude_Of_Operation)
+            output = StndrdDet(engine_Name, engine_Cycle_Chosen, oxidizer_Chosen, fuel_Chosen, tank_Repressurisation, altitude_Of_Operation)
         # ============================================================================================
         case "Dual Expander (Closed)" | "Dual Expander (Open/Bleed)":
             oxidizer_List = ["O2 (Oxygen)", "F2 (Fluorine)", "F2O2 (Perfluorine Peroxide)"]
@@ -885,8 +844,7 @@ def main_code(filelogging):
                     fuel_Chosen = random.choice(fuel_List)
                 case "F2O2 (Perfluorine Peroxide)":
                     fuel_Chosen = "H2 (Hydrogen)"
-            output = StndrdDet(engine_Name, engine_Cycle_Chosen, oxidizer_Chosen, fuel_Chosen, tank_Repressurisation,
-                               altitude_Of_Operation)
+            output = StndrdDet(engine_Name, engine_Cycle_Chosen, oxidizer_Chosen, fuel_Chosen, tank_Repressurisation, altitude_Of_Operation)
         # ============================================================================================
         case "Staged Combustion (Fuel Rich)":
             oxidizer_List = ["O2 (Oxygen)", "F2 (Fluorine)", "F2O2 (Perfluorine Peroxide)", "O3 (Ozone)"]
@@ -899,8 +857,7 @@ def main_code(filelogging):
                     fuel_Chosen = random.choice(fuel_List)
                 case "F2O2 (Perfluorine Peroxide)" | "O3 (Ozone)":
                     fuel_Chosen = "H2 (Hydrogen)"
-            output = StndrdDet(engine_Name, engine_Cycle_Chosen, oxidizer_Chosen, fuel_Chosen,
-                               tank_Repressurisation, altitude_Of_Operation)
+            output = StndrdDet(engine_Name, engine_Cycle_Chosen, oxidizer_Chosen, fuel_Chosen, tank_Repressurisation, altitude_Of_Operation)
         # ============================================================================================
         case "Staged Combustion (Oxidizer Rich)":
             oxidizer_List = ["O2 (Oxygen)", "O3 (Ozone)", "N2O4 (Nitrogen Tetroxide)"]
@@ -919,8 +876,7 @@ def main_code(filelogging):
                                  "C2H8N2 (UnsymmetricalDimethylHydrazine)"]
                     random.shuffle(fuel_List)
                     fuel_Chosen = random.choice(fuel_List)
-            output = StndrdDet(engine_Name, engine_Cycle_Chosen, oxidizer_Chosen, fuel_Chosen, tank_Repressurisation,
-                               altitude_Of_Operation)
+            output = StndrdDet(engine_Name, engine_Cycle_Chosen, oxidizer_Chosen, fuel_Chosen, tank_Repressurisation, altitude_Of_Operation)
         # ============================================================================================
         case "Full Flow Staged Combustion" | "Combustion Tap Off":
             oxidizer_List = ["O2 (Oxygen)", "F2 (Fluorine)", "F2O2 (Perfluorine Peroxide)", "O3 (Ozone)",
