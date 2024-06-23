@@ -1,5 +1,6 @@
 import csv
 import numpy as np
+import pandas as pd
 from molmass import Formula
 from EqtnBalancer import solver
 
@@ -61,6 +62,21 @@ def closest_value(input_list, input_value):
     arr = np.asarray(input_list)
     i = (np.abs(arr - input_value)).argmin()
     return arr[i]
+def read_data(file_path):
+    return pd.read_csv(file_path, index_col='Molecule')
+
+# Function to calculate enthalpy change for a reaction
+def calculate_enthalpy_change(reactants, products, data):
+    reactant_sum = sum([data.loc[molecule, 'Enthalpy'] * count for molecule, count in reactants.items()])
+    product_sum = sum([data.loc[molecule, 'Enthalpy'] * count for molecule, count in products.items()])
+    delta_h = product_sum - reactant_sum
+    return delta_h
+
+# Function to calculate temperature change for a reaction
+def calculate_temperature_change(delta_h, products, data):
+    total_cp = sum([data.loc[molecule, 'Cp'] * count for molecule, count in products.items()])
+    delta_t = abs(delta_h * 1000) / total_cp
+    return delta_t
 def equationizer(equation):
     splitted = split(equation, "=")
 
@@ -98,7 +114,6 @@ def exponentF(oxid, fuel):
                          solver("N2H4 + O2 = H2O + NO2"),
                          solver("CH3OH + O2 = H2O + CO2"),
                          solver("C12H26 + O2 = H2O + CO2")]
-            delta_E = []
         case "F2 (Fluorine)":
             fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                              "NH3 (Ammonia)", "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)",
@@ -114,19 +129,16 @@ def exponentF(oxid, fuel):
                          solver("N2H4 + F2 = NF3 + HF"),
                          solver("CH3OH + F2 = CF4 + CO2 + HF"),
                          solver("C12H26 + F2 = CF4 + HF")]
-            delta_E = []
         case "F2O2 (Perfluorine Peroxide)":
             fuel_ListSample = ["H2 (Hydrogen)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + F2O2 = HF + H2O"),
                          solver("CH3OH + F2O2 = CF4 + CO2 + HF"),
                          solver("C12H26 + F2O2 = CF4 + HF + H2O")]
-            delta_E = []
         case "O3 (Ozone)":
             fuel_ListSample = ["H2 (Hydrogen)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + O3 = H2O"),
                          solver("CH3OH + O3 = CO2 + H2O"),
                          solver("C12H26 + O3 = CO2 + H2O")]
-            delta_E = []
         case "N2O4 (Nitrogen Tetroxide)":
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                              "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)", "CH3OH (Methanol)",
@@ -144,7 +156,6 @@ def exponentF(oxid, fuel):
                          solver("CH6N2 + N2O4 = CO2 + N2 + H2O"),
                          solver("N2H4 + N2O4 = N2 + H2O"),
                          solver("C12H26 + N2O4 = CO2 + N2 + H2O")]
-            delta_E = []
         case "H2O2 (Hydrogen Peroxide) 95%" | "H2O2 (Hydrogen Peroxide) 85%":
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
                              "75% CH6N2 + 25% N2H4 (UH-25)", "50% CH6N2 + 50% N2H4 (Aerosine-50)", "CH3OH (Methanol)",
@@ -161,7 +172,6 @@ def exponentF(oxid, fuel):
                          solver("CH6N2 + H2O2 = H2O + NO2 + CO2"),
                          solver("N2H4 + H2O2 = H2O + NO2"),
                          solver("C12H26 + H2O2 = H2O + CO2")]
-            delta_E = []
         case "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)" | "AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)":
             fuel_ListSample = ["H2 (Hydrogen)", "C2H5OH(Ethanol) 95%", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)",
                                "CH3OH (Methanol)"]
@@ -170,7 +180,6 @@ def exponentF(oxid, fuel):
                          solver("CH6N2 + HNO3 = CO2 + NO2 + H2O"),
                          solver("N2H4 + HNO3 = NO2 + H2O"),
                          solver("CH3OH + HNO3 = NO2 + CO2 + H2O")]
-            delta_E = []
     reaction = equationizer(Reactants[fuel_ListSample.index(fuel)])
     return reaction #[reaction, delta_E[fuel_ListSample.index(fuel)]]
 def prop_exh(productsData):
@@ -308,13 +317,29 @@ def calculate(reaction):
                  "CH3OH", "C12H26", "CH6N2-50[N2H4-50]", "CH6N2-75[N2H4-25]"]
     Fuel_Enth = [0, -74.65, -277.51, -277.07, 83.2, -46.05, 84.9, 94.5, 95.35, -210.5, -290.675, 94.925, 94.7125]
     reacA1 = reaction[0][0][0].strip()
-    print(reacA1)
     reacB1 = reaction[0][1][0].strip()
-    print(reacB1)
     reacAE = reaction[0][0][1].strip()
-    print(reacAE)
     reacBE = reaction[0][1][1].strip()
-    print(reacBE)
+
+    # Define the reactants and products for the reaction
+    reactants = {reacA1: int(reacAE), reacB1: int(reacBE)}
+    products = {}
+    if reaction[1][0] == 1:
+        products[reaction[1][0]] = int(reaction[1][1])
+    else:
+        for i in reaction[1][0]:
+            products[i] = int(reaction[1][1][reaction[1][0].index(i)])
+
+    data_file = 'enthalpies.csv'
+    data = read_data(data_file)
+
+    # Calculate the enthalpy change
+    delta_h = calculate_enthalpy_change(reactants, products, data)
+    print(f"The enthalpy change for the reaction is: {delta_h} kJ/mol")
+
+    # Calculate the temperature change
+    delta_t = calculate_temperature_change(delta_h, products, data)
+    print(f"The temperature change for the reaction is: {round(delta_t, 3)} K")
 
     Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
     OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
