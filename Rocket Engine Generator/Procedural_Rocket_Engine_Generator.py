@@ -8,7 +8,6 @@ import subprocess
 from os.path import exists as file_exists
 from NzlContourPlotGenerator import plot
 from PREG_Logic import main_code, findexB, findexA, findexC
-from PIL import Image, ImageTk, ImageDraw
 import time
 import customtkinter
 from tkinter import *
@@ -80,33 +79,6 @@ button_font = ("Helvetica", 16)
 customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("blue")
 customtkinter.set_widget_scaling(0.8)
-
-def create_rounded_image(image_path, size, radius):
-    """
-    Create an image with rounded corners.
-
-    Parameters:
-        image_path (str): Path to the image file.
-        size (tuple): Size of the image (width, height).
-        radius (int): Radius of the rounded corners.
-
-    Returns:
-        ImageTk.PhotoImage: Image with rounded corners.
-    """
-    # Open the image
-    image = Image.open(image_path).resize(size, Image.ANTIALIAS)
-
-    # Create a mask with rounded corners
-    mask = Image.new('L', size, 0)
-    draw = ImageDraw.Draw(mask)
-    draw.rounded_rectangle((0, 0, size[0], size[1]), radius, fill=255)
-
-    # Apply the rounded mask to the image
-    rounded_image = Image.new('RGBA', size)
-    rounded_image.paste(image, (0, 0), mask)
-
-    # Convert to ImageTk.PhotoImage for tkinter compatibility
-    return ImageTk.PhotoImage(rounded_image)
 
 class Proced_REG(customtkinter.CTk):
     def __init__(self, **kwargs):
