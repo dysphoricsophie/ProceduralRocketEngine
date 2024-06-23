@@ -36,6 +36,16 @@ def findexB(array, search):
     else:
         return [found_it, found_loc]
 
+def findexC(array, search):
+    state = False
+    for i in array:
+        if search in i:
+            state = True
+            break
+        else:
+            pass
+    return state
+
 def randomize(array):
     """
 

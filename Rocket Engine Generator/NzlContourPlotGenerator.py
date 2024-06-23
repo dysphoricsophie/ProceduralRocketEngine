@@ -1,8 +1,70 @@
+# coding=utf-8
 import math
+import random
+
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Arc
 from bisect import bisect_left
+
+"""
+ Implemented from the following technical notes 
+ The thrust optimised parabolic nozzle
+ http://www.aspirespace.org.uk/downloads/Thrust%20optimised%20parabolic%20nozzle.pdf
+ .................................................................
+
+The radius of the nozzle exit: 
+Re = √ε * Rt							[Eqn. 2]
+and nozzle length 
+LN = 0.8 ((√∈−1) * Rt )/ tan(15)		[Eqn. 3]
+.................................................................
+For the throat entrant section:
+x = 1.5 Rt cosθ
+y = 1.5 Rt sinθ + 1.5 Rt + Rt			[Eqn. 4]
+where: −135 ≤ θ ≤ −90
+(The initial angle isn’t defined and is up to the
+combustion chamber designer, -135 degrees is typical.)
+.................................................................
+For the throat exit section:
+x = 0.382 Rt cosθ
+y = 0.382 Rt sinθ + 0.382 Rt + Rt		[Eqn. 5]
+where: −90 ≤ θ ≤ (θn − 90)
+.................................................................
+The bell is a quadratic Bézier curve, which has equations:
+x(t) = (1 − t)^2 * Nx + 2(1 − t)t * Qx + t^2 * Ex, 0≤t≤1
+y(t) = (1 − t)^2 * Ny + 2(1 − t)t * Qy + t^2 * Ey, 0≤t≤1 [Eqn. 6]
+.................................................................
+Selecting equally spaced divisions between 0 and 1 produces 
+the points described earlier in the graphical method, 
+for example 0.25, 0.5, and 0.75.
+.................................................................
+Equations 6 are defined by points N, Q, and E (see the graphical method 
+earlier for the locations of these points).
+
+Point N is defined by equations 5 setting the angle to (θn – 90).
+Nx = 0.382 Rt cos(θn – 90)
+Ny = 0.382 Rt sin(θn – 90) + 0.382 Rt + Rt
+.................................................................
+Coordinate Ex is defined by equation 3, and coordinate Ey is defined by equation 2.
+Ex = 0.8*(((√ε−1)-1)*Rt)/(tan(15)) # degrees in rad
+Ey = √ε * Rt
+.................................................................
+Point Q is the intersection of the lines: ⃗⃗⃗⃗⃗⃗
+NQ = m1 x + C1 and: ⃗⃗⃗⃗⃗
+QE = m2 x + C2 			[Eqn. 7]
+
+where: gradient 
+m1 = tan(θn ) , m2 = tan(θe )	[Eqn. 8]
+
+and: intercept 
+C1 = Ny − m1 Nx
+C2 = Ey − m2 Ex		[Eqn. 9]
+.................................................................
+The intersection of these two lines (at point Q) is given by:
+Qx = (C2 − C1 ) /(m1 − m2 )
+Qy = (m1 C2 − m2 C1 ) / (m1 − m2 ) [Eqn. 10]
+.................................................................
+"""
 
 def bell_nozzle(k, aratio, Rt, l_percent):
 	entrant_angle = -135
@@ -145,7 +207,7 @@ def find_nearest(array, value):
 	idx = (np.abs(array - value)).argmin()
 	return idx, array[idx]
 
-def plot_nozzle(ax, title, Rt, angles, contour, aratio, filename):
+def plot_nozzle(ax, title, Rt, angles, contour, aratio):
 	nozzle_length = angles[0]
 	theta_n = angles[1]
 	theta_e = angles[2]
@@ -300,11 +362,13 @@ def _set_axes_radius(ax, origin, radius):
 def plot(throat_radius, aratio, l_percent, k, filename):
 	angles, contour = bell_nozzle(k, aratio, throat_radius, l_percent)
 	title = 'Rao Thrust Optimized Rocket Engine Nozzle \n [Nozzle Area Ratio = ' + str(round(aratio, 1)) + ', Nozzle Throat Radius = ' + str(round(throat_radius, 1)) + ']'
+
 	# Plot 3d view
 	fig = plt.figure()
+
 	# plot some 2d information
 	ax1 = fig.add_subplot(111)
-	plot_nozzle(ax1, title, throat_radius, angles, contour, aratio, filename)
+	plot_nozzle(ax1, title, throat_radius, angles, contour, aratio)
 	fig1 = plt.gcf()
 	plt.draw()
 	fig1.savefig(filename, dpi=100)

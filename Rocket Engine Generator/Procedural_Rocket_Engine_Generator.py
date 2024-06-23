@@ -7,7 +7,8 @@ import PIL.Image
 import subprocess
 from os.path import exists as file_exists
 from NzlContourPlotGenerator import plot
-from PREG_Logic import main_code, findexB, findexA
+from PREG_Logic import main_code, findexB, findexA, findexC
+from PIL import Image, ImageTk, ImageDraw
 import time
 import customtkinter
 from tkinter import *
@@ -80,6 +81,33 @@ customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("blue")
 customtkinter.set_widget_scaling(0.8)
 
+def create_rounded_image(image_path, size, radius):
+    """
+    Create an image with rounded corners.
+
+    Parameters:
+        image_path (str): Path to the image file.
+        size (tuple): Size of the image (width, height).
+        radius (int): Radius of the rounded corners.
+
+    Returns:
+        ImageTk.PhotoImage: Image with rounded corners.
+    """
+    # Open the image
+    image = Image.open(image_path).resize(size, Image.ANTIALIAS)
+
+    # Create a mask with rounded corners
+    mask = Image.new('L', size, 0)
+    draw = ImageDraw.Draw(mask)
+    draw.rounded_rectangle((0, 0, size[0], size[1]), radius, fill=255)
+
+    # Apply the rounded mask to the image
+    rounded_image = Image.new('RGBA', size)
+    rounded_image.paste(image, (0, 0), mask)
+
+    # Convert to ImageTk.PhotoImage for tkinter compatibility
+    return ImageTk.PhotoImage(rounded_image)
+
 class Proced_REG(customtkinter.CTk):
     def __init__(self, **kwargs):
         # Initial Variable Declartion
@@ -99,6 +127,7 @@ class Proced_REG(customtkinter.CTk):
         self.label = None
         self.labelTitle = None
         self.labelText = None
+        self.st = 0
         self.state("zoomed")
         self.title("Procedural Rocket Engine Generator")
         self.iconbitmap("Assets/icon.ico")
@@ -158,6 +187,8 @@ class Proced_REG(customtkinter.CTk):
         self.attributes("-topmost", 0)
 
     def reload_button(self):
+        self.st = random.randint(5, 500)
+
         # Destroying any widgets already displayed
         for widgets in self.interiorTitle.winfo_children(): widgets.destroy()
         for widgets in self.interiorText.winfo_children(): widgets.destroy()
@@ -171,14 +202,30 @@ class Proced_REG(customtkinter.CTk):
         if file_exists("graph_plot.png"):
             os.remove("graph_plot.png")
 
+        # Generates the graphical plot for the Rocket Engine Nozzle
         try:
-            findexA(self.output, "None (Nozzle doesnt have a throat)\n")
+            findexA(self.output, "None (Nozzle doesnt have a throat)")
         except:
+            l_p = 80
             try:
-                gtt = int((findexB(self.output, "Exhaust Expansion Ratio")[0]).split(":")[1])
-                plot(random.randint(5, 500), int(gtt), 80, 1.2, "graph_plot.png")
+                Ar = int((findexB(self.output, "Exhaust Expansion Ratio")[0]).split(":")[1])
+                if findexC(self.output, "Conical Nozzle") > 0:
+                    l_p = 100
+                elif findexC(self.output, "Contour Bell Nozzle") > 0:
+                    l_p = 90
+                plot(self.st, int(Ar), l_p, 1.2, "graph_plot.png")
+
+                # Displays the graphical plot for the Rocket Engine Nozzle
+                self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
+                self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White",
+                                                        image=self.graphical_rep)
+                self.graph_img.place(x=0, y=0)
             except:
-                pass
+                # Displays the graphical plot for the Rocket Engine Nozzle
+                self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("None.png"), size=(835, 625))
+                self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White",
+                                                        image=self.graphical_rep)
+                self.graph_img.place(x=0, y=0)
 
         # Places the output from the main code (Title and Label)
         self.txt_gen(self.output)
@@ -246,21 +293,28 @@ class Proced_REG(customtkinter.CTk):
 
         # Generates the graphical plot for the Rocket Engine Nozzle
         try:
-            findexA(self.output, "None (Nozzle doesnt have a throat)\n")
+            findexA(self.output, "None (Nozzle doesnt have a throat)")
         except:
+            l_p = 80
             try:
                 Ar = int((findexB(self.output, "Exhaust Expansion Ratio")[0]).split(":")[1])
-                plot(random.randint(5, 500), int(Ar), 80, 1.2, "graph_plot.png")
-            except:
-                pass
+                if findexC(self.output, "Conical Nozzle") > 0:
+                    l_p = 100
+                elif findexC(self.output, "Contour Bell Nozzle") > 0:
+                    l_p = 90
+                plot(self.st, int(Ar), l_p, 1.2, "graph_plot.png")
 
-        # Displays the graphical plot for the Rocket Engine Nozzle
-        try:
-            self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
-            self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White", image=self.graphical_rep)
-            self.graph_img.place(x=0, y=0)
-        except:
-             pass
+                # Displays the graphical plot for the Rocket Engine Nozzle
+                self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("graph_plot.png"), size=(835, 625))
+                self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White",
+                                                        image=self.graphical_rep)
+                self.graph_img.place(x=0, y=0)
+            except:
+                # Displays the graphical plot for the Rocket Engine Nozzle
+                self.graphical_rep = customtkinter.CTkImage(PIL.Image.open("None.png"), size=(835, 625))
+                self.graph_img = customtkinter.CTkLabel(self.imgge, text="", font=("Arial", 18), text_color="White",
+                                                        image=self.graphical_rep)
+                self.graph_img.place(x=0, y=0)
 
     def basic(self):
         # Destroying any widgets already displayed
