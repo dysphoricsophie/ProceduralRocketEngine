@@ -7,14 +7,8 @@ import string
 from os.path import exists as file_exists
 
 def combustion(prop, exhaust, n_of_items):
-    """
-
-    """
     pass
 def master_search(strings, tbc):
-    """
-
-    """
     IsThere = False
     for s in strings:
         if strings[strings.index(s)] == tbc:
@@ -35,7 +29,6 @@ def findexB(array, search):
         return [None, -1]
     else:
         return [found_it, found_loc]
-
 def findexC(array, search):
     state = False
     for i in array:
@@ -45,16 +38,12 @@ def findexC(array, search):
         else:
             pass
     return state
-
 def randomize(array):
-    """
-
-    """
+    #
     random.shuffle(array)
     return random.choice(array)
 def split(txt, sep): return txt.split(sep)
 def NumFormat(num): return format(round(num, 2), ",")
-
 def main_code(filelogging):
     def nameGen():
         engine_Name1 = []
@@ -530,7 +519,7 @@ def main_code(filelogging):
 
                         molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
-                        divider = math.pow((molmass - enri_level), 0.531)
+                        divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
 
                         exhaustVel = (17600 / divider)
                     elif nuclear_Cycle_Chosen.upper == "LEUNTR":
@@ -542,7 +531,7 @@ def main_code(filelogging):
 
                         molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
-                        divider = math.pow((molmass - enri_level), 0.531)
+                        divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
 
                         exhaustVel = (17600 / divider)
                     elif nuclear_Cycle_Chosen.upper == "LPNTR":
@@ -554,7 +543,7 @@ def main_code(filelogging):
 
                         molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
-                        divider = math.pow((molmass - enri_level), 0.531)
+                        divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
 
                         exhaustVel = (17600 / divider)
                     elif nuclear_Cycle_Chosen.upper == "CERMET":
@@ -566,7 +555,7 @@ def main_code(filelogging):
 
                         molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
-                        divider = math.pow((molmass - enri_level), 0.531)
+                        divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
 
                         exhaustVel = (17600 / divider)
                     elif nuclear_Cycle_Chosen.upper == "Pebble-Bed":
@@ -581,7 +570,7 @@ def main_code(filelogging):
 
                         molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
-                        divider = math.pow((molmass - enri_level), 0.531)
+                        divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
 
                         exhaustVel = ((9530 * 2) / divider)
                     else:
@@ -591,7 +580,7 @@ def main_code(filelogging):
                         coreTemp = random_number(1900 + (enri_level * 5), 1000)
                         molmassi = findexA(remass_List, remass_List_Chosen)
                         molmass = remass_EVD[molmassi] + 5
-                        divider = math.pow((molmass - enri_level), 0.531)
+                        divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
                         exhaustVel = (11000 / divider)
                 case "Colloid Core":
                     remass_List = ["Hydrogen (H2)", "Nitrogen (N2)", "Ammonia (NH3)", "Water (H2O)", "Oxygen (O2)",
@@ -606,7 +595,7 @@ def main_code(filelogging):
                     coreTemp = random_number(2500 + (enri_level * 5), 1000)
                     molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
-                    divider = math.pow((molmass - enri_level), 0.531)
+                    divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
                     exhaustVel = (11800 / divider)
                 case "Liquid Core":
                     nuclear_cycle = ["\"Expander Bleed\"", "\"Expander Closed\"", "\"Vortex Confined\"", "LARS"]
@@ -624,7 +613,7 @@ def main_code(filelogging):
                     coreTemp = random_number(3500 + (enri_level * 5), 1000)
                     molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
-                    divider = math.pow((molmass - enri_level), 0.531)
+                    divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
                     exhaustVel = (19620 / divider)
                 case "Droplet Core":
                     nuclear_cycle = ["\"Expander Bleed\"", "\"Expander Closed\"", "\"Vortex Confined\""]
@@ -640,7 +629,7 @@ def main_code(filelogging):
                     coreTemp = random_number(5400 + (enri_level * 5), 1000)
                     molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
-                    divider = math.pow((molmass - enri_level), 0.531)
+                    divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
                     exhaustVel = (19600 / divider)
                 case "Vapor Core":
                     remass_List = ["Hydrogen (H2)", "Nitrogen (N2)", "Ammonia (NH3)", "Water (H2O)", "Oxygen (O2)",
@@ -655,7 +644,7 @@ def main_code(filelogging):
                     enri_level = 93 / 10
                     molmassi = findexA(remass_List, remass_List_Chosen)
                     molmass = remass_EVD[molmassi] + 5
-                    divider = math.pow((molmass - enri_level), 0.531)
+                    divider = (math.pow(((molmass*10) - enri_level), 0.531))/10
                     exhaustVel = 11800 / divider
                 case "Gas Core":
                     remass_List = ["Hydrogen (H2)", "Nitrogen (N2)", "Ammonia (NH3)", "Water (H2O)", "Oxygen (O2)",
