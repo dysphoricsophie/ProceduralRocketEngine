@@ -372,4 +372,5 @@ def plot(throat_radius, aratio, l_percent, k, filename):
 	fig1 = plt.gcf()
 	plt.draw()
 	fig1.savefig(filename, dpi=100)
+	plt.close()
 	return

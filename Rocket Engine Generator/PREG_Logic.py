@@ -447,6 +447,7 @@ def main_code(filelogging):
         for x in output:
             file.write(x)
         return output
+
     y, fNum = 0, 2
     org = "./GenFiles"
     org1 = "./GenFiles/DevData"
@@ -468,11 +469,6 @@ def main_code(filelogging):
     engine_Name = nameGen()
     engine_Cycle_Chosen = randomize(engine_Cycle)
 
-    ''' 
-        This Match-Case statement serves te purpose of matchingthe engine
-        type to a specific set of restrictions in terms of possible
-        propellant choice to mimic real life rocket engine limitations
-    '''
     match engine_Cycle_Chosen:
         case "Gas Core" | "Droplet Core" | "Liquid Core" | "Solid Core" | "Vapor Core" | "Nuclear SaltWater" | "Radioisotope Engine":
             match engine_Cycle_Chosen:
