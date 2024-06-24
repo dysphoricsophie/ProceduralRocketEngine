@@ -64,16 +64,14 @@ def closest_value(input_list, input_value):
     return arr[i]
 def read_data(file_path):
     return pd.read_csv(file_path, index_col='Molecule')
-
-# Function to calculate enthalpy change for a reaction
 def calculate_enthalpy_change(reactants, products, data):
+    # Function to calculate enthalpy change for a reaction
     reactant_sum = sum([data.loc[molecule, 'Enthalpy'] * count for molecule, count in reactants.items()])
     product_sum = sum([data.loc[molecule, 'Enthalpy'] * count for molecule, count in products.items()])
     delta_h = product_sum - reactant_sum
     return delta_h
-
-# Function to calculate temperature change for a reaction
 def calculate_temperature_change(delta_h, products, data):
+    # Function to calculate temperature change for a reaction
     total_cp = sum([data.loc[molecule, 'Cp'] * count for molecule, count in products.items()])
     delta_t = abs(delta_h * 1000) / total_cp
     return delta_t
