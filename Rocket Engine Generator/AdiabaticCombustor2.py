@@ -62,18 +62,27 @@ def closest_value(input_list, input_value):
     arr = np.asarray(input_list)
     i = (np.abs(arr - input_value)).argmin()
     return arr[i]
-def read_data(file_path):
-    return pd.read_csv(file_path, index_col='Molecule')
+def read_data(file_path, nm):
+    return pd.DataFrame(pd.read_csv(file_path, index_col=nm))
 def calculate_enthalpy_change(reactants, products, data):
     # Function to calculate enthalpy change for a reaction
-    reactant_sum = sum([data.loc[molecule, 'Enthalpy'] * count for molecule, count in reactants.items()])
-    product_sum = sum([data.loc[molecule, 'Enthalpy'] * count for molecule, count in products.items()])
+    reactant_sum = sum([data.loc[molecule, 'Enthalpy of Formation'] * count for molecule, count in reactants.items()])
+    product_sum = sum([data.loc[molecule, 'Enthalpy of Formation'] * count for molecule, count in products.items()])
     delta_h = product_sum - reactant_sum
     return delta_h
-def calculate_temperature_change(delta_h, products, data):
-    # Function to calculate temperature change for a reaction
-    total_cp = sum([data.loc[molecule, 'Cp'] * count for molecule, count in products.items()])
-    delta_t = abs(delta_h * 1000) / total_cp
+def calculate_temperature_change(delta_h, data, products):
+    # Function to calculate enthalpy change for a reaction
+    delta_t = []
+    temps = ["Cp - 100K", "Cp - 200K", "Cp - 298.15K", "Cp - 300K", "Cp - 400K", "Cp - 500K", "Cp - 600K", "Cp - 700K", "Cp - 800K", "Cp - 900K",
+             "Cp - 1000K", "Cp - 1100K", "Cp - 1200K", "Cp - 1300K", "Cp - 1400K", "Cp - 1500K", "Cp - 1600K", "Cp - 1700K", "Cp - 1800K",
+             "Cp - 1900K", "Cp - 2000K", "Cp - 2100K", "Cp - 2200K", "Cp - 2300K", "Cp - 2400K", "Cp - 2500K", "Cp - 2600K", "Cp - 2700K",
+             "Cp - 2800K", "Cp - 2900K", "Cp - 3000K", "Cp - 3100K", "Cp - 3200K", "Cp - 3300K", "Cp - 3400K", "Cp - 3500K", "Cp - 3600K",
+             "Cp - 3700K", "Cp - 3800K", "Cp - 3900K", "Cp - 4000K", "Cp - 4100K", "Cp - 4200K", "Cp - 4300K", "Cp - 4400K", "Cp - 4500K",
+             "Cp - 4600K", "Cp - 4700K", "Cp - 4800K", "Cp - 4900K", "Cp - 5000K", "Cp - 5100K", "Cp - 5200K", "Cp - 5300K", "Cp - 5400K",
+             "Cp - 5500K", "Cp - 5600K", "Cp - 5700K", "Cp - 5800K", "Cp - 5900K", "Cp - 6000K"]
+    for j in temps:
+        product_sum = sum([data.loc[molecule, j] * count for molecule, count in products.items()])
+        delta_t.append((abs(delta_h)*1000)/product_sum)
     return delta_t
 def equationizer(equation):
     splitted = split(equation, "=")
@@ -329,15 +338,17 @@ def calculate(reaction):
             products[i] = int(reaction[1][1][reaction[1][0].index(i)])
 
     data_file = 'enthalpies.csv'
-    data = read_data(data_file)
+    data = read_data(data_file, 'Compound')
 
     # Calculate the enthalpy change
     delta_h = calculate_enthalpy_change(reactants, products, data)
-    print(f"The enthalpy change for the reaction is: {delta_h} kJ/mol")
+    print(delta_h)
+    # print(f"The enthalpy change for the reaction is: {delta_h} kJ/mol")
 
     # Calculate the temperature change
-    delta_t = calculate_temperature_change(delta_h, products, data)
-    print(f"The temperature change for the reaction is: {round(delta_t, 3)} K")
+    delta_t = calculate_temperature_change(delta_h, data, products)
+    print(delta_t)
+    # print(f"The temperature change for the reaction is: {round(delta_t, 3)} K")
 
     Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
     OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
@@ -371,4 +382,4 @@ for i in fuels:
         Oxidizer = k; Fuel = i
         results = calculate(exponentF(Oxidizer, Fuel))
         Combust_Temp = results[0]; C_ExhaustVel = results[1]; OF_Ratio = results[2]
-        print(f"Oxidizer: {k} | --------- | Fuel: {i} | --------- |{results}|")
+        print(f"Oxidizer: {k} | --------- | Fuel: {i} | --------- |{results[0]}|")

@@ -17204,3 +17204,23 @@ Tank repressurisation Method: Autogenous
 Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
 Engine Throttle Range: 79-105%
 
+Engine Designation: RSA-749C "Poles"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Carbon Dioxide (CO2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 2.07 GW
+Reactor Fuel Material: Plutonium-238
+Engine Exhaust Velocity: 5,889.23 m/s
+Reactor Core Temperature: 1,860.27°K
+Reactor Coolant: Carbon Dioxide (CO2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 334.85 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 96:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
