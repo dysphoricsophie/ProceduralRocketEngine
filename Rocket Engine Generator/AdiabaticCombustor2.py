@@ -7,8 +7,22 @@ from EqtnBalancer import solver
 def findex(array, search):
     return array.index(search)
 def interpolation(Hp_List, Hr):
-    # Hp_List = [[Product Enthalpy, Temperature], [Product Enthalpy, Temperature] ...
-    return Hp_List[0][1] + (Hr - Hp_List[0][0]) * ((Hp_List[1][1] - Hp_List[0][1]) / (Hp_List[1][0] - Hp_List[0][0]))
+    # Assuming Hp_List has at least 2 elements
+    x0, y0 = Hp_List[0]  # unpack first data point
+    x1, y1 = Hp_List[1]  # unpack second data point
+    m = (y1 - y0) / (x1 - x0)  # calculate slope
+    return y0 + m * (Hr - x0)  # linear interpolation formula
+def linear_interpolate(start_value, end_value, target_value):
+    if start_value == end_value:
+        return target_value, 0.0
+
+    range_value = end_value - start_value
+    interpolation_factor = (target_value - start_value) / range_value
+
+    interpolation_factor = max(0.0, min(interpolation_factor, 1.0))
+    interpolated_value = start_value + (interpolation_factor * range_value)
+
+    return interpolated_value, interpolation_factor
 def check(string, sub_str):
     if string.find(sub_str) == -1:
         return False
@@ -66,23 +80,54 @@ def read_data(file_path, nm):
     return pd.DataFrame(pd.read_csv(file_path, index_col=nm))
 def calculate_enthalpy_change(reactants, products, data):
     # Function to calculate enthalpy change for a reaction
-    reactant_sum = sum([data.loc[molecule, 'Enthalpy of Formation'] * count for molecule, count in reactants.items()])
-    product_sum = sum([data.loc[molecule, 'Enthalpy of Formation'] * count for molecule, count in products.items()])
-    delta_h = product_sum - reactant_sum
+    delta_h = []
+    enth = ["Hf - 100K", "Hf - 200K", "Hf - 298.15K", "Hf - 300K", "Hf - 400K", "Hf - 500K", "Hf - 600K", "Hf - 700K",
+            "Hf - 800K", "Hf - 900K", "Hf - 1000K", "Hf - 1100K", "Hf - 1200K", "Hf - 1300K", "Hf - 1400K", "Hf - 1500K",
+            "Hf - 1600K", "Hf - 1700K", "Hf - 1800K", "Hf - 1900K", "Hf - 2000K", "Hf - 2100K", "Hf - 2200K", "Hf - 2300K",
+            "Hf - 2400K", "Hf - 2500K", "Hf - 2600K", "Hf - 2700K", "Hf - 2800K", "Hf - 2900K", "Hf - 3000K", "Hf - 3100K",
+            "Hf - 3200K", "Hf - 3300K", "Hf - 3400K", "Hf - 3500K", "Hf - 3600K", "Hf - 3700K", "Hf - 3800K", "Hf - 3900K",
+            "Hf - 4000K", "Hf - 4100K", "Hf - 4200K", "Hf - 4300K", "Hf - 4400K", "Hf - 4500K", "Hf - 4600K", "Hf - 4700K",
+            "Hf - 4800K", "Hf - 4900K", "Hf - 5000K", "Hf - 5100K", "Hf - 5200K", "Hf - 5300K", "Hf - 5400K", "Hf - 5500K",
+            "Hf - 5600K", "Hf - 5700K", "Hf - 5800K", "Hf - 5900K", "Hf - 6000K"]
+    for j in enth:
+        product_sum = 0; reactant_sum = 0
+        for molecule, count in products.items():
+            value = data.loc[molecule, j]
+            product = (1000*value) * count
+            product_sum += product
+        Hp = product_sum
+
+        for molecule, count in reactants.items():
+            value = data.loc[molecule, j]
+            reactant = (1000*value) * count
+            reactant_sum += reactant
+        Hr = reactant_sum
+
+        Ht = Hp - Hr
+        delta_h.append(float(Ht))
     return delta_h
 def calculate_temperature_change(delta_h, data, products):
     # Function to calculate enthalpy change for a reaction
     delta_t = []
-    temps = ["Cp - 100K", "Cp - 200K", "Cp - 298.15K", "Cp - 300K", "Cp - 400K", "Cp - 500K", "Cp - 600K", "Cp - 700K", "Cp - 800K", "Cp - 900K",
-             "Cp - 1000K", "Cp - 1100K", "Cp - 1200K", "Cp - 1300K", "Cp - 1400K", "Cp - 1500K", "Cp - 1600K", "Cp - 1700K", "Cp - 1800K",
-             "Cp - 1900K", "Cp - 2000K", "Cp - 2100K", "Cp - 2200K", "Cp - 2300K", "Cp - 2400K", "Cp - 2500K", "Cp - 2600K", "Cp - 2700K",
-             "Cp - 2800K", "Cp - 2900K", "Cp - 3000K", "Cp - 3100K", "Cp - 3200K", "Cp - 3300K", "Cp - 3400K", "Cp - 3500K", "Cp - 3600K",
-             "Cp - 3700K", "Cp - 3800K", "Cp - 3900K", "Cp - 4000K", "Cp - 4100K", "Cp - 4200K", "Cp - 4300K", "Cp - 4400K", "Cp - 4500K",
-             "Cp - 4600K", "Cp - 4700K", "Cp - 4800K", "Cp - 4900K", "Cp - 5000K", "Cp - 5100K", "Cp - 5200K", "Cp - 5300K", "Cp - 5400K",
-             "Cp - 5500K", "Cp - 5600K", "Cp - 5700K", "Cp - 5800K", "Cp - 5900K", "Cp - 6000K"]
-    for j in temps:
-        product_sum = sum([data.loc[molecule, j] * count for molecule, count in products.items()])
-        delta_t.append((abs(delta_h)*1000)/product_sum)
+    temps = ["Cp - 100K", "Cp - 200K", "Cp - 298.15K", "Cp - 300K", "Cp - 400K", "Cp - 500K", "Cp - 600K", "Cp - 700K",
+             "Cp - 800K", "Cp - 900K", "Cp - 1000K", "Cp - 1100K", "Cp - 1200K", "Cp - 1300K", "Cp - 1400K", "Cp - 1500K",
+             "Cp - 1600K", "Cp - 1700K", "Cp - 1800K", "Cp - 1900K", "Cp - 2000K", "Cp - 2100K", "Cp - 2200K", "Cp - 2300K",
+             "Cp - 2400K", "Cp - 2500K", "Cp - 2600K", "Cp - 2700K", "Cp - 2800K", "Cp - 2900K", "Cp - 3000K", "Cp - 3100K",
+             "Cp - 3200K", "Cp - 3300K", "Cp - 3400K", "Cp - 3500K", "Cp - 3600K", "Cp - 3700K", "Cp - 3800K", "Cp - 3900K",
+             "Cp - 4000K", "Cp - 4100K", "Cp - 4200K", "Cp - 4300K", "Cp - 4400K", "Cp - 4500K", "Cp - 4600K", "Cp - 4700K",
+             "Cp - 4800K", "Cp - 4900K", "Cp - 5000K", "Cp - 5100K", "Cp - 5200K", "Cp - 5300K", "Cp - 5400K", "Cp - 5500K",
+             "Cp - 5600K", "Cp - 5700K", "Cp - 5800K", "Cp - 5900K", "Cp - 6000K"]
+    for z in delta_h:
+        for j in temps:
+            product_sum = 0
+            for molecule, count in products.items():
+                value = data.loc[molecule, j]
+                product = (1000 * value) * count
+                product_sum += product
+            Hp = product_sum
+
+            Tc = (abs(z) / float(Hp)) + 298.15
+            delta_t.append(float(Tc))
     return delta_t
 def equationizer(equation):
     splitted = split(equation, "=")
@@ -108,9 +153,8 @@ def exponentF(oxid, fuel):
     Reactants, fuel_ListSample = [], []
     match oxid:
         case "O2 (Oxygen)":
-            fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%",
-                               "C6H5NH2 (Aniline)", "NH3 (Ammonia)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)",
-                               "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
+            fuel_ListSample = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
+                               "NH3 (Ammonia)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + O2 = H2O"),
                          solver("CH4 + O2 = CO2 + H2O"),
                          solver("C2H5OH + O2 = CO2 + H2O"),
@@ -315,71 +359,80 @@ def prop_exh(productsData):
                 pass
     return [Hp_List, Hp_Temp]
 def calculate(reaction):
-    global EnthA, EnthB
-    Oxid_List = ["O2", "F2", "F2O2", "N2O4", "H2O2-95[H2O-05]", "H2O2-85[H2O-15]", "O3", "HNO3-80[N2O4-20]",
-                 "HNO3-73[N2O4-27]"]
-    Oxi_Enth = [0, 0, 0, 19.56, -205.3, -195.6, -132.2, -142.95, -132.16]
-
-    Fuel_List = ["H2", "CH4", "C2H5OH-95[H2O-05]", "C2H5OH-75[H2O-25]", "C6H5NH2", "NH3", "C2H8N2", "CH6N2", "N2H4",
-                 "CH3OH", "C12H26", "CH6N2-50[N2H4-50]", "CH6N2-75[N2H4-25]"]
-    Fuel_Enth = [0, -74.65, -277.51, -277.07, 83.2, -46.05, 84.9, 94.5, 95.35, -210.5, -290.675, 94.925, 94.7125]
+    print(reaction)
     reacA1 = reaction[0][0][0].strip()
     reacB1 = reaction[0][1][0].strip()
     reacAE = reaction[0][0][1].strip()
     reacBE = reaction[0][1][1].strip()
 
+    print(reacA1)
+    print(reacB1)
+    print(reacAE)
+    print(reacBE)
+
     # Define the reactants and products for the reaction
-    reactants = {reacA1: int(reacAE), reacB1: int(reacBE)}
+    reactants = {reacA1: int(reacAE),reacB1: int(reacBE)}
     products = {}
     if reaction[1][0] == 1:
         products[reaction[1][0]] = int(reaction[1][1])
     else:
         for i in reaction[1][0]:
             products[i] = int(reaction[1][1][reaction[1][0].index(i)])
+    print(f"{reactants}\n{products}")
 
     data_file = 'enthalpies.csv'
     data = read_data(data_file, 'Compound')
 
-    # Calculate the enthalpy change
-    delta_h = calculate_enthalpy_change(reactants, products, data)
-    print(delta_h)
-    # print(f"The enthalpy change for the reaction is: {delta_h} kJ/mol")
+    delta_h = list(calculate_enthalpy_change(reactants, products, data)) # Calculate the enthalpy change
+    delta_t = calculate_temperature_change(delta_h, data, products) # Calculate the temperature change
 
-    # Calculate the temperature change
-    delta_t = calculate_temperature_change(delta_h, data, products)
-    print(delta_t)
-    # print(f"The temperature change for the reaction is: {round(delta_t, 3)} K")
-
-    Hr = (float(reacBE) * Oxi_Enth[findex(Oxid_List, reacB1)]) + (float(reacAE) * Fuel_Enth[findex(Fuel_List, reacA1)])
-    OF = (float(reacBE)*Formula(reacB1).mass)/(float(reacAE)*Formula(reacA1).mass)
-    productsData, Hp, combust_temp = reaction[1], 0, 0
-
-    res = prop_exh(productsData)
-
-    Hp_List = res[0]
-    Hp_Temp = res[1]
-
-    miner = close(Hp_List, Hr)[0]
-    miner_tp = Hp_Temp[Hp_List.index(miner)]
-    maxer = close(Hp_List, Hr)[1]
-    maxer_tp = Hp_Temp[Hp_List.index(maxer)]
-
+    miner = close(delta_h, 0)[0]
+    maxer = close(delta_h, 0)[1]
+    miner_tp = delta_t[delta_h.index(miner)]
+    maxer_tp = delta_t[delta_h.index(maxer)]
     interpol_T = [miner, miner_tp], [maxer, maxer_tp]
+
+    OF = (float(reacBE) * Formula(reacB1).mass) / (float(reacAE) * Formula(reacA1).mass)
 
     #Characteristic Exhaust Velocity
     ExhaustVel = 0
-    combust_temp = interpolation(interpol_T, Hr)
+    combust_temp = interpolation(interpol_T, 0)
     return combust_temp, ExhaustVel, OF
 
-fuels = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)",
-           "NH3 (Ammonia)", "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)",
-           "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
+fuels = ["H2 (Hydrogen)", "CH4 (Methane)", "C2H5OH(Ethanol) 95%", "C2H5OH(Ethanol) 75%", "C6H5NH2 (Aniline)", "NH3 (Ammonia)",
+         "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
 oxids = ["O2 (Oxygen)", "F2 (Fluorine)", "F2O2 (Perfluorine Peroxide)", "N2O4 (Nitrogen Tetroxide)", "H2O2 (Hydrogen Peroxide) 95%",
            "H2O2 (Hydrogen Peroxide) 85%", "O3 (Ozone)", "AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)","AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)"]
+for i in oxids:
+    for k in fuels:
+        Oxidizer = i; Fuel = k
+        Test = False
+        if Test:
+            try:
+                results = calculate(exponentF(Oxidizer, Fuel))
+                Combust_Temp = results[0]
+                C_ExhaustVel = results[1]
+                OF_Ratio = results[2]
+            except:
+                pass
+            else:
+                maxLen = 90
+                strz = f"{Fuel} + {Oxidizer} -> Combustion Temperature: {round(Combust_Temp, 3)}"
+                Xtra = maxLen - len(strz)
+                strz = strz.split("-> ")
+                for y in range(0, (Xtra - 1)): strz[0] += "-"
+                print(strz[0] + "> "+ strz[1])
+        else:
+            results = calculate(exponentF(Oxidizer, Fuel))
+            Combust_Temp = results[0]
+            C_ExhaustVel = results[1]
+            OF_Ratio = results[2]
 
-for i in fuels:
-    for k in oxids:
-        Oxidizer = k; Fuel = i
-        results = calculate(exponentF(Oxidizer, Fuel))
-        Combust_Temp = results[0]; C_ExhaustVel = results[1]; OF_Ratio = results[2]
-        print(f"Oxidizer: {k} | --------- | Fuel: {i} | --------- |{results[0]}|")
+            maxLen = 90
+            strz = f"{Fuel} + {Oxidizer} -> Combustion Temperature: {round(Combust_Temp, 3)}\n"
+            Xtra = maxLen - len(strz)
+
+            strz = strz.split("-> ")
+            for y in range(0, (Xtra - 1)): strz[0] += "-"
+
+            print(strz[0] + "> " + strz[1])
