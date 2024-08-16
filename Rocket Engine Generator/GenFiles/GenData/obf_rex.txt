@@ -17224,3 +17224,2360 @@ Exhaust Nozzle Cooling Mechanism: Radiative Cooling
 Engine Use Case: Payload (Main Propulsion)
 Tank repressurisation Method: Autogenous
 
+Engine Designation: J-531m "Clementine"
+
+Fuel Flow Cycle: Pressure-Fed
+Engine Oxidizer: AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)
+Engine Fuel: N2H4 (Hydrazine)
+Average Mixture Ratio: 1.28
+Propellant properties: Hypergolic but not cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 14:1
+Characteristic Exhaust Velocity: 2702 m/sAdiabatic Combustion Temperature: 2932°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: 78-102%
+
+Engine Designation: S.10-296 "Vysota"
+
+Fuel Flow Cycle: TRIGA Solid Core
+Propellant (Remass): Nitrogen (N2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation II
+Reactor Maximum Power: 2.19 GW
+Reactor Fuel Material: 4.7% Plutonium-238
+Engine Exhaust Velocity: 12,175.98 m/s
+Reactor Core Temperature: 1,973.5°K
+Reactor Coolant: Hydrogen (H2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 355.23 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 185:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: H-270V "Serenity"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Oxygen (O2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 2.04 GW
+Reactor Fuel Material: Uranium-233
+Engine Exhaust Velocity: 5,596.17 m/s
+Reactor Core Temperature: 1,839.97°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 331.2 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 150:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: XS-815A "Yantar"
+
+Fuel Flow Cycle: MagnetoPlasmaDynamic Thruster
+Propellant(Remass): H2 (Hydrogen)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Cathode Plug Magnetic Confinement Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 660 kW
+
+Engine Designation: LM10-599C "Stilet"
+
+Fuel Flow Cycle: Electric Pump Fed
+Engine Oxidizer: AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)
+Engine Fuel: CH3OH (Methanol)
+Average Mixture Ratio: 2.13
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 33:1
+Characteristic Exhaust Velocity: 2441 m/sAdiabatic Combustion Temperature: 2824°KEngine Gimbal Range: ±5°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: MV-329r "Grach"
+
+Fuel Flow Cycle: Combustion Tap Off
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: C6H5NH2 (Aniline)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Linear Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±8°
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: LM10-426T "Kometa"
+
+Fuel Flow Cycle: Electric Pump Fed
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: CH6N2 (MonomethylHydrazine)
+Average Mixture Ratio: 1.15
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 13:1
+Characteristic Exhaust Velocity: 2938 m/sAdiabatic Combustion Temperature: 3399°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: DE-655n "Pamir"
+
+Fuel Flow Cycle: Monopropellant (Decomposition)
+Propellant: H2O2 (Hydrogen Peroxide)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Conical Nozzle
+Engine Use Case: Payload (Vernier)
+Nozzle Cooling Mechanism: Ablative Cooling
+Propellant catalyst: MnO2 (Manganese Dioxide) Honeycomb
+
+Engine Designation: PKA-21z "Siluet"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Xe (Xenon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 40 kW
+
+Engine Designation: VA-249G "Ishak"
+
+Fuel Flow Cycle: Full Flow Staged
+Engine Oxidizer: AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)
+Engine Fuel: CH3OH (Methanol)
+Average Mixture Ratio: 2.13
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 35:1
+Characteristic Exhaust Velocity: 2441 m/sAdiabatic Combustion Temperature: 2824°KEngine Gimbal Range: ±10°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: KMV-786M "Terrier"
+
+Fuel Flow Cycle: Electric Pump Fed
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: CH3OH (Methanol)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 42:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±3°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: J-618U "Varagian"
+
+Fuel Flow Cycle: Vapor Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Ammonia (NH3)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation III
+Reactor Maximum Power: 7.17 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 11,279.67 m/s
+Reactor Core Temperature: 6,457°K
+Reactor Coolant: Ammonia (NH3)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 1,162.26 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 116:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: FG-336 "Skiph"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Oxygen (O2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 2.03 GW
+Reactor Fuel Material: Plutonium-238
+Engine Exhaust Velocity: 5,589.07 m/s
+Reactor Core Temperature: 1,830.42°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 329.48 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 158:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: E-1092X "Poisk"
+
+Fuel Flow Cycle: LARS Liquid Core
+Propellant (Remass): Uranium impregnated Osmium and Carbon Monoxide (CO)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation III+
+Reactor Maximum Power: 4.49 GW
+Reactor Fuel Material: 3.5% Uranium-235
+Engine Exhaust Velocity: 9,074.59 m/s
+Reactor Core Temperature: 4,041.5°K
+Reactor Coolant: Carbon Monoxide (CO)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 727.47 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 187:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: PKA-841T "Meteor"
+
+Fuel Flow Cycle: Staged Combustion (Oxidizer Rich)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: C2H5OH(Ethanol) 75%
+Average Mixture Ratio: 1.29
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 34:1
+Characteristic Exhaust Velocity: 2635 m/sAdiabatic Combustion Temperature: 3167°KEngine Gimbal Range: ±1°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: JD-1105B "Craniata"
+
+Fuel Flow Cycle: Staged Combustion (Fuel Rich)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 125:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: None
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: AR-832 "Salyut"
+
+Fuel Flow Cycle: Full Flow Staged
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: CH3OH (Methanol)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 52:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±4°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: 4-103%
+
+Engine Designation: LMP-865U "Mainsail"
+
+Fuel Flow Cycle: Monopropellant (Decomposition)
+Propellant: N2H4 (Hydrazine)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Engine Use Case: Space Tug (Vernier)
+Nozzle Cooling Mechanism: Ablative Cooling
+Propellant catalyst: Iridium coated Alumina Pellets
+
+Engine Designation: NAA75-315S "Synapsida"
+
+Fuel Flow Cycle: CERMET Solid Core
+Propellant (Remass): Carbon Monoxide (CO)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation V+
+Reactor Maximum Power: 3.12 GW
+Reactor Fuel Material: 4.0% Uranium-235
+Engine Exhaust Velocity: 6,497.24 m/s
+Reactor Core Temperature: 2,804.0°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 504.72 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 124:1
+Exhaust Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: XLR-758N "Vyuga"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: N2H4 (Hydrazine)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±4°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: 42-104%
+
+Engine Designation: RM02-574W "Borei"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 36:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: None
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: OSA-887a "Copernicus"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Water (H2O)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 2.17 GW
+Reactor Fuel Material: Uranium-233
+Engine Exhaust Velocity: 7,896.13 m/s
+Reactor Core Temperature: 1,956.24°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 352.12 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 193:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: KVD-951M "Chyron"
+
+Fuel Flow Cycle: "Quartz Confinement (Nuclear Lightbulb)" Gas Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Hydrogen (H2)
+Propellant State: Gaseous Nuclear Fuel
+Reactor Generation: Generation III
+Reactor Maximum Power: 15.34 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: ERROR
+Reactor Core Temperature: 13,804°K
+Reactor Coolant: Hydrogen (H2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 2,484.72 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 118:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: LM10-481Z "Thunder"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Cs (Caesium)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Radioisotope Thermoelectric Generator (RTG)
+Rated Power Level: 280 kW
+
+Engine Designation: DST-177A "Alpina"
+
+Fuel Flow Cycle: Electric Pump Fed
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: C2H5OH(Ethanol) 75%
+Average Mixture Ratio: 1.29
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 93:1
+Characteristic Exhaust Velocity: 2635 m/sAdiabatic Combustion Temperature: 3167°KEngine Gimbal Range: ±8°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Upper Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: OBA-866G "Harmony"
+
+Fuel Flow Cycle: Electric Pump Fed
+Engine Oxidizer: AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)
+Engine Fuel: CH3OH (Methanol)
+Average Mixture Ratio: 2.13
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 64:1
+Characteristic Exhaust Velocity: 2441 m/sAdiabatic Combustion Temperature: 2824°KEngine Gimbal Range: ±6°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Upper Stage (Ullage)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
+Engine Throttle Range: 43-101%
+
+Engine Designation: AR-161D "Quaoar"
+
+Fuel Flow Cycle: Colloid Thruster
+Propellant(Remass): NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Capillary Emitter-Electrode Cone
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Nuclear Fusion Reactor
+Rated Power Level: 80 kW
+
+Engine Designation: MB-270Z "Layner"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 6.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 19:1
+Characteristic Exhaust Velocity: 3925 m/sAdiabatic Combustion Temperature: 3689°KEngine Gimbal Range: ±6°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: 60-100%
+
+Engine Designation: DST-23D "Efir"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Ammonia (NH3)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 1.97 GW
+Reactor Fuel Material: Plutonium-238
+Engine Exhaust Velocity: 7,748.96 m/s
+Reactor Core Temperature: 1,768.74°K
+Reactor Coolant: Ammonia (NH3)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 318.37 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 193:1
+Exhaust Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: SPP-608 "Kliper"
+
+Fuel Flow Cycle: Pressure-Fed
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±9°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: RL-757E "Baltia"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Xe (Xenon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Radioisotope Thermoelectric Generator (RTG)
+Rated Power Level: 400 kW
+
+Engine Designation: RSA-29M "Obzor"
+
+Fuel Flow Cycle: Full Flow Staged
+Engine Oxidizer: AK20F: 80% HNO3 + 20% N2O4 (Nitric Acid)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 8.0
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: 3112 m/sAdiabatic Combustion Temperature: 2795°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: MA-1094P "Sokol"
+
+Fuel Flow Cycle: Monopropellant (Decomposition)
+Propellant: NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Engine Use Case: Upper Stage(Ullage)
+Nozzle Cooling Mechanism: Radiative Cooling
+Propellant catalyst: Iridium coated Copper Pellets
+
+Engine Designation: MV-557C "Taran"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Nitrogen (N2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 2.03 GW
+Reactor Fuel Material: Uranium-233
+Engine Exhaust Velocity: 5,768.37 m/s
+Reactor Core Temperature: 1,830.42°K
+Reactor Coolant: Nitrogen (N2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 329.48 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 111:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: DE-692Y "Archimedes"
+
+Fuel Flow Cycle: Hall Effect Thruster
+Propellant(Remass): Mg (Magnesium)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Hall Effect Thruster Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 530 kW
+
+Engine Designation: FWR-446p "Dream"
+
+Fuel Flow Cycle: "Wheel Flow Confinement" Gas Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Water (H2O)
+Propellant State: Gaseous Nuclear Fuel
+Reactor Generation: Generation III
+Reactor Maximum Power: 16.19 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 13,151.23 m/s
+Reactor Core Temperature: 14,575°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 2,623.5 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 126:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: KDU-591F "Aspin"
+
+Fuel Flow Cycle: Monopropellant (Cold Gas)
+Propellant: Nitrogen (N2)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Conical Nozzle
+Engine Use Case: Upper Stage(Ullage)
+Nozzle Cooling Mechanism: Ablative Cooling
+
+Engine Designation: KDU-162J "Iset"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: CH6N2 (MonomethylHydrazine)
+Average Mixture Ratio: 1.15
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Expanding Nozzle
+Exhaust Expansion Ratio: 169:1
+Characteristic Exhaust Velocity: 2938 m/sAdiabatic Combustion Temperature: 3399°KEngine Gimbal Range: ±7°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Payload (ACS)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: E-1014D "FireFly"
+
+Fuel Flow Cycle: Solid Core
+Propellant (Remass): Ammonia (NH3)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation III+
+Reactor Maximum Power: 2.28 GW
+Reactor Fuel Material: 2.7% Uranium-235
+Engine Exhaust Velocity: 6,720.53 m/s
+Reactor Core Temperature: 2,051.5°K
+Reactor Coolant: Carbon Dioxide (CO2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 369.27 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 99:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: CE-269x "Spartacus"
+
+Fuel Flow Cycle: Gas Generator
+Engine Oxidizer: N2O4 (Nitrogen Tetroxide)
+Engine Fuel: C2H5OH(Ethanol) 95%
+Average Mixture Ratio: 2.26
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: 2540 m/sAdiabatic Combustion Temperature: 3151°KEngine Gimbal Range: ±3°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: CE-789T "Elektron"
+
+Fuel Flow Cycle: CERMET Solid Core
+Propellant (Remass): Water (H2O)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation IV
+Reactor Maximum Power: 2.85 GW
+Reactor Fuel Material: 9.2% Uranium-235
+Engine Exhaust Velocity: 10,508.24 m/s
+Reactor Core Temperature: 2,566.0°K
+Reactor Coolant: Ammonia (NH3)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 461.88 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 141:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: LR-863x "Dekto"
+
+Fuel Flow Cycle: Staged Combustion (Fuel Rich)
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Expanding Nozzle
+Exhaust Expansion Ratio: 172:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±3°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Payload (ACS)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: KDU-282M "Chemodan"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±6°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: XLR-421L "Neutron"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 40:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: 77-102%
+
+Engine Designation: SOK-986Z "Lapis"
+
+Fuel Flow Cycle: Hall Effect Thruster
+Propellant(Remass): Bi (Bismuth)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Hall Effect Thruster Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Radioisotope Thermoelectric Generator (RTG)
+Rated Power Level: 940 kW
+
+Engine Designation: UA-1081L "Brachiopoda"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 90:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±3°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Upper Stage (Course Correction)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: F-1097M "Arthropoda"
+
+Fuel Flow Cycle: Pressure-Fed
+Engine Oxidizer: AK27P: 73% HNO3 + 27% N2O4 (Nitric Acid)
+Engine Fuel: C2H5OH(Ethanol) 95%
+Average Mixture Ratio: 2.75
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 12:1
+Characteristic Exhaust Velocity: 2449 m/sAdiabatic Combustion Temperature: 2905°KEngine Gimbal Range: ±4°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Radiative Cooling
+Engine Throttle Range: 28-100%
+
+Engine Designation: DST-554J "Node"
+
+Fuel Flow Cycle: Colloid Thruster
+Propellant(Remass): NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Capillary Emitter-Electrode Cone
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 830 kW
+
+Engine Designation: DC-562U "Urgan"
+
+Fuel Flow Cycle: Monopropellant (Decomposition)
+Propellant: NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Conical Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Nozzle Cooling Mechanism: Radiative Cooling
+Propellant catalyst: Iridium coated Copper Pellets
+
+Engine Designation: KRD-844u "Janus"
+
+Fuel Flow Cycle: Solid Core
+Propellant (Remass): Water (H2O)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation IV
+Reactor Maximum Power: 2.81 GW
+Reactor Fuel Material: 4.5% Plutonium-238
+Engine Exhaust Velocity: 10,206.4 m/s
+Reactor Core Temperature: 2,524.5°K
+Reactor Coolant: Ammonia (NH3)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 454.41 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 188:1
+Exhaust Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: LR-741V "Pulsar"
+
+Fuel Flow Cycle: Hall Effect Thruster
+Propellant(Remass): Xe (Xenon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Hall Effect Thruster Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Nuclear Fusion Reactor
+Rated Power Level: 660 kW
+
+Engine Designation: VA-1082k "Rodna"
+
+Fuel Flow Cycle: Pressure-Fed
+Engine Oxidizer: H2O2 (Hydrogen Peroxide) 85%
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 14.0
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 71:1
+Characteristic Exhaust Velocity: 2882 m/sAdiabatic Combustion Temperature: 2544°KEngine Gimbal Range: ±6°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Upper Stage (Vernier)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: YF-622D "Ishak"
+
+Fuel Flow Cycle: "Lithium-6 NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydride (LiH) + Water (H2O)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 22.51 GW
+Reactor Fuel Material: 21% Lithium-6 Hydride (LiH)
+Engine Exhaust Velocity: 103,068.6 m/s
+Reactor Core Temperature: 20,259.12°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 3,646.64 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 174:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: SPP-939B "Sauropsida"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 11:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±6°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Radiative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: SRMU-547T "Prospector"
+
+Fuel Flow Cycle: Colloid Thruster
+Propellant(Remass): NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Capillary Emitter-Electrode Cone
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Photovoltaic Panel
+Rated Power Level: 430 kW
+
+Engine Designation: KDTU-919Y "Kapustin"
+
+Fuel Flow Cycle: Expander (Closed)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: C2H5OH(Ethanol) 95%
+Average Mixture Ratio: 1.49
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 32:1
+Characteristic Exhaust Velocity: 2713 m/sAdiabatic Combustion Temperature: 3314°KEngine Gimbal Range: ±5°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: DST-660P "Salyut"
+
+Fuel Flow Cycle: Monopropellant (Cold Gas)
+Propellant: Nitrogen (N2)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Conical Nozzle
+Engine Use Case: Payload (Vernier)
+Nozzle Cooling Mechanism: Ablative Cooling
+
+Engine Designation: DC-607r "Kapustin"
+
+Fuel Flow Cycle: Combustion Tap Off
+Engine Oxidizer: N2O4 (Nitrogen Tetroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 6.5
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 22:1
+Characteristic Exhaust Velocity: 3334 m/sAdiabatic Combustion Temperature: 2973°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Radiative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: RS-624 "Chasovoy"
+
+Fuel Flow Cycle: Vapor Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Oxygen (O2)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation V+
+Reactor Maximum Power: 6.84 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 7,066.91 m/s
+Reactor Core Temperature: 6,155°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 1,107.9 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 189:1
+Exhaust Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: XLR-47F "Harmony"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Oxygen (O2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 2.04 GW
+Reactor Fuel Material: Uranium-233
+Engine Exhaust Velocity: 6,444.77 m/s
+Reactor Core Temperature: 1,831.72°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 329.71 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 160:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: JDK-823T "Taifun"
+
+Fuel Flow Cycle: Staged Combustion (Oxidizer Rich)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 5.0
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 20:1
+Characteristic Exhaust Velocity: 3738 m/sAdiabatic Combustion Temperature: 3304°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: LM10-654Y "Astraeus"
+
+Fuel Flow Cycle: Combustion Tap Off
+Engine Oxidizer: N2O4 (Nitrogen Tetroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 6.5
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Conical Nozzle
+Exhaust Expansion Ratio: 11:1
+Characteristic Exhaust Velocity: 3334 m/sAdiabatic Combustion Temperature: 2973°KEngine Gimbal Range: ±7°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: 84-104%
+
+Engine Designation: B-1080 "Staurozoa"
+
+Fuel Flow Cycle: "Expander Closed" Droplet Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Oxygen (O2)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation V
+Reactor Maximum Power: 6.9 GW
+Reactor Fuel Material: 7.1% Uranium-235
+Engine Exhaust Velocity: 11,670.5 m/s
+Reactor Core Temperature: 6,213.5°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 1,118.43 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 200:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: J-961G "Sprut"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Cs (Caesium)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Solar Thermal Panel
+Rated Power Level: 270 kW
+
+Engine Designation: SOK-891W "Rubezh"
+
+Fuel Flow Cycle: Full Flow Staged
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 10:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±9°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: RT-373E "Taifun"
+
+Fuel Flow Cycle: Staged Combustion (Oxidizer Rich)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: NH3 (Ammonia)
+Average Mixture Ratio: 1.28
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 87:1
+Characteristic Exhaust Velocity: 2815 m/sAdiabatic Combustion Temperature: 3020°KEngine Gimbal Range: None
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Upper Stage (Vernier)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: 31-105%
+
+Engine Designation: DOK-684k "Granis"
+
+Fuel Flow Cycle: Hall Effect Thruster
+Propellant(Remass): I2 (Iodine)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Hall Effect Thruster Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 140 kW
+
+Engine Designation: KDU-761H "Alpina"
+
+Fuel Flow Cycle: LARS Liquid Core
+Propellant (Remass): Uranium impregnated Osmium and Carbon Monoxide (CO)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation II
+Reactor Maximum Power: 4.8 GW
+Reactor Fuel Material: 7.1% Uranium-235
+Engine Exhaust Velocity: 9,128.17 m/s
+Reactor Core Temperature: 4,323.5°K
+Reactor Coolant: Carbon Monoxide (CO)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 778.23 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 96:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: S.10-195R "Volna"
+
+Fuel Flow Cycle: "Expander Closed" Droplet Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Nitrogen (N2)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation V
+Reactor Maximum Power: 6.25 GW
+Reactor Fuel Material: 7.0% Uranium-235
+Engine Exhaust Velocity: 12,118.67 m/s
+Reactor Core Temperature: 5,624.0°K
+Reactor Coolant: Nitrogen (N2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 1,012.32 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 150:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: XS-990B "Mainsail"
+
+Fuel Flow Cycle: Dual Expander (Closed)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±8°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: HS-616 "Akatsiya"
+
+Fuel Flow Cycle: Variable Specific Impulse Magnetoplasma Rocket (VASIMR)
+Propellant(Remass): Ar (Argon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: VASIMR Magnetic Confinement Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Photovoltaic Panel
+Rated Power Level: 720 kW
+
+Engine Designation: RL-946N "Volga"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Hg (Mercury)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Radioisotope Thermoelectric Generator (RTG)
+Rated Power Level: 450 kW
+
+Engine Designation: RSA-268a "Ekran"
+
+Fuel Flow Cycle: Staged Combustion (Oxidizer Rich)
+Engine Oxidizer: N2O4 (Nitrogen Tetroxide)
+Engine Fuel: 75% CH6N2 + 25% N2H4 (UH-25)
+Average Mixture Ratio: 1.85
+Propellant properties: Hypergolic but not cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 38:1
+Characteristic Exhaust Velocity: 2730 m/sAdiabatic Combustion Temperature: 3268°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: YF-892F "Sirius"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: C12H26 (n-Dodecane)
+Average Mixture Ratio: 3.67
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 33:1
+Characteristic Exhaust Velocity: 3166 m/sAdiabatic Combustion Temperature: 4571°KEngine Gimbal Range: ±1°
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: KDTU-1063S "Chaika"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: None
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: 72-102%
+
+Engine Designation: OSA-340B "Insider"
+
+Fuel Flow Cycle: "Zubrin NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydroxide (LiOH) + Ethanol (C2H5OH)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 72.28 GW
+Reactor Fuel Material: 74% Lithium-6 Hydroxide (LiOH)
+Engine Exhaust Velocity: 793,862.99 m/s
+Reactor Core Temperature: 65,052.23°K
+Reactor Coolant: Ethanol (C2H5OH)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 11,709.4 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 91:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: OSA-1102u "Alabaster"
+
+Fuel Flow Cycle: LEUNTR Solid Core
+Propellant (Remass): Nitrogen (N2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation III+
+Reactor Maximum Power: 2.33 GW
+Reactor Fuel Material: 6.6% Uranium-235
+Engine Exhaust Velocity: 9,098.06 m/s
+Reactor Core Temperature: 2,096.0°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 377.28 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 144:1
+Exhaust Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: LRE-1084F "Aspin"
+
+Fuel Flow Cycle: LPNTR Solid Core
+Propellant (Remass): Oxygen (O2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation V
+Reactor Maximum Power: 2.5 GW
+Reactor Fuel Material: 6.9% Plutonium-238
+Engine Exhaust Velocity: 6,546.34 m/s
+Reactor Core Temperature: 2,248.5°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 404.73 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 112:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: BF-1025X "Horizon"
+
+Fuel Flow Cycle: Monopropellant (Cold Gas)
+Propellant: Helium (He)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Engine Use Case: Space Tug (Ullage)
+Nozzle Cooling Mechanism: Ablative Cooling
+
+Engine Designation: P-262N "Poodle"
+
+Fuel Flow Cycle: Variable Specific Impulse Magnetoplasma Rocket (VASIMR)
+Propellant(Remass): Xe (Xenon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: VASIMR Magnetic Confinement Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Photovoltaic Panel
+Rated Power Level: 470 kW
+
+Engine Designation: MA-599Y "Conodonta"
+
+Fuel Flow Cycle: Monopropellant (Cold Gas)
+Propellant: Ammonia (NH3)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Conical Nozzle
+Engine Use Case: Payload (Vernier)
+Nozzle Cooling Mechanism: Ablative Cooling
+
+Engine Designation: RES-1068m "Kliper"
+
+Fuel Flow Cycle: Vapor Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Ammonia (NH3)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation V
+Reactor Maximum Power: 6.57 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 11,279.67 m/s
+Reactor Core Temperature: 5,914°K
+Reactor Coolant: Ammonia (NH3)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 1,064.52 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 160:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: E-280 "Vremya"
+
+Fuel Flow Cycle: Dual Expander (Closed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 6.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Linear Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: 3925 m/sAdiabatic Combustion Temperature: 3689°KEngine Gimbal Range: ±4°
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: KVD-937Y "Luch"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Linear Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±8°
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: MA-169S "Oberon"
+
+Fuel Flow Cycle: Vapor Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Hydrogen (H2)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation V+
+Reactor Maximum Power: 6.19 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 13,597.01 m/s
+Reactor Core Temperature: 5,575°K
+Reactor Coolant: Hydrogen (H2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 1,003.5 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 120:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: NK-123H "Volga"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 53:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: None
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: FG-608 "Novgorod"
+
+Fuel Flow Cycle: Pressure-Fed
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: CH3OH (Methanol)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Linear Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±8°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: KDU-1030v "Aerolus"
+
+Fuel Flow Cycle: Monopropellant (Decomposition)
+Propellant: H2O2 (Hydrogen Peroxide)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Engine Use Case: Upper Stage(Vernier)
+Nozzle Cooling Mechanism: Ablative Cooling
+Propellant catalyst: KMnO4 (Potassium Permanganate) Honeycomb
+
+Engine Designation: F-983K "Peschaka"
+
+Fuel Flow Cycle: Staged Combustion (Fuel Rich)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 174:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±7°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Upper Stage (Ullage)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: DST-616 "Ares"
+
+Fuel Flow Cycle: "Zubrin NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydride (LiH) + Water (H2O)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 53.53 GW
+Reactor Fuel Material: 53% Lithium-6 Hydride (LiH)
+Engine Exhaust Velocity: 462,064.51 m/s
+Reactor Core Temperature: 48,177.52°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 8,671.95 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 197:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: RS-644H "Oko"
+
+Fuel Flow Cycle: "Zubrin NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydride (LiH) + Water (H2O)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 27.56 GW
+Reactor Fuel Material: 26% Lithium-6 Hydride (LiH)
+Engine Exhaust Velocity: 145,713.1 m/s
+Reactor Core Temperature: 24,803.2°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 4,464.58 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 129:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: BE-222P "Bernal"
+
+Fuel Flow Cycle: Vapor Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Oxygen (O2)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation V+
+Reactor Maximum Power: 6.4 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 7,066.91 m/s
+Reactor Core Temperature: 5,757°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 1,036.26 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 193:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: BF-1060M "Uragan"
+
+Fuel Flow Cycle: Colloid Thruster
+Propellant(Remass): NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Capillary Emitter-Electrode Cone
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Photovoltaic Panel
+Rated Power Level: 30 kW
+
+Engine Designation: VA-499E "Apollo"
+
+Fuel Flow Cycle: MagnetoPlasmaDynamic Thruster
+Propellant(Remass): Li (Lithium)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Cathode Plug Magnetic Confinement Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Nuclear Fission Reactor
+Rated Power Level: 50 kW
+
+Engine Designation: LM10-518K "Grach"
+
+Fuel Flow Cycle: Full Flow Staged
+Engine Oxidizer: H2O2 (Hydrogen Peroxide) 85%
+Engine Fuel: 75% CH6N2 + 25% N2H4 (UH-25)
+Average Mixture Ratio: 4.02
+Propellant properties: Neither Hypergolic nor cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 34:1
+Characteristic Exhaust Velocity: 2592 m/sAdiabatic Combustion Temperature: 2681°KEngine Gimbal Range: ±9°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Dump Cooling
+Engine Throttle Range: 27-101%
+
+Engine Designation: RM02-854S "Siluet"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Expanding Nozzle
+Exhaust Expansion Ratio: 105:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±6°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Upper Stage (Vernier)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: CE-319P "Efir"
+
+Fuel Flow Cycle: "Lithium-6 NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydride (LiH) + Water (H2O)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 74.18 GW
+Reactor Fuel Material: 76% Lithium-6 Hydride (LiH)
+Engine Exhaust Velocity: 829,282.98 m/s
+Reactor Core Temperature: 66,759.81°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 12,016.77 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 101:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: BADR-362X "Germes"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Oxygen (O2)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 1.99 GW
+Reactor Fuel Material: Uranium-233
+Engine Exhaust Velocity: 5,470.42 m/s
+Reactor Core Temperature: 1,786.79°K
+Reactor Coolant: Oxygen (O2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 321.62 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 127:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: OBA-798P "Artak"
+
+Fuel Flow Cycle: Variable Specific Impulse Magnetoplasma Rocket (VASIMR)
+Propellant(Remass): Kr (Krypton)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: VASIMR Magnetic Confinement Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Solar Thermal Panel
+Rated Power Level: 540 kW
+
+Engine Designation: B-301s "Vector"
+
+Fuel Flow Cycle: MagnetoPlasmaDynamic Thruster
+Propellant(Remass): N2H4 (Hydrazine)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Cathode Plug Magnetic Confinement Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Nuclear Fusion Reactor
+Rated Power Level: 80 kW
+
+Engine Designation: F-229V "Gonets"
+
+Fuel Flow Cycle: Full Flow Staged
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: CH3OH (Methanol)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 88:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: 46-101%
+
+Engine Designation: DST-182W "Clementine"
+
+Fuel Flow Cycle: Electric Pump Fed
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: C2H5OH(Ethanol) 95%
+Average Mixture Ratio: 1.49
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: 2713 m/sAdiabatic Combustion Temperature: 3314°KEngine Gimbal Range: ±4°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: 48-105%
+
+Engine Designation: CE-658C "Clementine"
+
+Fuel Flow Cycle: "Lithium-6 NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydroxide (LiOH) + Ethanol (C2H5OH)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 85.02 GW
+Reactor Fuel Material: 87% Lithium-6 Hydroxide (LiOH)
+Engine Exhaust Velocity: 1,032,632.45 m/s
+Reactor Core Temperature: 76,522.28°K
+Reactor Coolant: Ethanol (C2H5OH)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 13,774.01 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 159:1
+Exhaust Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: JD-1004C "Starshot"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Water (H2O)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 2.04 GW
+Reactor Fuel Material: Uranium-233
+Engine Exhaust Velocity: 8,443.75 m/s
+Reactor Core Temperature: 1,837.5°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 330.75 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 140:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: JDK-1071n "Dreadnought"
+
+Fuel Flow Cycle: "Lithium-6 NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydroxide (LiOH) + Ethanol (C2H5OH)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 38.46 GW
+Reactor Fuel Material: 37% Lithium-6 Hydroxide (LiOH)
+Engine Exhaust Velocity: 258,021.06 m/s
+Reactor Core Temperature: 34,609.76°K
+Reactor Coolant: Ethanol (C2H5OH)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 6,229.76 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 182:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: FG-527Z "Ares"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 32:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±8°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: LE-405z "Centaur"
+
+Fuel Flow Cycle: LANTR Solid Core
+Propellant (Remass): Water (H2O)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation V+
+Reactor Maximum Power: 3.18 GW
+Reactor Fuel Material: 7.2% Plutonium-238
+Engine Exhaust Velocity: 5,118.57/~3850 m/s
+Reactor Core Temperature: 2,860.0°K
+Reactor Coolant: Carbon Monoxide (CO)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 514.8 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 137:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: MJ-932U "Archimedes"
+
+Fuel Flow Cycle: "Lithium-6 NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydroxide (LiOH) + Ethanol (C2H5OH)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 36.64 GW
+Reactor Fuel Material: 36% Lithium-6 Hydroxide (LiOH)
+Engine Exhaust Velocity: 246,951.18 m/s
+Reactor Core Temperature: 32,974.88°K
+Reactor Coolant: Ethanol (C2H5OH)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 5,935.48 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 94:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: P-276G "Solaris"
+
+Fuel Flow Cycle: Monopropellant (Cold Gas)
+Propellant: Hydrogen (H2)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Engine Use Case: Payload (Vernier)
+Nozzle Cooling Mechanism: Ablative Cooling
+
+Engine Designation: AJ-117b "Ithacus"
+
+Fuel Flow Cycle: Staged Combustion (Oxidizer Rich)
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 35:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: None
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Radiative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: CE-654f "Omega"
+
+Fuel Flow Cycle: Electric Pump Fed
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: C6H5NH2 (Aniline)
+Average Mixture Ratio: 1.72
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 32:1
+Characteristic Exhaust Velocity: 2708 m/sAdiabatic Combustion Temperature: 3657°KEngine Gimbal Range: ±10°
+Engine Injector Design: Liquid Pintle Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: 22-105%
+
+Engine Designation: MJ-93T "Veter"
+
+Fuel Flow Cycle: "Zubrin NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydroxide (LiOH) + Ethanol (C2H5OH)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 40.54 GW
+Reactor Fuel Material: 40% Lithium-6 Hydroxide (LiOH)
+Engine Exhaust Velocity: 292,892.35 m/s
+Reactor Core Temperature: 36,482.51°K
+Reactor Coolant: Ethanol (C2H5OH)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 6,566.85 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 161:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: P-74W "Anapsida"
+
+Fuel Flow Cycle: Monopropellant (Decomposition)
+Propellant: H2O2 (Hydrogen Peroxide)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Engine Use Case: Upper Stage(Vernier)
+Nozzle Cooling Mechanism: Ablative Cooling
+Propellant catalyst: KMnO4 (Potassium Permanganate) Honeycomb
+
+Engine Designation: OBA-897M "Espadon"
+
+Fuel Flow Cycle: Expander (Closed)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: N2H4 (Hydrazine)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 72:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±7°
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Upper Stage (Ullage)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: LM10-955N "Ross"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±6°
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: FG-233U "Hydrozoa"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 115:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±5°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Upper Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: 6-105%
+
+Engine Designation: RO-465A "Caesius"
+
+Fuel Flow Cycle: "Zubrin NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydroxide (LiOH) + Ethanol (C2H5OH)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 75.96 GW
+Reactor Fuel Material: 77% Lithium-6 Hydroxide (LiOH)
+Engine Exhaust Velocity: 846,830.07 m/s
+Reactor Core Temperature: 68,367.27°K
+Reactor Coolant: Ethanol (C2H5OH)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 12,306.11 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 152:1
+Exhaust Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: TYS-808 "Arthropoda"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2O2 (Perfluorine Peroxide)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 49:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±4°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Upper Stage (Course Correction)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: BW-427T "Carrier"
+
+Fuel Flow Cycle: Colloid Thruster
+Propellant(Remass): NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Capillary Emitter-Electrode Cone
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 680 kW
+
+Engine Designation: NA-381G "Astron"
+
+Fuel Flow Cycle: Hall Effect Thruster
+Propellant(Remass): I2 (Iodine)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Hall Effect Thruster Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Radioisotope Thermoelectric Generator (RTG)
+Rated Power Level: 340 kW
+
+Engine Designation: RD-935H "Kometa"
+
+Fuel Flow Cycle: "Vortex Confinement" Gas Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Carbon Dioxide (CO2)
+Propellant State: Gaseous Nuclear Fuel
+Reactor Generation: Generation IV
+Reactor Maximum Power: 15.62 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 5,914.53 m/s
+Reactor Core Temperature: 14,062°K
+Reactor Coolant: Carbon Dioxide (CO2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 2,531.16 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 119:1
+Exhaust Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: LMP-847t "Sangvin"
+
+Fuel Flow Cycle: LARS Liquid Core
+Propellant (Remass): Uranium impregnated Rhenium and Carbon Monoxide (CO)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation II
+Reactor Maximum Power: 3.97 GW
+Reactor Fuel Material: 9.2% Uranium-235
+Engine Exhaust Velocity: 9,159.85 m/s
+Reactor Core Temperature: 3,569.0°K
+Reactor Coolant: Carbon Monoxide (CO)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 642.42 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 115:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: DF-978G "Ingul"
+
+Fuel Flow Cycle: Colloid Thruster
+Propellant(Remass): NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Capillary Emitter-Electrode Cone
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Nuclear Fission Reactor
+Rated Power Level: 620 kW
+
+Engine Designation: RS-706B "Rosetta"
+
+Fuel Flow Cycle: "Expander Closed" Liquid Core
+Propellant (Remass): Uranium impregnated Tungsten and Hydrogen (H2)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation IV
+Reactor Maximum Power: 5.01 GW
+Reactor Fuel Material: 4.6% Uranium-235
+Engine Exhaust Velocity: 21,699.28 m/s
+Reactor Core Temperature: 4,506.0°K
+Reactor Coolant: Hydrogen (H2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 811.08 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 104:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: MJ-1071L "Questar"
+
+Fuel Flow Cycle: Vapor Core
+Propellant (Remass): Uranium(VI) Fluoride (UF6) and Nitrogen (N2)
+Propellant State: Semi-Gaseous Nuclear Fuel
+Reactor Generation: Generation III+
+Reactor Maximum Power: 7.08 GW
+Reactor Fuel Material: 93% Uranium-235
+Engine Exhaust Velocity: 7,343.52 m/s
+Reactor Core Temperature: 6,370°K
+Reactor Coolant: Nitrogen (N2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 1,146.6 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 154:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: LR-385V "Stilet"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Xe (Xenon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Nuclear Fission Reactor
+Rated Power Level: 440 kW
+
+Engine Designation: DE-412S "Radon"
+
+Fuel Flow Cycle: Variable Specific Impulse Magnetoplasma Rocket (VASIMR)
+Propellant(Remass): Ar (Argon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: VASIMR Magnetic Confinement Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Nuclear Fission Reactor
+Rated Power Level: 320 kW
+
+Engine Designation: KVD-139T "Ciliata"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Hg (Mercury)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Nuclear Fission Reactor
+Rated Power Level: 20 kW
+
+Engine Designation: S.10-1003Z "Astra"
+
+Fuel Flow Cycle: Colloid Thruster
+Propellant(Remass): NH2OH+NO3 (Hydroxylammonium nitrate)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Capillary Emitter-Electrode Cone
+Engine Use Case: Payload (Main Propulsion)
+Engine Power Source: Nuclear Fusion Reactor
+Rated Power Level: 690 kW
+
+Engine Designation: S.10-877R "Nebula"
+
+Fuel Flow Cycle: Gridded Ion Thruster
+Propellant(Remass): Xe (Xenon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Electrostatic Ion Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 560 kW
+
+Engine Designation: SOK-835C "Sirius"
+
+Fuel Flow Cycle: LARS Liquid Core
+Propellant (Remass): Uranium impregnated Osmium and Carbon Monoxide (CO)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation V
+Reactor Maximum Power: 3.97 GW
+Reactor Fuel Material: 2.6% Uranium-235
+Engine Exhaust Velocity: 9,061.34 m/s
+Reactor Core Temperature: 3,574.0°K
+Reactor Coolant: Carbon Monoxide (CO)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 643.32 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 164:1
+Exhaust Nozzle Cooling Mechanism: Regenerative Cooling
+Engine Use Case: Space Tug (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: LM10-301L "Pegasus"
+
+Fuel Flow Cycle: Expander (Closed)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: CH6N2 (MonomethylHydrazine)
+Average Mixture Ratio: 1.15
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Expanding Nozzle
+Exhaust Expansion Ratio: 171:1
+Characteristic Exhaust Velocity: 2938 m/sAdiabatic Combustion Temperature: 3399°KEngine Gimbal Range: ±8°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Upper Stage (Ullage)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Radiative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: YF-102W "Argon"
+
+Fuel Flow Cycle: Gas Generator
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: CH3OH (Methanol)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 76:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±2°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Upper Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: 47-104%
+
+Engine Designation: LMS-653t "Vostok"
+
+Fuel Flow Cycle: "Expander Bleed" Liquid Core
+Propellant (Remass): Uranium impregnated Tantalum and Hydrogen (H2)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation V+
+Reactor Maximum Power: 4.32 GW
+Reactor Fuel Material: 6.7% Uranium-235
+Engine Exhaust Velocity: 22,092.03 m/s
+Reactor Core Temperature: 3,891.5°K
+Reactor Coolant: Hydrogen (H2)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 700.47 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Magnetic Virtual Nozzle
+Exhaust Expansion Ratio: 179:1
+Exhaust Nozzle Cooling Mechanism: Radiative Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: RM-1083Z "Chemodan"
+
+Fuel Flow Cycle: Staged Combustion (Oxidizer Rich)
+Engine Oxidizer: N2O4 (Nitrogen Tetroxide)
+Engine Fuel: C2H8N2 (UnsymmetricalDimethylHydrazine)
+Average Mixture Ratio: 2.1
+Propellant properties: Hypergolic but not cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 35:1
+Characteristic Exhaust Velocity: 2713 m/sAdiabatic Combustion Temperature: 3296°KEngine Gimbal Range: ±10°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Transpiration Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: RES-939x "Redstone"
+
+Fuel Flow Cycle: Monopropellant (Decomposition)
+Propellant: N2H4 (Hydrazine)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Conical Nozzle
+Engine Use Case: Payload (Vernier)
+Nozzle Cooling Mechanism: Radiative Cooling
+Propellant catalyst: Iridium coated Alumina Pellets
+
+Engine Designation: PS-279B "Ingul"
+
+Fuel Flow Cycle: Staged Combustion (Oxidizer Rich)
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: NH3 (Ammonia)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Expanding Nozzle
+Exhaust Expansion Ratio: 101:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: ±7°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Upper Stage (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: RES-883A "Caesius"
+
+Fuel Flow Cycle: Radioisotope Engine
+Propellant (Remass): Ammonia (NH3)
+Propellant State: Solid Nuclear Fuel
+Reactor Generation: Generation I
+Reactor Maximum Power: 2.09 GW
+Reactor Fuel Material: Fermium-252
+Engine Exhaust Velocity: 9,516.3 m/s
+Reactor Core Temperature: 1,876.93°K
+Reactor Coolant: Ammonia (NH3)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 337.85 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 161:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: RD-377G "Grach"
+
+Fuel Flow Cycle: "Vortex Confined" Liquid Core
+Propellant (Remass): Uranium impregnated Tungsten and Carbon Monoxide (CO)
+Propellant State: Nuclear Fuel in Molten Pellets
+Reactor Generation: Generation V
+Reactor Maximum Power: 4.93 GW
+Reactor Fuel Material: 8.0% Uranium-235
+Engine Exhaust Velocity: 9,141.71 m/s
+Reactor Core Temperature: 4,439.0°K
+Reactor Coolant: Carbon Monoxide (CO)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 799.02 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 181:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Autogenous
+
+Engine Designation: E-716G "Tryol"
+
+Fuel Flow Cycle: Dual Expander (Closed)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: 2.77
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Parabolic Bell Nozzle
+Exhaust Expansion Ratio: 84:1
+Characteristic Exhaust Velocity: 2932 m/sAdiabatic Combustion Temperature: 3379°KEngine Gimbal Range: ±9°
+Engine Injector Design: Liquid Self-impinging Injector
+Engine chamber configuration: Multiple Chambers (6+)
+Engine Use Case: Payload (ACS)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
+Engine Throttle Range: 87-102%
+
+Engine Designation: TYS-1102H "Amniota"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: C2H5OH(Ethanol) 75%
+Average Mixture Ratio: 1.29
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Expanding Nozzle
+Exhaust Expansion Ratio: 138:1
+Characteristic Exhaust Velocity: 2635 m/sAdiabatic Combustion Temperature: 3167°KEngine Gimbal Range: ±3°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Single Chamber
+Engine Use Case: Upper Stage (Course Correction)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Ablative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: UA-271X "Polyot"
+
+Fuel Flow Cycle: Variable Specific Impulse Magnetoplasma Rocket (VASIMR)
+Propellant(Remass): Ar (Argon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: VASIMR Magnetic Confinement Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 820 kW
+
+Engine Designation: MBB-515w "Heinkel"
+
+Fuel Flow Cycle: Expander (Closed)
+Engine Oxidizer: O3 (Ozone)
+Engine Fuel: C12H26 (n-Dodecane)
+Average Mixture Ratio: -1.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 30-80 km (High Atmosphere)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 70:1
+Characteristic Exhaust Velocity: -1 m/sAdiabatic Combustion Temperature: -1°KEngine Gimbal Range: None
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Upper Stage (Ullage)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: F-751C "Bernal"
+
+Fuel Flow Cycle: Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: N2H4 (Hydrazine)
+Average Mixture Ratio: 1.82
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 14:1
+Characteristic Exhaust Velocity: 3315 m/sAdiabatic Combustion Temperature: 4544°KEngine Gimbal Range: ±10°
+Engine Injector Design: Liquid Showerhead Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Lower Stage (Main Propulsion)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
