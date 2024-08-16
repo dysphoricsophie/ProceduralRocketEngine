@@ -1,4 +1,6 @@
-import csv
+from thermo import ChemicalConstantsPackage, PRMIX, CEOSLiquid, CEOSGas, FlashPureVLS
+from thermochem.janaf import Janafdb
+import cantera as ct
 from EqtnBalancer import solver
 
 def split(txt, sep):
@@ -107,36 +109,40 @@ def exponentF(oxid, fuel):
                          solver("CH3OH + HNO3 = NO2 + CO2 + H2O")]
     reaction = equationizer(Reactants[fuel_ListSample.index(fuel)])
     return reaction #[reaction, delta_E[fuel_ListSample.index(fuel)]]
-def extract_csv_to_2d_array(file_path):
-    with open(file_path, mode='r', newline='') as file:
-        reader = csv.reader(file)
-        headers = next(reader)  # Extract the headers
-        columns = {header: [] for header in headers}  # Create a dictionary for each column
-
-        for row in reader:
-            for header, value in zip(headers, row):
-                columns[header].append(value)  # Append the values to corresponding columns
-
-    # Convert dictionary of columns to a 2D array
-    array_2d = [columns[header] for header in headers]
-    return array_2d
-def calculateHr(reacA, reacB, prodA, prodB, prodC, coefs, A):
+def calculateHr(prodA, prodB, prodC, prods, coefs, A):
     hp = []
+    A1 = ["H2", "O2", "H2O", "CO2", "F2", "F2O2", "N2O4", "H2O2", "O3", "HNO3", "CH4", "C2H5OH", "C6H5NH2", "NH3",
+          "C2H8N2", "CH6N2", "N2H4", "CH3OH", "C12H26", "NO2", "CF4", "N2", "HF", "C6H7N"]
+    A2 = [0, 0, -228.582, 0, 0, 31.61, 9.079, -136.106, 142.674, -134.306, -74.873, -277.5, 0, -45.898, 48.9, 94.6,
+        95.353, -277.5, -350.9, 33.095, -393.522, -933.199, 0, -272.546, 86.81]
+
     if A == 1:
-        for i in range(0, len(prodA)):
-            Hp = (float(coefs[2]) * float(prodA[i]))
+        for t in range(0, len(prodA)):
+            Hp = (float(coefs[2]) * (float(prodA[t]) + A2[A1.index(prods[0])]))
             hp.append(float(Hp))
+
     elif A == 2:
-        for i in range(0, len(prodA)):
-            Hp = (float(coefs[2]) * float(prodA[i])) + (float(coefs[3]) * float(prodB[i]))
+        for t in range(0, len(prodA)):
+            Hp = (float(coefs[2]) * (float(prodA[t]) + A2[A1.index(prods[0])])) + (float(coefs[3]) * (float(prodB[t]) + A2[A1.index(prods[1])]))
             hp.append(float(Hp))
+
     else:
-        for i in range(0, len(prodA)):
-            Hp = (float(coefs[2]) * float(prodA[i])) + (float(coefs[3]) * float(prodB[i])) + (float(coefs[4]) * float(prodC[i]))
+        for t in range(0, len(prodA)):
+            Hp = (float(coefs[2]) * (float(prodA[t]) + A2[A1.index(prods[0])])) + (float(coefs[3]) * (float(prodB[t]) + A2[A1.index(prods[1])])) + (float(coefs[4]) * (float(prodC[t]) + A2[A1.index(prods[2])]))
             hp.append(float(Hp))
+
     return hp
-def reaction_processing(reaction, data):
+def reaction_processing(reaction):
     A = len(reaction[1][0])
+    Temps = [100, 200, 298.15, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800,
+             1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600,
+             3700, 3800, 3900, 4000, 4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000, 5100, 5200, 5300, 5400,
+             5500, 5600, 5700, 5800, 5900, 6000]
+    A1 = ["H2", "O2", "H2O", "CO2", "F2", "F2O2", "N2O4", "H2O2", "O3", "HNO3", "CH4", "C2H5OH", "C6H5NH2", "NH3",
+        "C2H8N2", "CH6N2", "N2H4", "CH3OH", "C12H26", "NO2", "CF4", "N2", "HF", "C6H7N"]
+    A2 = [0, 0, -228.582, 0, 0, 31.61, 9.079, -136.106, 142.674, -134.306, -74.873, -277.5, 0, -45.898, 48.9, 94.6,
+        95.353, -277.5, -350.9, 33.095, -393.522, -933.199, 0, -272.546, 86.81]
+
     if A == 1:
         reacA1 = reaction[0][0][0].strip(); reacAE = reaction[0][0][1].strip()
         reacB1 = reaction[0][1][0].strip(); reacBE = reaction[0][1][1].strip()
@@ -144,28 +150,16 @@ def reaction_processing(reaction, data):
         prodA1 = reaction[1][0][0].strip(); prodAE = reaction[1][1][0].strip()
 
         coefs = [reacAE, reacBE, prodAE]
-        reacA1z = 0; reacB1z = 0; prodA1z = 0
-        for i in data[0]:
-            if i == reacA1: reacA1z = data[0].index(i)
-        for i in data[0]:
-            if i == reacB1: reacB1z = data[0].index(i)
-        for i in data[0]:
-            if i == prodA1: prodA1z = data[0].index(i)
 
-        enth_data = data[1:61]; Cp_data = data[62:123]
+        enth_reacA = A2[A1.index(reacA1)]
+        enth_reacB = A2[A1.index(reacB1)]
         enth_prodA = []
-        Cp_prodA = []
+        for t_new in Temps:
+            val = Enthaly_Calculator(t_new, prodA1)
+            enth_prodA.append(val)
 
-        enth_reacA = (float(data[3][reacA1z]) * 1000)
-        enth_reacB = (float(data[3][reacB1z]) * 1000)
+        return enth_reacA, enth_reacB, enth_prodA, [prodA1], coefs, A
 
-        for j in enth_data:
-            enth_prodA.append(float(j[prodA1z]) * 1000)
-
-        for j in Cp_data:
-            Cp_prodA.append(float(j[prodA1z]))
-
-        return enth_reacA, enth_reacB, enth_prodA, Cp_prodA, coefs, A
     elif A == 2:
         reacA1 = reaction[0][0][0].strip(); reacAE = reaction[0][0][1].strip()
         reacB1 = reaction[0][1][0].strip(); reacBE = reaction[0][1][1].strip()
@@ -174,35 +168,20 @@ def reaction_processing(reaction, data):
         prodB1 = reaction[1][0][1].strip(); prodBE = reaction[1][1][1].strip()
 
         coefs = [reacAE, reacBE, prodAE, prodBE]
-        reacA1z = 0; reacB1z = 0
-        prodA1z = 0; prodB1z = 0
-        for i in data[0]:
-            if i == reacA1: reacA1z = data[0].index(i)
-        for i in data[0]:
-            if i == reacB1: reacB1z = data[0].index(i)
-        for i in data[0]:
-            if i == prodA1: prodA1z = data[0].index(i)
-        for i in data[0]:
-            if i == prodB1: prodB1z = data[0].index(i)
 
-        enth_data = data[1:61]; Cp_data = data[62:123]
+        enth_reacA = A2[A1.index(reacA1)]
+        enth_reacB = A2[A1.index(reacB1)]
         enth_prodA = []; enth_prodB = []
-        Cp_prodA = []; Cp_prodB = []
 
-        enth_reacA = (float(data[3][reacA1z]) * 1000)
-        enth_reacB = (float(data[3][reacB1z]) * 1000)
+        for t_new in Temps:
+            valA = Enthaly_Calculator(t_new, prodA1)
+            valB = Enthaly_Calculator(t_new, prodB1)
 
-        for j in enth_data:
-            enth_prodA.append(float(j[prodA1z]) * 1000)
-        for j in enth_data:
-            enth_prodB.append(float(j[prodB1z]) * 1000)
+            enth_prodA.append(valA)
+            enth_prodB.append(valB)
 
-        for j in Cp_data:
-            Cp_prodA.append(float(j[prodA1z]))
-        for j in Cp_data:
-            Cp_prodB.append(float(j[prodB1z]))
+        return enth_reacA, enth_reacB, enth_prodA, enth_prodB, [prodA1, prodB1], coefs, A
 
-        return enth_reacA, enth_reacB, enth_prodA, enth_prodB, Cp_prodA, Cp_prodB, coefs, A
     else:
         reacA1 = reaction[0][0][0].strip(); reacAE = reaction[0][0][1].strip()
         reacB1 = reaction[0][1][0].strip(); reacBE = reaction[0][1][1].strip()
@@ -212,120 +191,119 @@ def reaction_processing(reaction, data):
         prodC1 = reaction[1][0][2].strip(); prodCE = reaction[1][1][2].strip()
 
         coefs = [reacAE, reacBE, prodAE, prodBE, prodCE]
-        reacA1z = 0; reacB1z = 0
-        prodA1z = 0; prodB1z = 0; prodC1z = 0
 
-        for i in data[0]:
-            if i == reacA1: reacA1z = data[0].index(i)
-        for i in data[0]:
-            if i == reacB1: reacB1z = data[0].index(i)
-        for i in data[0]:
-            if i == prodA1: prodA1z = data[0].index(i)
-        for i in data[0]:
-            if i == prodB1: prodB1z = data[0].index(i)
-        for i in data[0]:
-            if i == prodC1: prodC1z = data[0].index(i)
-
-        enth_data = data[1:61]; Cp_data = data[62:123]
+        enth_reacA = A2[A1.index(reacA1)]
+        enth_reacB = A2[A1.index(reacB1)]
         enth_prodA = []; enth_prodB = []; enth_prodC = []
-        Cp_prodA = []; Cp_prodB = []; Cp_prodC = []
 
-        enth_reacA = (float(data[3][reacA1z]) * 1000)
-        enth_reacB = (float(data[3][reacB1z]) * 1000)
+        for t_new in Temps:
+            valA = Enthaly_Calculator(t_new, prodA1)
+            valB = Enthaly_Calculator(t_new, prodB1)
+            valC = Enthaly_Calculator(t_new, prodC1)
 
-        for j in enth_data:
-            enth_prodA.append(float(j[prodA1z]) * 1000)
-        for j in enth_data:
-            enth_prodB.append(float(j[prodB1z]) * 1000)
-        for j in enth_data:
-            enth_prodC.append(float(j[prodC1z]) * 1000)
+            enth_prodA.append(valA)
+            enth_prodB.append(valB)
+            enth_prodC.append(valC)
 
-        for j in Cp_data:
-            Cp_prodA.append(float(j[prodA1z]))
-        for j in Cp_data:
-            Cp_prodB.append(float(j[prodB1z]))
-        for j in Cp_data:
-            Cp_prodC.append(float(j[prodC1z]))
+        return enth_reacA, enth_reacB, enth_prodA, enth_prodB, enth_prodC, [prodA1, prodB1, prodC1], coefs, A
+def Enthaly_Calculator(t, species):
+    HH_Tr = 0
+    STP = 298.15
 
-        return enth_reacA, enth_reacB, enth_prodA, enth_prodB, enth_prodC, Cp_prodA, Cp_prodB, Cp_prodC, coefs, A
-def close(array, tarjet):
-    def findClosest(arr, n, targete):
-        def getClosest(val1, val2, targeta):
-            if targeta - val1 >= val2 - targeta:
-                return val2
-            else:
-                return val1
-        if targete <= arr[0]:
-            return arr[0]
-        if targete >= arr[n - 1]:
-            return arr[n - 1]
+    # Checks the thermochemical properties using the thermochem module
+    if species == 'H2' or species == 'O2' or species == 'H2O' or species == 'CO2' or species == 'F2' or species == 'N2O4' \
+            or species == 'CH4' or species == 'NO2' or species == 'CF4' or species == 'N2' or species == 'O3' or species == 'HNO3':
+        try:
+            db = Janafdb().getphasedata(formula=species)
+        except:
+            db = Janafdb().getphasedata(formula=species, phase="g")
+        HH_Tr = db.hef(t)
 
-        i = 0; j = n; mid = 0
-        while i < j:
-            mid = (i + j) // 2
-            if arr[mid] == targete:
-                return arr[mid]
-            if targete < arr[mid]:
-                if mid > 0 and targete > arr[mid - 1]:
-                    return getClosest(arr[mid - 1], arr[mid], targete)
-                j = mid
-            else:
-                if mid < n - 1 and targete < arr[mid + 1]:
-                    return getClosest(arr[mid], arr[mid + 1], targete)
-                i = mid + 1
+    # Checks the thermochemical properties using the cantera imports
+    elif species == 'C12H26' or species == 'H2O2':
+        if species == 'C12H26':
+            gas = ct.Solution("nDodecane_Reitz.yaml")
+        else:
+            gas = ct.Solution("gri30.yaml")
 
-        return arr[mid]
+        gas.TPX = STP, ct.one_atm, {species: 1.0}
+        h_298 = gas.enthalpy_mole / 1000000
 
-    def run(arr, target):
-        global mine, maxe
-        n = len(arr)
-        pust = (findClosest(arr, n, target))
-        pust_id = arr.index(pust)
-        if arr[pust_id] > target:
-            maxe = arr[pust_id]
-            mine = arr[pust_id - 1]
-        elif arr[pust_id] < target:
-            mine = arr[pust_id]
-            maxe = arr[pust_id + 1]
-        return [mine, maxe]
+        gas.TP = t, ct.one_atm
+        h_T = gas.enthalpy_mole / 1000000
+        HH_Tr = h_T - h_298
 
-    return run(array, tarjet)
+    # Checks the thermochemical properties using the thermo module
+    elif species == 'C2H5OH' or species == 'NH3' or species == 'NH4' or species == 'CH3OH' or species == "C6H5NH2" or species == "C2H8N2" \
+            or species == "CH6N2" or species == "N2H4" or species == "HF" or species == "C6H7N":
+        constants, correlations = ChemicalConstantsPackage.from_IDs([species])
+        eos_kwargs = dict(Tcs=constants.Tcs, Pcs=constants.Pcs, omegas=constants.omegas)
+
+        liquid = CEOSLiquid(PRMIX, HeatCapacityGases=correlations.HeatCapacityGases, eos_kwargs=eos_kwargs)
+        gas = CEOSGas(PRMIX, HeatCapacityGases=correlations.HeatCapacityGases, eos_kwargs=eos_kwargs)
+
+        flasher = FlashPureVLS(constants, correlations, gas=gas, liquids=[liquid], solids=[])
+        h_298 = flasher.flash(T=STP, P=ct.one_atm).H() / 1000
+        h_T = flasher.flash(T=t, P=ct.one_atm).H() / 1000
+        HH_Tr = (h_T - h_298)
+    return HH_Tr
+def close(arr, target):
+    """
+    Find the two closest numbers in the array to the target number.
+
+    Parameters:
+    arr (list of int/float): The list of numbers to search through.
+    target (int/float): The target number to find the closest numbers to.
+
+    Returns:
+    list of int/float: A list containing the closest smaller and larger numbers to the target.
+    """
+    # Sort the array to ensure numbers are in order
+    arr.sort()
+
+    # Initialize variables to hold the closest smaller and larger numbers
+    smaller, larger = None, None
+
+    # Iterate through the array to find the closest smaller and larger numbers
+    for num in arr:
+        if num < target:
+            smaller = num
+        elif num > target:
+            larger = num
+            break  # Exit loop once the first larger number is found
+
+    return [smaller, larger]
 def calculate(oxidizer, fuel):
     To = 298.15
 
-    file_path = 'enthalpies.csv'
-    data = extract_csv_to_2d_array(file_path)
     reaction = exponentF(oxidizer, fuel)
-    processed = reaction_processing(reaction, data)
+    processed = reaction_processing(reaction)
     enth_reacA = processed[0]
     enth_reacB = processed[1]
     enth_prodA = processed[2]
     enth_prodB = processed[3]
     enth_prodC = processed[4]
+    prods = processed[-3]
     coefs = processed[-2]
     A = processed[-1]
 
+    print(processed)
+
+    Hp = calculateHr(enth_prodA, enth_prodB, enth_prodC, prods, coefs, A)
     Hr = ((float(coefs[0]) * float(enth_reacA)) + (float(coefs[1]) * float(enth_reacB)))
-    Hp = calculateHr(enth_reacA, enth_reacB, enth_prodA, enth_prodB, enth_prodC, coefs, A)
+    print(Hp, Hr)
 
-    delta_enth = []
-    for i in Hp:
-        change = i - Hr
-        delta_enth.append(change)
-
-    print(Hp)
-    print(Hr)
     minA = close(Hp, Hr)[0]
     maxA = close(Hp, Hr)[1]
     minB = Hp.index(minA)
     maxB = Hp.index(maxA)
 
-    with open(file_path, mode='r') as file:
-        csv_reader = csv.reader(file)
-        headers = next(csv_reader)
-    ref = headers[62:123]
-    lower_temp = ref[minB].split(" - ")[1].split("K")[0]
-    upper_temp = ref[maxB].split(" - ")[1].split("K")[0]
+    Temps = [100, 200, 298.15, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800,
+             1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600,
+             3700, 3800, 3900, 4000, 4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000, 5100, 5200, 5300, 5400,
+             5500, 5600, 5700, 5800, 5900, 6000]
+    lower_temp = Temps[minB]
+    upper_temp = Temps[maxB]
 
     Tp = To + ((Hr - maxA) / (minA - maxA) * (float(upper_temp) - float(lower_temp)) + float(lower_temp))
     return Tp
