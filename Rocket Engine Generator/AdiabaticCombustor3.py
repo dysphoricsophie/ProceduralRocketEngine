@@ -47,20 +47,20 @@ def exponentF(oxid, fuel):
                              "N2H4 (Hydrazine)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + F2 = HF"),
                          solver("CH4 + F2 = CF4 + HF"),
-                         solver("C2H5OH + F2 = CF4 + CO2 + HF"),
-                         solver("C2H5OH + F2 = CF4 + CO2 + HF"),
-                         solver("C6H5NH2 + F2 = HF + NF3 + CF4"),
-                         solver("NH3 + F2 = NF3 + HF"),
-                         solver("C2H8N2 + F2 = HF + NF3 + CF4"),
+                         solver("C2H5OH + F2 = CF2 + H2O + HF"),
+                         solver("C2H5OH + F2 = CF2 + H2O + HF"),
+                         solver("C6H5NH2 + F2 = CF2 + N2 + HF"),
+                         solver("NH3 + F2 = HF + HN3"),
+                         solver("C2H8N2 + F2 = CF4 + HF + N2"),
                          solver("CH6N2 + F2 = HF + NF3 + CF4"),
                          solver("N2H4 + F2 = NF3 + HF"),
-                         solver("CH3OH + F2 = CF4 + CO2 + HF"),
-                         solver("C12H26 + F2 = CF4 + HF")]
+                         solver("CH3OH + F2 = CF2 + CO2 + HF"),
+                         solver("C12H26 + F2 = CHF3")]
         case "F2O2 (Perfluorine Peroxide)":
             fuel_ListSample = ["H2 (Hydrogen)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + F2O2 = HF + H2O"),
-                         solver("CH3OH + F2O2 = CF4 + CO2 + HF"),
-                         solver("C12H26 + F2O2 = CF4 + HF + H2O")]
+                         solver("CH3OH + F2O2 = H2O + CO2 + HF"),
+                         solver("C12H26 + F2O2 = CO2 + HF + H2O")]
         case "O3 (Ozone)":
             fuel_ListSample = ["H2 (Hydrogen)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + O3 = H2O"),
@@ -72,13 +72,13 @@ def exponentF(oxid, fuel):
                              "C2H8N2 (UnsymmetricalDimethylHydrazine)", "CH6N2 (MonomethylHydrazine)", "N2H4 (Hydrazine)",
                                "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + N2O4 = N2 + H2O"),
-                         solver("C2H5OH + N2O4 = NO2 + CO2 + H2O"),
-                         solver("C2H5OH + N2O4 = NO2 + CO2 + H2O"),
-                         solver("C6H5NH2 + N2O4 = NO2 + CO2 + H2O"),
+                         solver("C2H5OH + N2O4 = CO2 + N2 + H2O"),
+                         solver("C2H5OH + N2O4 = CO2 + N2 + H2O"),
+                         solver("C6H5NH2 + N2O4 = CO2 + H2O + N2"),
                          solver("CH6N2 + N2O4 = CO2 + N2 + H2O"),
                          solver("CH6N2 + N2O4 = CO2 + N2 + H2O"),
-                         solver("CH3OH + N2O4 = NO2 + CO2 + H2O"),
-                         solver("NH3 + N2O4 = NO2 + H2O"),
+                         solver("CH3OH + N2O4 = N2 + CO2 + H2O"),
+                         solver("NH3 + N2O4 = N2 + H2O"),
                          solver("C2H8N2 + N2O4 = CO2 + N2 + H2O"),
                          solver("CH6N2 + N2O4 = CO2 + N2 + H2O"),
                          solver("N2H4 + N2O4 = N2 + H2O"),
@@ -108,7 +108,7 @@ def exponentF(oxid, fuel):
                          solver("N2H4 + HNO3 = NO2 + H2O"),
                          solver("CH3OH + HNO3 = NO2 + CO2 + H2O")]
     reaction = equationizer(Reactants[fuel_ListSample.index(fuel)])
-    return reaction #[reaction, delta_E[fuel_ListSample.index(fuel)]]
+    return reaction
 def calculateHr(prodA, prodB, prodC, prods, coefs, A):
     hp = []
     A1 = ['H2', 'O2', 'H2O', 'CO2', 'F2', 'F2O2', 'N2O4', 'H2O2', 'O3', 'HNO3', 'CH4', 'Ethanol', 'Aniline', 'Ammonia',
@@ -208,46 +208,18 @@ def reaction_processing(reaction):
 
         return enth_reacA, enth_reacB, enth_prodA, enth_prodB, enth_prodC, [prodA1, prodB1, prodC1], coefs, A
 def Enthaly_Calculator(t, species):
-    HH_Tr = 0
     STP = 298.15
 
-    # Checks the thermochemical properties using the thermochem module
-    if species == 'H2' or species == 'O2' or species == 'H2O' or species == 'CO2' or species == 'F2' or species == 'N2O4' \
-            or species == 'CH4' or species == 'NO2' or species == 'CF4' or species == 'N2' or species == 'O3' or species == 'HNO3':
-        try:
-            db = Janafdb().getphasedata(formula=species)
-        except:
-            db = Janafdb().getphasedata(formula=species, phase="g")
-        HH_Tr = db.hef(t)
+    constants, correlations = ChemicalConstantsPackage.from_IDs([species])
+    eos_kwargs = dict(Tcs=constants.Tcs, Pcs=constants.Pcs, omegas=constants.omegas)
 
-    # Checks the thermochemical properties using the cantera imports
-    elif species == 'C12H26' or species == 'H2O2':
-        if species == 'C12H26':
-            gas = ct.Solution("nDodecane_Reitz.yaml")
-        else:
-            gas = ct.Solution("gri30.yaml")
+    liquid = CEOSLiquid(PRMIX, HeatCapacityGases=correlations.HeatCapacityGases, eos_kwargs=eos_kwargs)
+    gas = CEOSGas(PRMIX, HeatCapacityGases=correlations.HeatCapacityGases, eos_kwargs=eos_kwargs)
 
-        gas.TPX = STP, ct.one_atm, {species: 1.0}
-        h_298 = gas.enthalpy_mole / 1000000
-
-        gas.TP = t, ct.one_atm
-        h_T = gas.enthalpy_mole / 1000000
-        HH_Tr = h_T - h_298
-
-    # Checks the thermochemical properties using the thermo module
-    elif species == 'Ethanol' or species == 'Ammonia' or species == "Nitrogen Trifluoride" or species == 'Methanol'\
-        or species == "Aniline" or species == "1,1-dimethylhydrazine" or species == "Methylhydrazine" or species == "Hydrazine"\
-        or species == "HF" or species == "NF3":
-        constants, correlations = ChemicalConstantsPackage.from_IDs([species])
-        eos_kwargs = dict(Tcs=constants.Tcs, Pcs=constants.Pcs, omegas=constants.omegas)
-
-        liquid = CEOSLiquid(PRMIX, HeatCapacityGases=correlations.HeatCapacityGases, eos_kwargs=eos_kwargs)
-        gas = CEOSGas(PRMIX, HeatCapacityGases=correlations.HeatCapacityGases, eos_kwargs=eos_kwargs)
-
-        flasher = FlashPureVLS(constants, correlations, gas=gas, liquids=[liquid], solids=[])
-        h_298 = flasher.flash(T=STP, P=ct.one_atm).H()/1000
-        h_T = flasher.flash(T=t, P=ct.one_atm).H()/1000
-        HH_Tr = (h_T - h_298)
+    flasher = FlashPureVLS(constants, correlations, gas=gas, liquids=[liquid], solids=[])
+    h_298 = flasher.flash(T=STP, P=ct.one_atm).H()/1000
+    h_T = flasher.flash(T=t, P=ct.one_atm).H()/1000
+    HH_Tr = (h_T - h_298)
     return HH_Tr
 def close(arr, target):
     """
@@ -291,12 +263,14 @@ def calculate(oxidizer, fuel):
     coefs = processed[-2]
     A = processed[-1]
 
-    Hp = calculateHr(enth_prodA, enth_prodB, enth_prodC, prods, coefs, A)
     Hr = ((float(coefs[0]) * float(enth_reacA)) + (float(coefs[1]) * float(enth_reacB)))
+    Hp = calculateHr(enth_prodA, enth_prodB, enth_prodC, prods, coefs, A)
 
     min_max = close(Hp, Hr)
+
     minA = min_max[0]
     maxA = min_max[1]
+
     minB = Hp.index(minA)
     maxB = Hp.index(maxA)
 
@@ -338,8 +312,11 @@ for i in oxids:
 
     for k in fuels:
         Oxidizer = i; Fuel = k
-        print(f"{Fuel} + {Oxidizer} ===>", end =" ")
-        result = calculate(Oxidizer, Fuel)
-        strz = f"Combustion Temperature: {round(result, 3)}K"
-        print(strz)
+        print(f"Combustion Temperature of {Fuel} & {Oxidizer} =", end =" ")
+        try:
+            result = calculate(Oxidizer, Fuel)
+            strz = f"{round(result, 3)}K"
+            print(strz)
+        except:
+            print("Not Available")
     print()
