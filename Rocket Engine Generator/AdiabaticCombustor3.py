@@ -1,5 +1,4 @@
 from thermo import ChemicalConstantsPackage, PRMIX, CEOSLiquid, CEOSGas, FlashPureVLS
-from thermochem.janaf import Janafdb
 import cantera as ct
 from EqtnBalancer import solver
 
@@ -47,15 +46,15 @@ def exponentF(oxid, fuel):
                              "N2H4 (Hydrazine)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + F2 = HF"),
                          solver("CH4 + F2 = CF4 + HF"),
-                         solver("C2H5OH + F2 = CF2 + H2O + HF"),
-                         solver("C2H5OH + F2 = CF2 + H2O + HF"),
-                         solver("C6H5NH2 + F2 = CF2 + N2 + HF"),
-                         solver("NH3 + F2 = HF + HN3"),
+                         solver("C2H5OH + F2 = CF4 + H2O + HF"),
+                         solver("C2H5OH + F2 = CF4 + H2O + HF"),
+                         solver("C6H5NH2 + F2 = CF4 + N2 + HF"),
+                         solver("NH3 + F2 = HF + NF3"),
                          solver("C2H8N2 + F2 = CF4 + HF + N2"),
                          solver("CH6N2 + F2 = HF + NF3 + CF4"),
                          solver("N2H4 + F2 = NF3 + HF"),
-                         solver("CH3OH + F2 = CF2 + CO2 + HF"),
-                         solver("C12H26 + F2 = CHF3")]
+                         solver("CH3OH + F2 = CF4 + CO2 + HF"),
+                         solver("C12H26 + F2 = CF4 + HF")]
         case "F2O2 (Perfluorine Peroxide)":
             fuel_ListSample = ["H2 (Hydrogen)", "CH3OH (Methanol)", "C12H26 (n-Dodecane)"]
             Reactants = [solver("H2 + F2O2 = HF + H2O"),
@@ -265,14 +264,16 @@ def calculate(oxidizer, fuel):
 
     Hr = ((float(coefs[0]) * float(enth_reacA)) + (float(coefs[1]) * float(enth_reacB)))
     Hp = calculateHr(enth_prodA, enth_prodB, enth_prodC, prods, coefs, A)
+    delta_H = []
+    for z in Hp: delta_H.append(float(z) - float(Hr))
 
-    min_max = close(Hp, Hr)
+    min_max = close(delta_H, 0)
 
     minA = min_max[0]
     maxA = min_max[1]
 
-    minB = Hp.index(minA)
-    maxB = Hp.index(maxA)
+    minB = delta_H.index(minA)
+    maxB = delta_H.index(maxA)
 
     Temps = [0, 100, 200, 298.15, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800,
              1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600,
@@ -313,10 +314,7 @@ for i in oxids:
     for k in fuels:
         Oxidizer = i; Fuel = k
         print(f"Combustion Temperature of {Fuel} & {Oxidizer} =", end =" ")
-        try:
-            result = calculate(Oxidizer, Fuel)
-            strz = f"{round(result, 3)}K"
-            print(strz)
-        except:
-            print("Not Available")
+        result = calculate(Oxidizer, Fuel)
+        strz = f"{round(result, 3)}K"
+        print(strz)
     print()

@@ -19581,3 +19581,117 @@ Tank repressurisation Method: Autogenous
 Nozzle Cooling Mechanism: Film Cooling
 Engine Throttle Range: Not Throttleable
 
+Engine Designation: JD-163x "Pirs"
+
+Fuel Flow Cycle: Monopropellant (Decomposition)
+Propellant: 65% NH4N(NO2)2 (Ammonium Dinitramide) + 35% CH3OH(Methanol)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Engine Use Case: Payload (Vernier)
+Nozzle Cooling Mechanism: Ablative Cooling
+Propellant catalyst: Iridium coated Alumina Pellets
+
+Engine Designation: AR-1024 "Svir"
+
+Fuel Flow Cycle: Dual Expander (Open/Bleed)
+Engine Oxidizer: F2 (Fluorine)
+Engine Fuel: H2 (Hydrogen)
+Average Mixture Ratio: 6.0
+Propellant properties: Hypergolic and cryogenic
+Altitude Of Operation: 0-20 km (Sea Level)
+Exhaust Nozzle Geometry: Conical Nozzle
+Exhaust Expansion Ratio: 15:1
+Characteristic Exhaust Velocity: 3925 m/sAdiabatic Combustion Temperature: 3689°KEngine Gimbal Range: ±5°
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Triple Chamber
+Engine Use Case: Lower Stage (Vernier)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: MB-26M "Ciliata"
+
+Fuel Flow Cycle: "Lithium-6 NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydride (LiH) + Water (H2O)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 40.99 GW
+Reactor Fuel Material: 40% Lithium-6 Hydride (LiH)
+Engine Exhaust Velocity: 292,922.36 m/s
+Reactor Core Temperature: 36,887.51°K
+Reactor Coolant: Water (H2O)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 6,639.75 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 165:1
+Exhaust Nozzle Cooling Mechanism: Film Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
+Engine Designation: X-246A "Quaoar"
+
+Fuel Flow Cycle: Dual Expander (Closed)
+Engine Oxidizer: O2 (Oxygen)
+Engine Fuel: CH4 (Methane)
+Average Mixture Ratio: 2.77
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: Any Altitude (0-80 km+)
+Exhaust Nozzle Geometry: Toroidal Aerospike Nozzle
+Exhaust Expansion Ratio: None (Nozzle doesnt have a throat)
+Characteristic Exhaust Velocity: 2932 m/sAdiabatic Combustion Temperature: 3379°KEngine Gimbal Range: ±1°
+Engine Injector Design: Liquid Swirl Injector
+Engine chamber configuration: Quadruple Chamber
+Engine Use Case: Payload (Main Propulsion)
+Tank repressurisation Method: Inert Gas
+Nozzle Cooling Mechanism: Oxidizer Regenerative Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: RSA-619z "Star"
+
+Fuel Flow Cycle: Electric Pump Fed
+Engine Oxidizer: N2O4 (Nitrogen Tetroxide)
+Engine Fuel: C12H26 (n-Dodecane)
+Average Mixture Ratio: 3.53
+Propellant properties: Not Hypergolic but cryogenic
+Altitude Of Operation: 20-30 km (Medium Atmosphere)
+Exhaust Nozzle Geometry: Stepped Dual Bell Nozzle
+Exhaust Expansion Ratio: 40:1
+Characteristic Exhaust Velocity: 2619 m/sAdiabatic Combustion Temperature: 3342°KEngine Gimbal Range: ±9°
+Engine Injector Design: Liquid Cross-impinging Injector
+Engine chamber configuration: Dual Chamber
+Engine Use Case: Lower Stage (Course Correction)
+Tank repressurisation Method: Autogenous
+Nozzle Cooling Mechanism: Film Cooling
+Engine Throttle Range: Not Throttleable
+
+Engine Designation: OSA-627G "Oplot"
+
+Fuel Flow Cycle: MagnetoPlasmaDynamic Thruster
+Propellant(Remass): Xe (Xenon)
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Cathode Plug Magnetic Confinement Nozzle
+Engine Use Case: Space Tug (Main Propulsion)
+Engine Power Source: Hydrogen Fuel cell
+Rated Power Level: 280 kW
+
+Engine Designation: RM-203F "Oplot"
+
+Fuel Flow Cycle: "Zubrin NSWR" Nuclear SaltWater
+Propellant (Remass): Lithium-6 Hydroxide (LiOH) + Ethanol (C2H5OH)
+Propellant State: Aqueous (Dissolved in propellant)
+Reactor Generation: Generation V+
+Reactor Maximum Power: 87.7 GW
+Reactor Fuel Material: 90% Lithium-6 Hydroxide (LiOH)
+Engine Exhaust Velocity: 1,090,516.99 m/s
+Reactor Core Temperature: 78,925.52°K
+Reactor Coolant: Ethanol (C2H5OH)
+Engine Bimodality: Engine is bimodal
+Engine Electrical Output: 14,206.59 MW
+Altitude Of Operation: 80 km+ (Vacuum)
+Exhaust Nozzle Geometry: Contour Bell Nozzle
+Exhaust Expansion Ratio: 171:1
+Exhaust Nozzle Cooling Mechanism: Dump Cooling
+Engine Use Case: Upper Stage(Main Propulsion)
+Tank repressurisation Method: Inert Gas
+
